@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MU | 맨쪽이들</title>
+  <link rel="stylesheet" href="../css/activePlayerList.css" />
+  <link rel="stylesheet" href="../index/reset.css" />
+</head>
+<body>
+<div class="container">
+  <div class="mainTitle">
+    <h1 class="subTitle">l 선수단 소개ㅣ</h1>
+    <p class="titleInfo">현 소속 맨체스터 유나이티드 선수들</p>
+  </div>
+  <div class="activePlayerList">
+    <form
+            action="#"
+            class="searchForm"
+            method="get"
+            enctype="multipart/form-data"
+    >
+      <div class="searchBox">
+        <input
+                type="text"
+                id="search-input"
+                class="search_input"
+                placeholder="선수 이름을 입력하세요.."
+        />
+        <a href="#" class="searchBtn">
+          <span class="hidden">검색쓰</span>
+        </a>
+      </div>
+    </form>
+    <table class="ListTable">
+      <thead>
+      <tr>
+        <th scope="col" class="list_number">NO.</th>
+        <th scope="col" class="list_name">선수 이름</th>
+        <th scope="col" class="list_backNumber">등번호</th>
+        <th scope="col" class="list_position">포지션</th>
+        <th scope="col" class="list_look">조회수</th>
+      </tr>
+      </thead>
+      <tbody id="playerList">
+      <tr class="player_info">
+        <td scope="row" class="main_list_number">
+          <div class="wrap_num">1</div>
+        </td>
+        <td scope="row" class="main_list_name">
+                <span class="playerProfile">
+                  <a class="wrap_name">메이슨 마운트 </a>
+                  <img src="../image/masonMount.jpg" alt="" class="playerImg" />
+                </span>
+        </td>
+        <td scope="row" class="main_list_backNumber">
+          <div class="wrap_backNumber">7</div>
+        </td>
+        <td scope="row" class="main_list_position">
+          <div class="wrap_position">
+            [ <span class="position_info">MF</span> ]
+          </div>
+        </td>
+        <td scope="row" class="main_list_look">
+          <div class="wrap_look">100</div>
+        </td>
+      </tr>
+      <tr class="player_info">
+        <td scope="row" class="main_list_number">
+          <div class="wrap_num">1</div>
+        </td>
+        <td scope="row" class="main_list_name">
+          <a class="wrap_name">메이슨 마운트</a>
+        </td>
+        <td scope="row" class="main_list_backNumber">
+          <div class="wrap_backNumber">7</div>
+        </td>
+        <td scope="row" class="main_list_position">
+          <div class="wrap_position">
+            [ <span class="position_info">MF</span> ]
+          </div>
+        </td>
+        <td scope="row" class="main_list_look">
+          <div class="wrap_look">100</div>
+        </td>
+      </tr>
+      <tr class="player_info">
+        <td scope="row" class="main_list_number">
+          <div class="wrap_num">1</div>
+        </td>
+        <td scope="row" class="main_list_name">
+          <a class="wrap_name">메이슨 마운트</a>
+        </td>
+        <td scope="row" class="main_list_backNumber">
+          <div class="wrap_backNumber">7</div>
+        </td>
+        <td scope="row" class="main_list_position">
+          <div class="wrap_position">
+            [ <span class="position_info">MF</span> ]
+          </div>
+        </td>
+        <td scope="row" class="main_list_look">
+          <div class="wrap_look">100</div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-container">
+    <ul class="page-box">
+      <a
+              th:href="@{/admin/hairList(page=${pageInfo.startPage - 1})}"
+              class="page-a"
+              th:if="${pageInfo.prev}"
+      >
+        <li class="page-num prev">&lt</li>
+      </a>
+
+      <th:block
+              th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}"
+      >
+        <a th:href="@{/admin/hairList(page=${i})}" class="page-a">
+          <li
+                  class="page-num active"
+                  th:text="${i}"
+                  th:if="${i == pageInfo.criteria.page}"
+          ></li>
+          <li
+                  class="page-num"
+                  th:text="${i}"
+                  th:unless="${i == pageInfo.criteria.page}"
+          ></li>
+        </a>
+      </th:block>
+
+      <a
+              th:href="@{/admin/hairList(page=${pageInfo.endPage + 1})}"
+              class="page-a"
+              th:if="${pageInfo.next}"
+      >
+        <li class="page-num next">&gt</li>
+      </a>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

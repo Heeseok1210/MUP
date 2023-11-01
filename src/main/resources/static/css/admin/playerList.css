@@ -1,0 +1,202 @@
+body {
+    background-color: white;
+}
+
+.container {
+    width: 1300px;
+    margin: 0 auto;
+}
+
+/* 메인 */
+.main-box {
+    width: 1050px;
+    height: 1000px;
+    margin: 50px auto;
+}
+
+.main-box > h1 {
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    margin-bottom: 50px;
+    border-bottom: 1px solid black;
+    padding-bottom: 40px;
+}
+
+.select-nav {
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.filter {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.position-type {
+    color: rgb(117, 117, 117);
+    padding: 5px;
+}
+
+.position-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.select-title {
+    width: 200px;
+    padding-left: 10px;
+    height: 28px;
+    font-size: 18px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #969696;
+}
+
+.search {
+    border-radius: 4px;
+    width: 70px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.select-by-title {
+    position: absolute;
+    right: 0;
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+}
+
+/* 제품 리스트 */
+.hair-list-container {
+    margin-top: 30px;
+}
+
+.holder {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1300px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-ul {
+    display: flex;
+    gap: calc(100px / 3);
+    position: relative;
+    flex-wrap: wrap;
+    left: 0;
+}
+
+.hl {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list-li {
+    display: inline-block;
+    position: relative;
+    width: 300px;
+}
+
+.hl a {
+    position: relative;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 사진 hover 수정 */
+.hl a:hover {
+    text-decoration: underline;
+}
+
+.player-title-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.player-title {
+    margin: 0;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.player-position {
+    margin: 0;
+    font-size: 18px;
+    color: #969696;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.img-list {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.main-img {
+    width: 100%;
+    height: 250px;
+    background-image: url("../image/rooney.jpg");
+    background-size: cover;
+    border-radius: 4px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-img:hover {
+    transform: scale(1.1);
+}
+
+/* 페이징 */
+.page-container {
+    height: 200px;
+}
+.page-a {
+    text-decoration: none;
+    color: #222;
+    display: flex;
+}
+
+.page-box {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-num {
+    width: 30px;
+    height: 40px;
+    /* border-radius: 5px; */
+    margin: 0 10px;
+    text-align: center;
+    line-height: 40px;
+    /* background-color: white; */
+    cursor: pointer;
+}
+
+.active,
+.page-num:hover {
+    color: #969696;
+}

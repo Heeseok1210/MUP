@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MU | 맨쪽이들</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/all.css" />
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+</head>
+<body>
+<header class="header" th:replace="fragment/header :: header"></header>
+<div class="container">
+    <div class="first-banner">
+        <h2>요즘 핫한 밈</h2>
+        <p>유튜브에서 가장 인기있는 밈을 확인해봐!</p>
+        <span class="material-symbols-rounded prev">chevron_left</span>
+        <div class="youtube-section">
+            <ul class="Utube-box">
+                <li class="Utube-content">
+                    <iframe
+                            class="Utube-meme"
+                            src="https://www.youtube.com/embed/kfU70M7x0mk?si=I3ZloZZug21wKeSa"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                    ></iframe>
+                </li>
+                <li class="Utube-content">
+                    <iframe
+                            class="Utube-meme"
+                            src="https://www.youtube.com/embed/dJIWqYXiKfE?si=R86C4Lpf77BXNxGK"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                    ></iframe>
+                </li>
+                <li class="Utube-content">
+                    <iframe
+                            class="Utube-meme"
+                            src="https://www.youtube.com/embed/opZQCtGHHtM?si=yGrvc0I6z6EpucUJ"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                    ></iframe>
+                </li>
+                <li class="Utube-content">
+                    <iframe
+                            class="Utube-meme"
+                            src="https://www.youtube.com/embed/PnOPYEBBytU?si=zHhNYQXqaUjqB0fp"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                    ></iframe>
+                </li>
+            </ul>
+        </div>
+        <span class="material-symbols-rounded next">chevron_right</span>
+    </div>
+
+    <div class="third-banner">
+        <h2>맨유의 레전드 선수</h2>
+        <p>레전드 선수들의 대해서 확인해봐!!</p>
+        <div class="legend-section">
+            <span class="material-symbols-rounded left"> chevron_left </span>
+            <ul class="legend-box">
+                <li class="legend-content">
+                    <a th:href="@{}" class="img-overflow">
+                        <img src="/img/rooney.jpg" alt="임시 썸네일" />
+                        <!-- <img src="#" alt="레전드"> -->
+                    </a>
+                    <p>웨인 루니</p>
+                </li>
+            </ul>
+            <span class="material-symbols-rounded right"> chevron_right </span>
+        </div>
+    </div>
+
+    <div class="second-banner">
+        <div class="second-banner-text">
+            <h2>재미난 맨유 퀴즈</h2>
+            <p>내가 어느정도 맨유 팬인지 궁금하다면?</p>
+            <a th:href="@{/MUKidsTest/MUKidsTest}">바로 참여하기</a>
+        </div>
+    </div>
+
+    <h2 class="squadMaker">스쿼드 메이커</h2>
+    <p class="subTitle">👇다양한 선수들을 확인해봐!👇</p>
+
+    <div class="squadBox">
+        <div class="fourth-banner">
+            <div class="fourth-banner-text">
+                <p>너만의 맨유 스쿼드를 만들어봐</p>
+                <a th:href="@{/maker/squadMaker}">바로 시작하기</a>
+            </div>
+        </div>
+
+        <div class="fourth-banner-sub">
+            <p>
+                ※2010년이후의 선수들로만 구성되어있으며,<br />
+                감독은 지금까지의 감독들로 구성되어있습니다.※
+            </p>
+
+            <div class="sub-content1">
+                <div class="sub-img-overflow">
+                    <img src="/img/reshford.jpg" alt="임시 썸네일" />
+                </div>
+                <p class="sub-sub">
+                    루니의 10번을 물려받은 래시포드<br />
+                    맨유의 현재이자 미래!
+                </p>
+            </div>
+
+            <div class="sub-content1">
+                <p class="sub-sub">7번의 완벽한 후계자 메이슨 마운트<br /></p>
+                <div class="sub-img-overflow">
+                    <img src="/img/masonMount.jpg" alt="임시 썸네일" />
+                </div>
+            </div>
+
+            <div class="sub-content1">
+                <div class="sub-img-overflow">
+                    <img src="/img/fernandes.jpg" alt="임시 썸네일" />
+                </div>
+                <p class="sub-sub">맨유의 현 주장! 브루누 페르난데스<br /></p>
+            </div>
+        </div>
+    </div>
+    <div class="up_down_area">
+        <button class="link_top">맨위로</button>
+        <button class="link_down">맨아래로</button>
+    </div>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"
+></script>
+<script th:src="@{/js/fragment/main.js}"></script>
+<script th:src="@{/js/fragment/header.js}"></script>
+</body>
+</html>

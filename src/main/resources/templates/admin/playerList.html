@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MU | 맨쪽이들</title>
+    <link rel="stylesheet" href="../css/playerList.css" />
+</head>
+<body>
+<div class="container">
+    <div class="main-container">
+
+        <div class="main-box">
+            <h1>선수들 목록</h1>
+            <div class="select-nav">
+                <div class="filter">
+                    <label for="position" class="position-label">포지션</label>
+                    <select name="positionNumber" class="position-type" id="positionNumber">
+                        <option value="">포지션 선택</option>
+                    </select>
+                </div>
+                <div class="select-by-title">
+                    <input
+                            type="text"
+                            class="select-title"
+                            placeholder="선수 이름으로 검색"
+                    />
+                    <button type="button" class="search title">검색</button>
+                </div>
+            </div>
+
+            <div class="hair-list-container">
+                <article class="holder">
+                    <div class="hl">
+                        <ul class="list-ul">
+                            <!-- 첫번째 -->
+                            <li class="list-li">
+                                <a href="">
+                                    <div class="img-list">
+                                        <div class="main-img"></div>
+                                    </div>
+                                </a>
+                                <div class="player-title-box">
+                                    <p class="player-title">웨인 루니</p>
+                                    <p class="player-position">FW</p>
+                                </div>
+                            </li>
+
+                            <li class="list-li">
+                                <a href="">
+                                    <div class="img-list">
+                                        <div class="main-img"></div>
+                                    </div>
+                                </a>
+                                <div class="player-title-box">
+                                    <p class="player-title">제품이름이여유</p>
+                                    <p class="player-position">FW</p>
+                                </div>
+                            </li>
+
+                            <li class="list-li">
+                                <a href="">
+                                    <div class="img-list">
+                                        <div class="main-img"></div>
+                                    </div>
+                                </a>
+                                <div class="player-title-box">
+                                    <p class="player-title">제품이름이여유</p>
+                                    <p class="player-position">FW</p>
+                                </div>
+                            </li>
+
+                            <li class="list-li">
+                                <a href="">
+                                    <div class="img-list">
+                                        <div class="main-img"></div>
+                                    </div>
+                                </a>
+                                <div class="player-title-box">
+                                    <p class="player-title">제품이름이여유</p>
+                                    <p class="player-position">FW</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <div class="page-container">
+                <ul class="page-box">
+                    <a th:href="@{/admin/hairList(page=${pageInfo.startPage - 1})}"  class="page-a"  th:if="${pageInfo.prev}">
+                        <li class="page-num prev">&lt</li>
+                    </a>
+
+                    <th:block th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}">
+                        <a th:href="@{/admin/hairList(page=${i})}" class="page-a">
+                            <li class="page-num active" th:text="${i}" th:if="${i == pageInfo.criteria.page}"></li>
+                            <li class="page-num" th:text="${i}" th:unless="${i == pageInfo.criteria.page}"></li>
+                        </a>
+                    </th:block>
+
+                    <a th:href="@{/admin/hairList(page=${pageInfo.endPage + 1})}" class="page-a" th:if="${pageInfo.next}">
+                        <li class="page-num next">&gt</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script
+        src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+        crossorigin="anonymous"
+></script>
+<script src="../js/playerList.js"></script>
+</div>
+</body>
+</html>

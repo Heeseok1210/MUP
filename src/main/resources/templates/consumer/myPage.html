@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MU | 맨쪽이들</title>
+    <link rel="stylesheet" href="../css/myPage.css" />
+    <link rel="stylesheet" href="../index/reset.css" />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+</head>
+<body>
+<div class="container">
+    <div class="nothing"></div>
+    <table class="category">
+        <tr>
+            <td>
+                <button
+                        id="button0"
+                        class="info1 categoryBtn"
+                        onclick="showUserInformation(this)"
+                >
+                    회원 정보
+                </button>
+            </td>
+            <td>
+                <button
+                        id="button1"
+                        class="info2 categoryBtn"
+                        onclick="showSquadMaker(this)"
+                >
+                    스쿼드
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div class="userInformation" id="userInformation">
+        <form
+                class="signup-form"
+                action="/user/myPage"
+                method="post"
+                enctype="multipart/form-data"
+        >
+            <div class="input-box">
+                <div class="profile">프로필</div>
+                <div class="my-profile">
+                    <div class="profile-file">
+                        <ul class="file-wrap">
+                            <!-- 썸네일 처리 해야함 -->
+                            <li class="img-list">
+                                <input
+                                        type="file"
+                                        id="post-image"
+                                        name="userFile"
+                                        accept="image/*"
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-id"></div>
+                <div class="input-password">
+                    <div class="password">비밀번호</div>
+                    <input
+                            type="password"
+                            class="password-box"
+                            name="userPassword"
+                            placeholder="영문 대소문자 및 숫자 중 2개 이상 조합, 8자리 이상"
+                            autocomplete="off"
+                            required
+                    />
+                </div>
+                <span class="pw-err-text"
+                >특수문자 포함 영문 대소문자 및 숫자 중 2개 이상 조합, 8자리 이상
+              작성해주세요.</span
+                >
+                <div class="input-repassword">
+                    <div class="repassword">비밀번호 확인</div>
+                    <input
+                            type="password"
+                            class="repassword-box"
+                            required
+                            autocomplete="off"
+                    />
+                </div>
+                <span class="pw-err-text1">일치하지 않는 비밀번호 입니다.</span>
+                <span class="pw-err-text2">일치하는 비밀번호 입니다.</span>
+                <div class="input-name">
+                    <div class="name">이름</div>
+                    <input
+                            type="text"
+                            class="name-box"
+                            name="userName"
+                            value="${users.userName}"
+                            required
+                            autocomplete="off"
+                    />
+                </div>
+                <div class="input-nickname">
+                    <div class="nickname">닉네임</div>
+                    <input
+                            type="text"
+                            class="nickname-box"
+                            name="userNickname"
+                            value="${users.userNickname}"
+                            required
+                            autocomplete="off"
+                    />
+                </div>
+                <span class="nickName-err-text">중복된 닉네임 입니다.</span>
+                <span class="nickName-err-text2">사용 가능한 닉네임 입니다.</span>
+                <div class="input-phone">
+                    <div class="phone">휴대전화 번호</div>
+                    <input
+                            type="text"
+                            class="phone-box"
+                            name="userPhoneNumber"
+                            value="${users.userPhoneNumber}"
+                            required
+                            autocomplete="off"
+                    />
+                </div>
+                <div class="input-email">
+                    <div class="email">이메일</div>
+                    <input
+                            type="hidden"
+                            name="userEmail"
+                            class="realEmail"
+                            value="${users.userEmail}"
+                    />
+                    <input
+                            type="text"
+                            class="email-box"
+                            value="${users.userEmail}"
+                            required
+                            autocomplete="off"
+                    />
+
+                    <div class="dropdown">
+                        <button class="dropdown-btn" type="button">
+                            직접입력
+                            <span class="material-symbols-rounded"> expand_more </span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>직접입력</li>
+                            <li>@naver.com</li>
+                            <li>@hanmail.net</li>
+                            <li>@gmail.com</li>
+                            <li>@nate.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="email-text">
+                    ※ 아이디 비밀번호 찾기에 활용 되므로 정확하게 입력해 주세요.
+                </div>
+                <button type="submit" class="ok-btn">정보수정</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="mySquadMaker" id="mySquadMaker">
+        <article class="holder">
+            <div class="communityList cL" id="boardList">
+                <th:block th:each="board : ${boardList}">
+                    <!-- <h1 th:if="${boardList == 0}" class="no-board-msg"> 아직 작성한 게시글이 없습니다 ! </h1> -->
+                </th:block>
+                <ul class="ListUl">
+                    <!-- 첫번째 -->
+                    <li class="ListLi">
+                        <a class="like-board-number" href="#">
+                            <div class="img-list">
+                                <div  class="main-img">
+                                </div>
+                                <div class="squad-titleBox">
+                                    <p class="squad-title">맨유 스쿼드 4222</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="deleteBox">
+                            <button class="delete-button">스쿼드 삭제</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 페이징 처리 -->
+            <div class="pagination">
+                <ul>
+                    <a th:href="@{/user/myboard(page=${pageInfo.startPage - 1})}" class="prev" th:if="${pageInfo.prev}">
+                        <li>&laquo;</li>
+                    </a>
+
+                    <th:block th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}">
+                        <a th:href="@{/user/myboard(page=${i})}" >
+                            <li class="active" th:text="${i}" th:if="${i == pageInfo.criteria.page}"></li>
+                            <li th:text="${i}" th:unless="${i == pageInfo.criteria.page}"></li>
+                        </a>
+                    </th:block>
+
+                    <a th:href="@{/user/myboard(page=${pageInfo.endPage + 1})}" class="next" th:if="${pageInfo.next}">
+                        <li>&raquo;</li>
+                    </a>
+                </ul>
+            </div>
+    </div>
+</div>
+
+<script
+        src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+        crossorigin="anonymous"
+></script>
+<script src="../js/myPage.js"></script>
+</body>
+</html>

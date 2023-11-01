@@ -1,0 +1,340 @@
+body {
+    background-color: white;
+}
+
+.container {
+    width: 1300px;
+    margin: 0 auto;
+}
+
+.first-banner {
+    margin: 80px 0;
+    position: relative;
+}
+
+.first-banner .material-symbols-rounded {
+    background-color: rgba(255, 255, 255, 0.76);
+    box-shadow: 0 0 0 1px transparent, 0 0 0 4px transparent,
+    0 2px 4px rgba(0 0 0 / 18%);
+    border-radius: 50%;
+    color: #222;
+    font-size: 32px;
+    padding: 8px;
+}
+
+.first-banner .prev {
+    position: absolute;
+    top: 340px;
+    left: 120px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.first-banner .next {
+    position: absolute;
+    top: 340px;
+    right: 120px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.first-banner > h2 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.first-banner > p {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.youtube-section {
+    margin: 0 auto;
+    width: 1000px;
+    overflow: hidden;
+}
+
+.Utube-box {
+    position: relative;
+    left: 0;
+}
+
+.Utube-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Utube-meme {
+    width: 900px;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 테스트 베너 */
+.second-banner {
+    background-image: url(../image/muTest.png);
+    margin: 0 auto;
+    width: 1200px;
+    height: 360px;
+    margin-top: 40px;
+    background-size: cover;
+    color: white;
+}
+
+.second-banner-text {
+    height: 360px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 100px;
+}
+
+.second-banner h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: yellow;
+}
+
+.second-banner p {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.second-banner a {
+    font-size: 18px;
+    color: white;
+    margin-top: 48px;
+    padding: 20px 48px;
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+/* 레전드 소개 */
+.third-banner .material-symbols-rounded {
+    background-color: rgba(255, 255, 255, 0.76);
+    box-shadow: 0 0 0 1px transparent, 0 0 0 4px transparent,
+    0 2px 4px rgba(0 0 0 / 18%);
+    border-radius: 50%;
+    color: #222;
+    font-size: 32px;
+    padding: 8px;
+}
+
+.third-banner .left {
+    position: absolute;
+    top: 1000px;
+    left: 410px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.third-banner .right {
+    position: absolute;
+    top: 1000px;
+    right: 410px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.legend-section {
+    margin: 0 auto;
+    width: 1000px;
+    overflow: hidden;
+}
+
+.legend-box {
+    display: flex;
+    position: relative;
+    left: 0;
+    gap: 80px;
+}
+
+.legend-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-overflow {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.img-overflow img {
+    width: 284px;
+    min-height: 284px;
+    transition: transform 0.5s ease-in-out;
+    background-color: #aaa;
+}
+
+.img-overflow img:hover {
+    transform: scale(1.1);
+}
+
+.third-banner h2 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.third-banner p {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 스쿼드 메이커 */
+.squadMaker {
+    margin-top: 30px;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subTitle {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.squadBox {
+    display: flex;
+}
+
+.fourth-banner {
+    margin: 0 auto;
+    width: 550px;
+    height: 600px;
+    margin-top: 40px;
+    background-size: cover;
+    background-image: url(../image/UntitledHey.png);
+    color: white;
+}
+
+.fourth-banner-sub {
+    width: 550px;
+    height: 600px;
+    margin-top: 40px;
+}
+
+.fourth-banner-text {
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 100px;
+}
+
+.fourth-banner p {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 160px;
+    letter-spacing: -1px;
+}
+
+.fourth-banner a {
+    font-size: 18px;
+    color: white;
+    margin-top: 200px;
+    margin-left: 72px;
+    padding: 20px 48px;
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.fourth-banner-sub p {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.sub-content1 {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.sub-img-overflow {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.sub-img-overflow img {
+    width: 180px;
+    min-height: 180px;
+    background-color: #aaa;
+}
+
+.sub-sub {
+}
+
+/* 업다운 버튼 */
+.up_down_area {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    bottom: 30px;
+    flex-direction: column;
+    position: fixed;
+    right: 30px;
+    z-index: 3000;
+    display: flex;
+}
+
+.link_top {
+    background-repeat: no-repeat;
+    height: 56px;
+    width: 56px;
+    background-image: url("../image/pointTop.png");
+    background-size: contain;
+    border: NONE;
+    background-color: SNOW;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.link_down {
+    background-repeat: no-repeat;
+    height: 56px;
+    width: 56px;
+    background-image: url("../image/pointDown.png");
+    background-size: contain;
+    border: NONE;
+    background-color: SNOW;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: top;
+    cursor: pointer;
+}

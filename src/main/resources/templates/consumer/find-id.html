@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MU | 맨쪽이들</title>
+    <link rel="stylesheet" th:href="@{/css/consumer/find-id.css}" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+</head>
+<body>
+<div class="body-main">
+    <div class="findID-logo">
+        <h1 class="findID-text">M U</h1>
+        <img src="../image/HereLogo.png" alt="맨유로고" class="LogoMu" />
+    </div>
+    <hr class="table-hr" />
+    <form name="signup-form" th:action="@{/user/find-id}" method="post">
+        <div class="input-box">
+            <input
+                    type="text"
+                    class="input-name"
+                    placeholder="이름"
+                    th:name="userName"
+            />
+            <input
+                    type="text"
+                    class="input-email"
+                    placeholder="이메일"
+                    th:name="userEmail"
+            />
+            <button type="submit" class="find-btn">계정 찾기</button>
+            <div
+                    class="naver-login"
+                    id="naverIdLogin_loginButton"
+                    href="javascript:void(0)"
+            >
+                <div class="naver-a">
+                    <img
+                            src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/icon_naver.png"
+                            alt=""
+                            class="naver-logo"
+                    />
+                    네이버 아이디 로그인
+                </div>
+            </div>
+            <div class="kakao-login" onclick="kakaoLogin();">
+                <div class="kakao-a">
+                    <img
+                            src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/icon_kakao.png"
+                            alt=""
+                            class="kakao-logo"
+                    />
+                    카카오 아이디 로그인
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+        crossorigin="anonymous"
+></script>
+<script th:src="@{/js/consumer/find-id.js}"></script>
+</body>
+</html>

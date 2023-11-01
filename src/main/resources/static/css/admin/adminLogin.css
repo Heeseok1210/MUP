@@ -1,0 +1,57 @@
+body {
+    background-color: white;
+}
+
+.container {
+    width: 1300px;
+    margin: 0 auto;
+}
+
+button,
+input,
+::placeholder {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.logo {
+    max-height: 400px;
+    max-width: 400px;
+    width: auto;
+    height: auto;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+.id-password-box {
+    display: flex;
+    width: 275px;
+    height: 125px;
+    margin: 20px auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.id-password-box > input {
+    height: 30px;
+    margin-bottom: 5px;
+    outline: none;
+}
+
+.false-msg {
+    font-size: 13.9px;
+    color: red;
+}
+
+.login-btn {
+    margin: 0 auto;
+    display: block;
+    width: 250px;
+    height: 50px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    font-size: 19px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}

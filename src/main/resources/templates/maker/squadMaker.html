@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MU | 맨쪽이들</title>
+    <link rel="stylesheet" href="../css/maker.css" />
+    <link rel="stylesheet" href="../css/fo4_ssl.css">
+</head>
+<div class="container">
+    <form class="save-form" action="#" method="post" enctype="multipart/form-data">
+        <div class="save-space">
+            <div class="squad-saveBox">
+                <input type="text" id="squadContent" placeholder="스쿼드 제목을 입력해주세요..">
+            </div>
+            <div class="saveBtn">
+                <button class="save-button">스쿼드 저장</button>
+            </div>
+        </div>
+
+        <!-- 선수 검색 -->
+        <div class="findPlayer" id="findModal">
+            <div class="modal-content">
+                <div class="header-tit">
+                    <h1>선수 검색</h1>
+                    <div class="btn_area">
+                        <a href="#" class="close">
+                            <span class="hidden">닫기</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="modalBox">
+                    <form id="squadSearchform1" onsubmit="return false;">
+                        <div class="wrap_l">
+                            <div class="search_form">
+                                <div class="search-panel">
+                                    <div class="search_input_name">
+                                        <input
+                                                type="text"
+                                                id="searchName"
+                                                name="strPlayerName"
+                                                placeholder="선수명을 입력해주세요."
+                                                class="ui-autocomplete-input"
+                                                autocomplete="off"
+                                        />
+                                    </div>
+
+                                    <div class="search-input-submit">
+                                        <button id="squadSearchPlayerBtn" class="search-btn">
+                                            검색
+                                        </button>
+                                        <button class="reset-btn">초기화</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="option_wrap">
+                                <div class="ovr_selector">
+                                    <div class="th"><span>OVR</span></div>
+                                    <div class="td">
+                                        <div id="slider1" class="range_slider">
+                                            <input
+                                                    type="number"
+                                                    class="min_val txt_val"
+                                                    name="n4OvrMin"
+                                                    style="ime-mode: disabled"
+                                                    pattern="[0-9]{10}"
+                                            />
+                                            <div
+                                                    class="wrap_slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                            >
+                                                <div
+                                                        class="ui-slider-range ui-corner-all ui-widget-header"
+                                                        style="left: 0%; width: 100%"
+                                                ></div>
+                                                <span
+                                                        tabindex="0"
+                                                        class="ui-slider-handle ui-corner-all ui-state-default"
+                                                        style="left: 0%"
+                                                ><span class="min_num">70</span></span
+                                                ><span
+                                                    tabindex="0"
+                                                    class="ui-slider-handle ui-corner-all ui-state-default"
+                                                    style="left: 100%"
+                                            ><span class="max_num">100</span></span
+                                            ><span class="half_num">85</span>
+                                            </div>
+                                            <input
+                                                    type="number"
+                                                    class="max_val txt_val"
+                                                    name="n4OvrMax"
+                                                    style="ime-mode: disabled"
+                                                    pattern="[0-9]{10}"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="position_selector">
+                                    <div class="th"><span>포지션</span></div>
+                                    <div class="td">
+                                        <div class="position_wrap">
+                                            <div class="position_td">
+                                                <div class="position_name">
+                                                    <input id="position_fw_all" type="checkbox" class="position_check position_fw" data-no="24,25,26,20,21,22,27,23">
+                                                    <label for="position_fw_all">
+                                                        FW 전체
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="position_td">
+                                                <div class="position_name">
+                                                    <input id="position_mf_all" type="checkbox" class="position_check position_mf" data-no="13,14,15,17,18,19,9,10,11,16,12">
+                                                    <label for="position_mf_all">
+                                                        MF 전체
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="position_td">
+                                                <div class="position_name">
+                                                    <input id="position_df_all" type="checkbox" class="position_check position_df" data-no="1,4,5,6,3,7,2,8">
+                                                    <label for="position_df_all">
+                                                        DF 전체
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="position_td">
+                                                <div class="position_name">
+                                                    <input id="position_gk_all" type="checkbox" class="position_check position_gk" data-no="0">
+                                                    <label for="position_gk_all">
+                                                        GK 전체
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap_r">
+                            <div class="search_list">
+                                <div class="search_tab" id="searchPlayerOrderByTab">
+                                    <div class="tab_list">
+                                        <ul>
+                                            <li class="active" id="orderbyTab1">
+                                                <a href="#" onclick="squadGetPlayerList(-1, 0);">OVR</a>
+                                            </li>
+                                            <li class="active" id="orderbyTab2">
+                                                <a href="#" onclick="squadGetPlayerList(-1, 0);">이름 순</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="search_content">
+                                    <div class="char_wrap">
+                                        <ul class="searchPlayer_Ul">
+                                            <li class="searchPlayer_li">
+                                                <div class="searchPlayerBox">
+                                                    <a href="#"  class="searchPlayer_Img">
+                                                        <div class="img-list">
+                                                            <img class="searchPlayer_imgBox" src="#" alt="임시썸네일">
+                                                        </div>
+                                                        <div class="searchPlayer_content">
+                                                            <span>포지션</span>
+                                                            <span>클래스</span>
+                                                            <span>오버롤</span>
+                                                            <span>선수 이름?</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="searchPlayer_content"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="squadMaker-Box">
+        <div class="squadMaker-View">
+            <div class="squadMaker-field f442">
+                <!-- 골키퍼 -->
+                <div class="player gk">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">GK</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <!-- 수비수 -->
+                <div class="player rcb">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">RCB</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="player lcb">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">LCB</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="player rb">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">RB</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="player lb">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">LB</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <!-- 미드 필더 -->
+                <div class="player rcm">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">RCM</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="player lcm">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">LCM</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="player rm">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">RM</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="player lm">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">LM</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <!-- 공격수 -->
+                <div class="player cf">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">CF</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="player st">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">ST</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 포메이션 찾기 -->
+        <div class="squadMaker-tool">
+            <div class="squad-selector">
+                <a href="#" class="squadMaker-selector-current-value"> 4-4-2 </a>
+                <div class="selector-list-wrap">
+                    <div class="selector-list-contents">
+                        <div class="selector-list active">
+                            <div class="tit-list">
+                                <div class="cate3">3 Back</div>
+                                <div class="cate4">4 Back</div>
+                                <div class="cate5">5 Back</div>
+                            </div>
+                            <div class="selector-list-total">
+                                <div class="squad-list-type">
+                                    <!-- 3back -->
+                                    <ul>
+                                        <li>
+                                            <a href="#" data-value="f343">3-4-3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f3412">3-4-1-2</a>
+                                        </li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                                <div class="squad-list-type">
+                                    <ul>
+                                        <li>
+                                            <a href="#" data-value="f3232">3-2-3-2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f3412">3-2-2-1-3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f31213">3-1-2-1-3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f3142">3-1-4-2</a>
+                                        </li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                                <!-- 4back -->
+                                <div class="squad-list-type">
+                                    <ul>
+                                        <li>
+                                            <a href="#" data-value="f451">4-5-1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f442">4-4-2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f4411">4-4-1-1</a>
+                                        </li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                                <div class="squad-list-type">
+                                    <ul>
+                                        <li>
+                                            <a href="#" data-value="f433">4-3-3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f4321">4-3-2-1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f4312">4-3-1-2</a>
+                                        </li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                                <div class="squad-list-type">
+                                    <ul>
+                                        <li>
+                                            <a href="#" data-value="f424">4-2-4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f4231">4-2-3-1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f4222">4-2-2-2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f42211">4-2-2-1-1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f4213">4-2-1-3</a>
+                                        </li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                                <div class="squad-list-type">
+                                    <ul>
+                                        <li>
+                                            <a href="#" data-value="f4141">4-1-4-1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f4132">4-1-3-2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f4123">4-1-2-3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f41212">4-1-2-1-2</a>
+                                        </li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                                <!-- 5back -->
+                                <div class="squad-list-type">
+                                    <ul>
+                                        <li>
+                                            <a href="#" data-value="f541">5-4-1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f532">5-3-2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f523">5-2-3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f5212">5-2-1-2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="f51211">5-1-2-1-1</a>
+                                        </li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 김독 -->
+        <div class="squaMaker-aside">
+            <div class="squadMaker-aside-wrap">
+                <div class="squadMaker-coach">
+                    <div class="btn_selected">
+                        <a href="#" class="btn_default">
+                            <span class="hidden">감독을 선택하여 주세요.</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 후보선수들 -->
+            <div class="sqaudMaker-subPlayer">
+                <div class="subplayer">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">SUB</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="subplayer">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">SUB</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="subplayer">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">SUB</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="subplayer">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">SUB</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="subplayer">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">SUB</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+
+                <div class="subplayer">
+            <span class="empty">
+              <span class="info">
+                <span class="back"></span>
+                <span class="position">SUB</span>
+              </span>
+              <span class="animate">
+                <em></em>
+                <em></em>
+              </span>
+            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../js/maker.js"></script>
+</body>
+</html>

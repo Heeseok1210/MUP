@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mukids.mapper.consumer.ConsumerMapper">
+    <insert id="insert">
+        <selectKey keyProperty="consumerNumber" order="BEFORE" resultType="long">
+            SELECT SEQ_CONSUMER.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TBL_CONSUMER(CONSUMER_NUMBER, CONSUMER_ID, CONSUMER_PASSWORD, CONSUMER_NAME, CONSUMER_NICKNAME,
+        CONSUMER_PHONE_NUMBER, CONSUMER_EMAIL)
+        VALUES (#{consumerNumber},#{consumerId},#{consumerPassword},#{consumerName},#{consumerNickname},#{consumerPhoneNumber},#{consumerEmail})
+    </insert>
+
+    <select id="selectConsumerNumber" resultType="long">
+        SELECT CONSUMER_NUMBER FROM TBL_CONSUMER
+        WHERE CONSUMER_ID = #{consumerId} AND CONSUMER_PASSWORD = #{consumerPassword}
+    </select>
+
+</mapper>

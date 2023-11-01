@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MU | 맨쪽이들</title>
+    <link rel="stylesheet" th:href="@{/css/consumer/login.css}" />
+    <link rel="stylesheet" th:href="@{css/reset.css}" />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+</head>
+<body>
+<div class="body-main">
+    <div class="main-login">
+        <div class="login-logo">
+            <h1 class="login-text">M U</h1>
+            <img th:src="@{/img/HereLogo.png}" alt="맨유로고" class="LogoMu" />
+        </div>
+        <hr class="table-hr" />
+        <div class="loginSec">
+            <div class="logJoin">
+                <form action="#" method="post">
+                    <div class="id-password-box">
+                        <input type="text" name="userId" placeholder=" 아이디 입력" />
+                        <input
+                                type="password"
+                                name="userPassword"
+                                placeholder=" 비밀번호 입력"
+                        />
+<!--                        <th:block th:if="${error != null}">-->
+                  <span class="false-msg"
+                  >아이디 또는 비밀번호가 일치하지 않습니다.</span
+                  >
+                        </th:block>
+                    </div>
+                    <button class="login-btn" type="submit">로그인</button>
+                </form>
+            </div>
+
+            <div class="join-box">
+                <a th:href="@{/user/join}" class="join">회원가입</a>
+                <a th:href="@{/user/find-id}" class="find-id">계정찾기</a>
+            </div>
+            <div class="login-api-box">
+                <div
+                        class="naver-login"
+                        id="naverIdLogin_loginButton"
+                        href="javascript:void(0)"
+                >
+                    <div class="naver-a">
+                        <img
+                                src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/icon_naver.png"
+                                alt=""
+                                class="naver-logo"
+                        />
+                        네이버 아이디 로그인
+                    </div>
+                </div>
+                <div class="kakao-login" onclick="kakaoLogin();">
+                    <div class="kakao-a">
+                        <img
+                                src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/icon_kakao.png"
+                                alt=""
+                                class="kakao-logo"
+                        />
+                        카카오 아이디 로그인
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gwang-go">
+            <img th:src="@{/img/MUTD.jpg}" class="MU-img" />
+        </div>
+    </div>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+        crossorigin="anonymous"
+></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script
+        src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"
+        charset="utf-8"
+></script>
+<script th:src="@{/js/consumer/kakao.js}"></script>
+<script th:src="@{/js/consumer/naver.js}"></script>
+<script th:src="@{/js/consumer/login.js}"></script>
+</body>
+</html>

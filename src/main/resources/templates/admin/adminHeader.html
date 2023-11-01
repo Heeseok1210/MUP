@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MU | 맨쪽이들</title>
+    <link rel="stylesheet" th:href="@{/css/admin/adminHeader.css}" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+</head>
+<body>
+<div class="header" fragment="header">
+    <div class="header-content">
+        <div class="header-left">
+            <a th:href="@{/}" class="header-logo">
+                <img src="../image/HereLogo.png" alt="로고" height="70px" />
+            </a>
+
+            <ul class="header-menu">
+                <li>
+                    <a th:href="@{/}">선수 등록</a>
+                </li>
+                <li>
+                    <a th:href="@{/}">선수 목록</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="header-right">
+            <div class="header-icon" th:if="">
+            <span class="material-symbols-rounded" style="font-size: 28px">
+              sentiment_satisfied
+            </span>
+                <div class="dropdown-content-header">
+                    <ul>
+                        <a th:href="@{/adimin/adminLogin}"><li>로그인</li></a>
+                    </ul>
+                </div>
+            </div>
+            <div class="header-icon" th:unless="">
+            <span class="material-symbols-rounded" style="font-size: 28px">
+              sentiment_satisfied
+            </span>
+                <div class="dropdown-content-header">
+                    <ul>
+                        <a th:href="@{/admin/adminlogout}"><li>로그아웃</li></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+        crossorigin="anonymous"
+></script>
+<script th:src="@{/js/adminHeader.js}"></script>
+</body>
+</html>

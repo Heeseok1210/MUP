@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MU | 맨쪽이들</title>
+    <link rel="stylesheet" href="../css/adminLogin.css" />
+</head>
+<body>
+<div class="container">
+    <img class="logo" src="../image/LoginLogo.jpg" />
+    <form action="#" method="post">
+        <div class="id-password-box">
+            <input type="text" name="userId" placeholder=" 아이디 입력" />
+            <input
+                    type="password"
+                    name="userPassword"
+                    placeholder=" 비밀번호 입력"
+            />
+            <th:block th:if="${error != null}">
+            <span class="false-msg"
+            >아이디 또는 비밀번호가 일치하지 않습니다.</span
+            >
+            </th:block>
+        </div>
+        <button class="login-btn" type="submit">로그인</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,1318 @@
+body {
+    background-color: white;
+}
+
+.container {
+    width: 1300px;
+    margin: 0 auto;
+}
+
+.save-space {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.squad-saveBox > input {
+    transition: all 0.3s ease;
+    width: 378px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 4px solid #3a3a50;
+    line-height: 36px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.saveBtn {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.saveBtn > .save-button {
+    transition: all 0.3s ease;
+    width: 128px;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(200, 202, 134);
+    line-height: 50px;
+    font-size: 15px;
+    background: rgb(0, 38, 65);
+    margin-left: 1px;
+}
+
+/* 선수모달 */
+.findPlayer {
+    position: absolute;
+    display: none;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    position: relative;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: 20px 20px 20px 20px;
+    background-color: #fff;
+}
+
+.header-tit {
+    height: 66px;
+    border-bottom: 1px solid#e9ebf6;
+}
+
+.header-tit > h1 {
+    line-height: 66px;
+    text-align: center;
+    font-size: 22px;
+    color: #858498;
+    background-color: #fff;
+}
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 53px;
+    height: 53px;
+    background: url(https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/btn_close.png)
+    center center no-repeat;
+    z-index: 200;
+}
+
+.hidden {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    overflow: hidden;
+    display: block;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.modalBox {
+    padding: 20px 30px 0px 30px;
+    font-size: 20px;
+    font-weight: 600;
+    height: 100%;
+    text-align: center;
+}
+
+.search-panel {
+    margin-top: 0;
+    position: relative;
+    width: 100%;
+}
+
+.search_input_name {
+    position: relative;
+    z-index: 200;
+    margin-left: -150px;
+}
+
+.search_input_name > input {
+    transition: all 0.3s ease;
+    width: 500px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 4px solid #3a3a50;
+    padding: 0 30px;
+    color: #000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    line-height: 36px;
+    font-size: 16px;
+}
+
+.search-input-submit {
+    z-index: 2000;
+    right: 205px;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.search-btn {
+    width: 93px;
+    line-height: 50px;
+    height: 50px;
+    font-size: 16px;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    background: #3e3d55;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.reset-btn {
+    width: 93px;
+    line-height: 50px;
+    height: 50px;
+    font-size: 16px;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    background: #656477;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+button {
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* 오버롤 */
+.wrap_l .option_wrap .ovr_selector {
+    padding: 40px 40px 40px 0;
+    position: relative;
+    text-align: center;
+    border-bottom: 1px solid #e8eaf5;
+    overflow: hidden;
+}
+.wrap_l .option_wrap .ovr_selector .th {
+    font-size: 18px;
+    color: #151432;
+    text-align: center;
+    padding-bottom: 0;
+}
+.wrap_l .option_wrap .ovr_selector .td {
+    position: relative;
+    text-align: center;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider {
+    width: 100%;
+    text-align: center;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .wrap_slider {
+    margin: 0 25px;
+    width: 401px;
+    display: inline-block;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .txt_val {
+    border: 1px solid #dbdee5;
+    margin-top: 17px;
+    width: 69px;
+    height: 42px;
+    display: inline-block;
+    line-height: 42px;
+    text-align: center;
+    color: #838996;
+    font-size: 16px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .txt_val:focus {
+    border-color: #fb1c1c;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-widget-header {
+    background: #fb1c1c;
+}
+.wrap_l
+.option_wrap
+.ovr_selector
+.range_slider
+.ui-widget-header
+.ui-state-default {
+    background: #fff;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-state-default {
+    background: #fff;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-button {
+    background: #fff;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-widget {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-widget.ui-widget-content {
+    background: #e6eaf2;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-corner-all {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-corner-bottom {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-corner-right {
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-corner-br {
+    border-bottom-right-radius: 3px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-corner-left {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-corner-bl {
+    border-bottom-left-radius: 3px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-corner-top {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-corner-tr {
+    border-top-right-radius: 3px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-corner-tl {
+    border-top-left-radius: 3px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-slider-horizontal {
+    height: 8px;
+}
+.wrap_l
+.option_wrap
+.ovr_selector
+.range_slider
+.ui-slider-horizontal
+.ui-slider-range {
+    top: 0;
+    height: 100%;
+}
+.wrap_l
+.option_wrap
+.ovr_selector
+.range_slider
+.ui-slider-horizontal
+.ui-slider-handle {
+    top: -9px;
+    margin-left: -13px;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-slider {
+    position: relative;
+    text-align: left;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-slider .ui-slider-range {
+    position: absolute;
+    z-index: 1;
+    font-size: 0.7em;
+    display: block;
+    border: 0;
+    background-position: 0 0;
+}
+.wrap_l .option_wrap .ovr_selector .range_slider .ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 26px;
+    height: 26px;
+    border-radius: 26px;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    touch-action: none;
+}
+.wrap_l
+.option_wrap
+.ovr_selector
+.range_slider
+.ui-slider
+.ui-slider-handle:after {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    background: #fb1c1c;
+    content: "";
+}
+
+/* 포지션찾기 */
+.position_selector {
+    padding: 20px 30px 10px 0px;
+    position: relative;
+    text-align: center;
+    border-bottom: 1px solid #e8eaf5;
+    overflow: hidden;
+}
+
+.wrap_l .option_wrap .position_selector .th {
+    font-size: 18px;
+    color: #151432;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.wrap_l .option_wrap .position_selector .td {
+    position: relative;
+    text-align: center;
+}
+
+.position_wrap {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.position_wrap .position_td {
+    margin-bottom: 8px;
+}
+
+.position_wrap .position_td .position_name {
+    display: inline-block;
+}
+
+.position_wrap .position_td .position_name > input {
+    display: none;
+}
+.position_wrap .position_td .position_name label {
+    width: 96px;
+    height: 27px;
+    box-sizing: border-box;
+    display: block;
+    line-height: 27px;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #838996;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    background: #e6eaf2;
+    text-align: left;
+}
+
+.modalBox .position_wrap .position_td .position_name label:after {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    content: " ";
+    background-image: url(../image/sprite_210600.png);
+    background-position: -554px -732px;
+    width: 14px;
+    height: 10px;
+}
+
+/* 모든 포지션에 대한 일반적인 스타일 */
+.modalBox
+.wrap_l
+.option_wrap
+.position_selector
+.td
+.position_wrap
+.position_td
+.position
+input:checked
++ label {
+    color: #fff;
+}
+
+/* FW에 대한 배경 및 아이콘 스타일 */
+.modalBox
+.wrap_l
+.option_wrap
+.position_selector
+.td
+.position_wrap.position_fw
+input.position_fw:checked
++ label {
+    background: #f6425f;
+}
+
+/* MF에 대한 배경 및 아이콘 스타일 */
+.modalBox
+.wrap_l
+.option_wrap
+.position_selector
+.td
+.position_wrap.position_mf
+input.position_mf:checked
++ label {
+    background: #03d28c;
+}
+
+/* DF에 대한 배경 및 아이콘 스타일 */
+.modalBox
+.wrap_l
+.option_wrap
+.position_selector
+.td
+.position_wrap.position_df
+input.position_df:checked
++ label {
+    background: #2b7def;
+}
+
+/* GK에 대한 배경 및 아이콘 스타일 */
+.modalBox
+.wrap_l
+.option_wrap
+.position_selector
+.td
+.position_wrap.position_gk
+input.position_gk:checked
++ label {
+    background: #f2be57;
+}
+
+/* 모든 포지션에 대한 일반적인 스타일 */
+#findModal
+.position_selector
+.td
+.position_wrap
+.position_td
+.position
+input:checked
++ label {
+    color: #fff;
+}
+
+/* FW에 대한 배경 및 아이콘 스타일 */
+#findModal
+.position_selector
+.td
+.position_wrap.position_fw
+input.position_fw:checked
++ label {
+    background: #f6425f;
+}
+
+/* MF에 대한 배경 및 아이콘 스타일 */
+#findModal
+.position_selector
+.td
+.position_wrap.position_mf
+input.position_mf:checked
++ label {
+    background: #03d28c;
+}
+
+/* DF에 대한 배경 및 아이콘 스타일 */
+#findModal
+.position_selector
+.td
+.position_wrap.position_df
+input.position_df:checked
++ label {
+    background: #2b7def;
+}
+
+/* GK에 대한 배경 및 아이콘 스타일 */
+#findModal
+.position_selector
+.td
+.position_wrap.position_gk
+input.position_gk:checked
++ label {
+    background: #f2be57;
+}
+
+/* 모든 체크된 체크박스에 대한 아이콘 스타일 */
+#findModal
+.position_selector
+.td
+.position_wrap
+.position_td
+.position
+input[type="checkbox"]:checked
++ label:after {
+    background-image: url(https://ssl.nexon.com/s2/game/fc/online/obt/sprite_210600.png);
+    background-position: -520px -723px;
+    width: 14px;
+    height: 10px;
+}
+
+/* FW 헤더의 테두리 색상 */
+#findModal .position_selector .td .position_wrap.position_fw .position_th {
+    border-left-color: #f6425f;
+}
+
+/* 체크된 FW 체크박스에 대한 배경 스타일 */
+#findModal
+.position_selector
+.td
+.position_wrap.position_fw
+.position_td
+input.position_fw:checked
++ label {
+    background: #f6425f;
+}
+
+/* MF 헤더의 테두리 색상 */
+#findModal .position_selector .td .position_wrap.position_mf .position_th {
+    border-left-color: #00d28b;
+}
+
+/* 체크된 MF 체크박스에 대한 배경 스타일 */
+#findModal
+.position_selector
+.td
+.position_wrap.position_mf
+.position_td
+input.position_mf:checked
++ label {
+    background: #00d28b;
+}
+
+/* DF 헤더의 테두리 색상 */
+#findModal .position_selector .td .position_wrap.position_df .position_th {
+    border-left-color: #2b7def;
+}
+
+/* 체크된 DF 체크박스에 대한 배경 스타일 */
+#findModal
+.position_selector
+.td
+.position_wrap.position_df
+.position_td
+input.position_df:checked
++ label {
+    background: #2b7def;
+}
+
+/* GK 헤더의 테두리 색상 */
+#findModal .position_selector .td .position_wrap.position_gk .position_th {
+    border-left-color: #f2be57;
+}
+
+/* 체크된 GK 체크박스에 대한 배경 스타일 */
+#findModal
+.position_selector
+.td
+.position_wrap.position_gk
+.position_td
+input.position_gk:checked
++ label {
+    background: #f2be57;
+}
+
+/* 검색 선수들 */
+.wrap_r {
+    position: relative;
+    overflow-y: auto;
+    box-sizing: border-box;
+    height: calc(100% - 67px);
+    min-height: 1278px;
+}
+
+.wrap_r .search_list {
+    padding: 20px 0 0;
+    position: relative;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.wrap_r .search_list .search_tab {
+    padding: 20px 30px 10px 0px;
+    height: 70px;
+    margin-left: 0;
+    text-align: center;
+}
+
+.tab_list {
+    width: 100%;
+}
+
+.search_list .tab_list ul {
+    overflow: hidden;
+    display: inline-block;
+    width: auto;
+}
+
+.search_list .tab_list ul li {
+    float: left;
+    margin-left: -1px;
+}
+
+.search_list .tab_list ul li a {
+    border: 2px solid #dbdee5;
+    display: block;
+    background: #fff;
+    font-size: 16px;
+    line-height: 34px;
+    color: #838996;
+    text-align: center;
+    box-sizing: border-box;
+    width: 159px;
+}
+
+.wrap_r .search_list .search_content {
+    position: relative;
+}
+
+.char_wrap {
+    display: block;
+    overflow-y: auto;
+    height: 1200px; /* 예시로 높이를 지정하셨습니다. 필요에 따라 조절하세요. */
+}
+
+.searchPlayer_Ul {
+    display: flex;
+    gap: 10px; /* 수정: 아이템 간격을 고정 값으로 조정 */
+    position: relative;
+    flex-wrap: wrap;
+    left: 0;
+    justify-content: flex-start;
+}
+
+.searchPlayer_li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(33.33% - 10px); /* 수정: 아이템 너비 계산을 간단히 조정 */
+    margin-bottom: 10px; /* 여백 추가 */
+    box-sizing: border-box; /* 요소 크기 계산 시 border와 padding 포함 */
+    border: 1px solid #dbdee5;
+}
+
+.searchPlayerBox {
+    width: 100%;
+    height: 150px;
+}
+
+.searchPlayer_Img {
+    position: relative;
+    display: flex;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    gap: 35px; /* 수정: 아이콘 간격을 조정 */
+}
+
+.img-list {
+    position: relative;
+    background-color: black;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 50%;
+    margin-left: 10px;
+}
+
+.searchPlayer_imgBox {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.searchPlayer_content {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 5px;
+}
+
+.searchPlayer_content span {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #404040;
+    font-weight: bold;
+}
+
+/* 스쿼드 */
+.squadMaker-Box {
+    width: 1280px;
+    height: 930px;
+    position: relative;
+    z-index: 1;
+}
+
+.squadMaker-View {
+    position: relative;
+    width: 1280px;
+    height: 930px;
+    background: url(../image/bg.png) center 108px no-repeat;
+}
+
+.squadMaker-field {
+    position: absolute;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    position: absolute;
+    top: 17.3%;
+    left: 13.5%;
+    z-index: 5;
+    width: 72.9%;
+    height: 48.2%;
+}
+
+.player {
+    position: absolute;
+    width: 106px;
+    height: 170px;
+    font-size: 12px;
+    text-align: center;
+    color: #000;
+    margin-left: -53px;
+    margin-top: -85px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.player:hover {
+    z-index: 3;
+    transform: scale(1.1);
+}
+
+.empty {
+    width: 106px;
+    height: 170px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.info {
+    width: 106px;
+    height: 170px;
+    display: inline-block;
+    position: relative;
+    z-index: 100;
+}
+
+.back {
+    width: 106px;
+    height: 170px;
+    display: inline-block;
+    background: url(../image/makerBack.jpg) 0 0 no-repeat;
+    background-size: 106px auto;
+    position: relative;
+}
+
+.position {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: rgb(0, 38, 65);
+    font-weight: 600;
+    font-size: 20px;
+    text-shadow: none;
+}
+
+.animate {
+    display: inline-block;
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 135px;
+    left: 35px;
+    z-index: 100;
+}
+
+.animate > em {
+    background: rgb(200, 202, 134);
+}
+
+.animate > em:nth-child(1) {
+    width: 20px;
+    height: 4px;
+    position: absolute;
+    top: 16px;
+    left: 26%;
+    transition: all 0.2s ease-in-out;
+    transform: rotate(0deg) translateX(-50%);
+    z-index: 1;
+}
+
+.animate > em:nth-child(2) {
+    width: 4px;
+    height: 20px;
+    position: absolute;
+    top: 26%;
+    left: 16px;
+    transition: all 0.2s ease-in-out;
+    transform: rotate(0deg) translateY(-50%);
+    z-index: 1;
+}
+
+.animate::after {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    content: "";
+    top: 0;
+    left: 0;
+    background: rgb(0, 38, 65);
+    border-radius: 50px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform: scale(0.9);
+}
+
+/* 골키퍼 */
+.f442 > .gk {
+    top: auto !important;
+    left: 50% !important;
+    bottom: -225px;
+}
+
+/* 수비수 */
+.f442 > .rcb {
+    top: 88%;
+    left: 68%;
+}
+
+.f442 > .lcb {
+    top: 88%;
+    left: 32%;
+}
+
+.f442 > .rb {
+    top: 85%;
+    left: 93%;
+}
+
+.f442 > .lb {
+    top: 85%;
+    left: 7%;
+}
+
+/* 미드필더 */
+.f442 > .rcm {
+    top: 47%;
+    left: 68%;
+}
+
+.f442 > .lcm {
+    top: 47%;
+    left: 32%;
+}
+
+.f442 > .rm {
+    top: 36%;
+    left: 88%;
+}
+
+.f442 > .lm {
+    top: 36%;
+    left: 12%;
+}
+
+.f442 > .cf {
+    top: 27%;
+    left: 50%;
+}
+
+.f442 > .st {
+    top: 0%;
+    left: 50%;
+}
+
+/* 343 */
+/* 골키퍼 */
+.f343 > .gk {
+    top: auto !important;
+    left: 50% !important;
+    bottom: -225px;
+}
+
+/* 수비수 */
+.f343 > .rcb {
+    top: 100%;
+    left: 75%;
+}
+
+.f343 > .lcb {
+    top: 100%;
+    left: 26%;
+}
+
+.f343 > .cb {
+    top: 86%;
+    left: 50%;
+}
+
+/* 미드필더 */
+.f343 > .rcm {
+    top: 43%;
+    left: 63%;
+}
+
+.f343 > .lcm {
+    top: 43%;
+    left: 38%;
+}
+
+.f343 > .rm {
+    top: 40%;
+    left: 88%;
+}
+
+.f343 > .lm {
+    top: 40%;
+    left: 12%;
+}
+
+/* 공격수 */
+.f343 > .rf {
+    top: 16%;
+    left: 70%;
+}
+
+.f343 > .lf {
+    top: 16%;
+    left: 30%;
+}
+
+.f343 > .st {
+    top: 0%;
+    left: 50%;
+}
+
+/* 3412 */
+/* 골키퍼 */
+.f3412 > .gk {
+    top: auto !important;
+    left: 50% !important;
+    bottom: -225px;
+}
+
+/* 수비수 */
+.f3412 > .rcb {
+    top: 100%;
+    left: 75%;
+}
+
+.f3412 > .lcb {
+    top: 100%;
+    left: 26%;
+}
+
+.f3412 > .cb {
+    top: 86%;
+    left: 50%;
+}
+
+/* 미드필더 */
+.f3412 > .rcm {
+    top: 43%;
+    left: 63%;
+}
+
+.f3412 > .lcm {
+    top: 43%;
+    left: 37%;
+}
+
+.f3412 > .rm {
+    top: 40%;
+    left: 88%;
+}
+
+.f3412 > .lm {
+    top: 40%;
+    left: 12%;
+}
+
+.f3412 > .cam {
+    top: 28%;
+    left: 50%;
+}
+
+/* 공격수 */
+.f3412 > .rs {
+    top: 0%;
+    left: 60%;
+}
+
+.f3412 > .ls {
+    top: 0%;
+    left: 40%;
+}
+
+/* 3232 */
+/* 골키퍼 */
+.f3232 > .gk {
+    top: auto !important;
+    left: 50% !important;
+    bottom: -225px;
+}
+
+/* 수비수 */
+.f3232 > .rcb {
+    top: 100%;
+    left: 75%;
+}
+
+.f3232 > .lcb {
+    top: 100%;
+    left: 26%;
+}
+
+.f3232 > .cb {
+    top: 86%;
+    left: 50%;
+}
+
+/* 미드필더 */
+.f3232 > .rdm {
+    top: 66%;
+    left: 65%;
+}
+
+.f3232 > .ldm {
+    top: 66%;
+    left: 35%;
+}
+
+.f3232 > .cm {
+    top: 48%;
+    left: 50%;
+}
+
+.f3232 > .rm {
+    top: 35%;
+    left: 90%;
+}
+
+.f3232 > .lm {
+    top: 35%;
+    left: 10%;
+}
+
+/* 공격수 */
+.f3232 > .cf {
+    top: 15%;
+    left: 50%;
+}
+
+.f3232 > .st {
+    top: 0%;
+    left: 50%;
+}
+
+/* 포메이션 */
+.squad-selector {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -100px;
+    z-index: 10;
+}
+
+/* 초기에는 squad-selector를 감춤 */
+.squad-selector .selector-list-wrap {
+    display: none;
+}
+
+/* active 클래스가 있는 경우에만 보이도록 설정 */
+.squad-selector.active .selector-list-wrap {
+    display: block;
+}
+
+.squadMaker-selector-current-value {
+    display: inline-block;
+    width: 180px;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background: #161616;
+    font-size: 15px;
+    color: #fff;
+    position: relative;
+}
+
+.squadMaker-selector-current-value::after {
+    position: absolute;
+    top: 17px;
+    right: 10px;
+    width: 13px;
+    height: 8px;
+    background: url(https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/ico_arr.png)
+    0 0 no-repeat;
+    content: "";
+}
+
+.selector-list-wrap {
+    display: block;
+    width: 1281px;
+    position: absolute;
+    top: 44px;
+    left: -528px;
+    overflow-x: hidden;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.selector-list {
+    display: block;
+}
+
+.tit-list {
+    overflow: hidden;
+}
+
+.tit-list > div {
+    height: 40px;
+    background: #000;
+    text-align: center;
+    color: #bcbbbb;
+    font-size: 14px;
+    line-height: 40px;
+    border-right: 1px solid #ababad;
+    float: left;
+    box-sizing: border-box;
+}
+
+.cate3 {
+    width: 366px;
+}
+
+.cate4 {
+    width: 732px;
+}
+
+.cate5 {
+    width: 182px;
+}
+
+.selector-list-total {
+    overflow: hidden;
+    background: #fff;
+}
+
+.squad-list-type {
+    float: left;
+    width: 183px;
+    box-sizing: border-box;
+}
+
+.squad-list-type > ul {
+    list-style: none;
+    display: block;
+    padding-left: -40px;
+}
+
+.squad-list-type > ul > li {
+    width: 183px;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    border-bottom: 1px solid #e9e9e9;
+    box-sizing: border-box;
+    border-right: 1px solid#ebebed;
+}
+
+.squad-list-type:nth-child(2) > li {
+    border-right: 1px solid #ababad;
+}
+
+.squad-list-type > ul > li > a {
+    display: block;
+    padding: 0 10px;
+    font-size: 15px;
+    position: relative;
+    color: #151432;
+}
+
+.squad-list-type > ul > li > a:hover {
+    background: #f15e4b;
+}
+
+/* 감독 */
+.squaMaker-aside {
+    width: 1280px;
+    height: 237px;
+    position: relative;
+    background: blue;
+    margin-top: 30px;
+    z-index: 2;
+}
+
+.squadMaker-aside-wrap {
+    float: left;
+    position: relative;
+    z-index: 5;
+    width: 359px;
+    height: 237px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+
+.squadMaker-coach {
+    height: 118px;
+}
+
+.btn_selected {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #fff;
+    box-sizing: border-box;
+    padding-top: 42px;
+    padding-left: 125px;
+}
+
+.btn_default {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 118px;
+    display: block;
+    width: 359px;
+    background: url(https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/img_coach.png)
+    0 0 no-repeat;
+    margin-top: 50px;
+    border-top: 1px solid rgb(227, 226, 230);
+    border-bottom: 1px solid rgb(227, 226, 230);
+}
+
+.hidden {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    overflow: hidden;
+    display: block;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+a {
+    color: #404040;
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+/* 후보선수 */
+.sqaudMaker-subPlayer {
+    float: right;
+    width: 921px;
+    height: 237px;
+    background: #fff;
+    box-sizing: border-box;
+    padding-top: 22px;
+    padding-left: 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.subplayer {
+    float: left;
+    position: relative;
+    width: 106px;
+    height: 170px;
+    font-size: 12px;
+    text-align: center;
+    color: #000;
+    transition: transform 0.2s ease-in-out;
+    margin-right: 35px;
+}
