@@ -17,7 +17,7 @@
     <div class="main-join">
         <div class="join-logo">
             <h1 class="joins-text">M U</h1>
-            <img src="../image/HereLogo.png" alt="맨유로고" class="LogoMu" />
+            <img src="/img/HereLogo.png" alt="맨유로고" class="LogoMu" />
         </div>
         <hr class="table-hr" />
         <form class="signup-form" th:action="@{/user/join}" method="post">
@@ -27,7 +27,7 @@
                     <input
                             type="text"
                             class="id-box"
-                            name="userId"
+                            name="consumerId"
                             placeholder="영문 또는 영문 및 숫자 4자리 이상"
                             autocomplete="off"
                             required
@@ -41,7 +41,7 @@
                     <input
                             type="password"
                             class="password-box"
-                            name="userPassword"
+                            name="consumerPassword"
                             placeholder="영문 대소문자 및 숫자 중 2개 이상 조합, 8자리 이상"
                             autocomplete="off"
                             required
@@ -67,7 +67,7 @@
                     <input
                             type="text"
                             class="name-box"
-                            name="userName"
+                            name="consumerName"
                             required
                             autocomplete="off"
                     />
@@ -77,7 +77,7 @@
                     <input
                             type="text"
                             class="nickname-box"
-                            name="userNickname"
+                            name="consumerNickname"
                             required
                             autocomplete="off"
                     />
@@ -89,7 +89,7 @@
                     <input
                             type="text"
                             class="phone-box"
-                            name="userPhoneNumber"
+                            name="consumerPhoneNumber"
                             required
                             autocomplete="off"
                     />
@@ -98,7 +98,7 @@
                     <div class="email">이메일</div>
                     <input
                             type="hidden"
-                            name="userEmail"
+                            name="consumerEmail"
                             class="realEmail"
                             value=""
                     />

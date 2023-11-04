@@ -54,7 +54,7 @@ body {
     position: relative;
     width: 30px;
     height: 30px;
-    background: url(../image/look.png) no-repeat;
+    background: url("/img/look.png") no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;

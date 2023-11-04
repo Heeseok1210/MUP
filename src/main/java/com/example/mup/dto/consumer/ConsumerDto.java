@@ -1,8 +1,12 @@
 package com.example.mup.dto.consumer;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@Data
+@NoArgsConstructor
 public class ConsumerDto {
     private Long consumerNumber;
     private String consumerId;

@@ -3,5 +3,7 @@
 
 <configuration>
     <typeAliases>
+        <typeAlias type="com.example.mup.dto.consumer.ConsumerDto" alias="consumerDto"/>
+        <typeAlias type="com.example.mup.dto.museum.MuseumDto" alias="museumDto"/>
     </typeAliases>
 </configuration>

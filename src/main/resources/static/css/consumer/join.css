@@ -248,49 +248,49 @@ input {
 }
 
 .id-err-text {
-    margin-left: 150px;
-    font-size: 15px;
+    margin-left: 155px;
+    font-size: 13px;
     color: red;
     display: none;
 }
 .id-err-text2 {
-    margin-left: 150px;
-    font-size: 15px;
+    margin-left: 155px;
+    font-size: 13px;
     color: green;
     display: none;
 }
 
 .pw-err-text {
-    margin-left: 150px;
-    font-size: 15px;
+    margin-left: 155px;
+    font-size: 13px;
     color: red;
     display: none;
 }
 
 .pw-err-text1 {
-    margin-left: 130px;
-    font-size: 15px;
+    margin-left: 155px;
+    font-size: 13px;
     color: red;
     display: none;
 }
 
 .pw-err-text2 {
-    margin-left: 130px;
-    font-size: 15px;
+    margin-left: 155px;
+    font-size: 13px;
     color: green;
     display: none;
 }
 
 .nickName-err-text {
-    margin-left: 130px;
-    font-size: 15px;
+    margin-left: 155px;
+    font-size: 13px;
     color: red;
     display: none;
 }
 
 .nickName-err-text2 {
-    margin-left: 130px;
-    font-size: 15px;
+    margin-left: 155px;
+    font-size: 13px;
     color: green;
     display: none;
 }

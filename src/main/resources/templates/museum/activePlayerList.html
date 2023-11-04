@@ -5,13 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MU | 맨쪽이들</title>
-  <link rel="stylesheet" href="../css/activePlayerList.css" />
-  <link rel="stylesheet" href="../index/reset.css" />
+  <link rel="stylesheet" th:href="@{/css/museum/activePlayerList.css}"/>
+  <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+  <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+  <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
 </head>
 <body>
+<header class="header" th:replace="fragment/header :: header"></header>
 <div class="container">
   <div class="mainTitle">
-    <h1 class="subTitle">l 선수단 소개ㅣ</h1>
+    <h1 class="subTitle">ㅣ선수단 소개ㅣ</h1>
     <p class="titleInfo">현 소속 맨체스터 유나이티드 선수들</p>
   </div>
   <div class="activePlayerList">
@@ -51,7 +57,7 @@
         <td scope="row" class="main_list_name">
                 <span class="playerProfile">
                   <a class="wrap_name">메이슨 마운트 </a>
-                  <img src="../image/masonMount.jpg" alt="" class="playerImg" />
+                  <img src="/img/masonMount.jpg" alt="" class="playerImg" />
                 </span>
         </td>
         <td scope="row" class="main_list_backNumber">
@@ -107,42 +113,42 @@
       </tbody>
     </table>
   </div>
-  <div class="page-container">
-    <ul class="page-box">
-      <a
-              th:href="@{/admin/hairList(page=${pageInfo.startPage - 1})}"
-              class="page-a"
-              th:if="${pageInfo.prev}"
-      >
-        <li class="page-num prev">&lt</li>
-      </a>
+<!--  <div class="page-container">-->
+<!--    <ul class="page-box">-->
+<!--      <a-->
+<!--              th:href="@{/admin/hairList(page=${pageInfo.startPage - 1})}"-->
+<!--              class="page-a"-->
+<!--              th:if="${pageInfo.prev}"-->
+<!--      >-->
+<!--        <li class="page-num prev">&lt</li>-->
+<!--      </a>-->
 
-      <th:block
-              th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}"
-      >
-        <a th:href="@{/admin/hairList(page=${i})}" class="page-a">
-          <li
-                  class="page-num active"
-                  th:text="${i}"
-                  th:if="${i == pageInfo.criteria.page}"
-          ></li>
-          <li
-                  class="page-num"
-                  th:text="${i}"
-                  th:unless="${i == pageInfo.criteria.page}"
-          ></li>
-        </a>
-      </th:block>
+<!--      <th:block-->
+<!--              th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}"-->
+<!--      >-->
+<!--        <a th:href="@{/admin/hairList(page=${i})}" class="page-a">-->
+<!--          <li-->
+<!--                  class="page-num active"-->
+<!--                  th:text="${i}"-->
+<!--                  th:if="${i == pageInfo.criteria.page}"-->
+<!--          ></li>-->
+<!--          <li-->
+<!--                  class="page-num"-->
+<!--                  th:text="${i}"-->
+<!--                  th:unless="${i == pageInfo.criteria.page}"-->
+<!--          ></li>-->
+<!--        </a>-->
+<!--      </th:block>-->
 
-      <a
-              th:href="@{/admin/hairList(page=${pageInfo.endPage + 1})}"
-              class="page-a"
-              th:if="${pageInfo.next}"
-      >
-        <li class="page-num next">&gt</li>
-      </a>
-    </ul>
-  </div>
+<!--      <a-->
+<!--              th:href="@{/admin/hairList(page=${pageInfo.endPage + 1})}"-->
+<!--              class="page-a"-->
+<!--              th:if="${pageInfo.next}"-->
+<!--      >-->
+<!--        <li class="page-num next">&gt</li>-->
+<!--      </a>-->
+<!--    </ul>-->
+<!--  </div>-->
 </div>
 </body>
 </html>

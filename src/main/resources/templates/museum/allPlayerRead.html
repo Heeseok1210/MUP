@@ -4,21 +4,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>MU | 맨쪽이들</title>
-<link rel="stylesheet" href="../css/museumRead.css" />
-<link rel="stylesheet" href="../index/reset.css">
+<link rel="stylesheet" th:href="@{/css/museum/museumRead.css}" />
+<link rel="stylesheet" th:href="@{/css/reset.css}">
+<link rel="stylesheet" th:href="@{/css/fragment/header.css}">
 </head>
 <body>
+<header class="header" th:replace="fragment/header :: header"></header>
 <div class="container">
     <div class="nothing"></div>
     <div class="top-side">
         <div class="player-nameBox">
             <div class="player-name">
-                웨인<br />
+                웨인<br/>
                 루니
             </div>
         </div>
         <div class="player-img-box">
-            <img class="img-list" src="../image/rooney.jpg" />
+            <img class="img-list" src="/img/rooney.jpg" />
         </div>
         <div class="player-Box">
             <div class="player-info">
@@ -75,6 +77,6 @@
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"
 ></script>
-<script src="../js/museumRead.js"></script>
+<script th:src="@{/js/museumRead.js}"></script>
 </body>
 </html>

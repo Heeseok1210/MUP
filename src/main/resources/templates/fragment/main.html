@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MU | 맨쪽이들</title>
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/all.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/all.css}"/>
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
     <link
             rel="stylesheet"
@@ -89,7 +89,7 @@
         <div class="second-banner-text">
             <h2>재미난 맨유 퀴즈</h2>
             <p>내가 어느정도 맨유 팬인지 궁금하다면?</p>
-            <a th:href="@{/MUKidsTest/MUKidsTest}">바로 참여하기</a>
+            <a th:href="@{}">바로 참여하기</a>
         </div>
     </div>
 
@@ -100,7 +100,7 @@
         <div class="fourth-banner">
             <div class="fourth-banner-text">
                 <p>너만의 맨유 스쿼드를 만들어봐</p>
-                <a th:href="@{/maker/squadMaker}">바로 시작하기</a>
+                <a th:href="@{}">바로 시작하기</a>
             </div>
         </div>
 
