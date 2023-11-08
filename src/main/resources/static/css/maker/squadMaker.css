@@ -5,6 +5,7 @@ body {
 .container {
     width: 1300px;
     margin: 0 auto;
+    margin-top: 50px;
 }
 
 .save-space {
@@ -50,7 +51,7 @@ body {
 .findPlayer {
     position: absolute;
     display: none;
-    z-index: 20;
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
@@ -58,7 +59,7 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content {
+.modal-contentP {
     position: relative;
     max-width: 1200px;
     margin: 20px auto;
@@ -79,13 +80,13 @@ body {
     background-color: #fff;
 }
 
-.close {
+.closeMo {
     position: absolute;
     top: 5px;
     right: 10px;
     width: 53px;
     height: 53px;
-    background: url(https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/btn_close.png)
+    background: url("https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/btn_close.png")
     center center no-repeat;
     z-index: 200;
 }
@@ -391,7 +392,7 @@ button {
     top: 9px;
     right: 10px;
     content: " ";
-    background-image: url(../image/sprite_210600.png);
+    background-image: url("/img/sprite_210600.png");
     background-position: -554px -732px;
     width: 14px;
     height: 10px;
@@ -520,7 +521,7 @@ input.position_gk:checked
 .position
 input[type="checkbox"]:checked
 + label:after {
-    background-image: url(https://ssl.nexon.com/s2/game/fc/online/obt/sprite_210600.png);
+    background-image: url("https://ssl.nexon.com/s2/game/fc/online/obt/sprite_210600.png");
     background-position: -520px -723px;
     width: 14px;
     height: 10px;
@@ -727,7 +728,7 @@ input.position_gk:checked
     position: relative;
     width: 1280px;
     height: 930px;
-    background: url(../image/bg.png) center 108px no-repeat;
+    background: url("/img/bg.png") center 108px no-repeat;
 }
 
 .squadMaker-field {
@@ -780,7 +781,7 @@ input.position_gk:checked
     width: 106px;
     height: 170px;
     display: inline-block;
-    background: url(../image/makerBack.jpg) 0 0 no-repeat;
+    background: url("/img/makerBack.jpg") 0 0 no-repeat;
     background-size: 106px auto;
     position: relative;
 }
@@ -1127,7 +1128,7 @@ input.position_gk:checked
     right: 10px;
     width: 13px;
     height: 8px;
-    background: url(https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/ico_arr.png)
+    background: url("https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/ico_arr.png")
     0 0 no-repeat;
     content: "";
 }
@@ -1261,7 +1262,7 @@ input.position_gk:checked
     height: 118px;
     display: block;
     width: 359px;
-    background: url(https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/img_coach.png)
+    background: url("https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/img_coach.png")
     0 0 no-repeat;
     margin-top: 50px;
     border-top: 1px solid rgb(227, 226, 230);

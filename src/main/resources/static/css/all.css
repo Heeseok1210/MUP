@@ -1,0 +1,316 @@
+@font-face {
+    font-family: "Pretendard";
+    font-weight: 700;
+    font-display: swap;
+    src: local("Pretendard Bold"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/Pretendard-Bold.subset.woff2")
+    format("woff2"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/Pretendard-Bold.subset.woff")
+    format("woff");
+}
+@font-face {
+    font-family: "Pretendard";
+    font-weight: 600;
+    font-display: swap;
+    src: local("Pretendard SemiBold"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/Pretendard-SemiBold.subset.woff2")
+    format("woff2"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/Pretendard-SemiBold.subset.woff")
+    format("woff");
+}
+@font-face {
+    font-family: "Pretendard";
+    font-weight: 400;
+    font-display: swap;
+    src: local("Pretendard Regular"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/Pretendard-Regular.subset.woff2")
+    format("woff2"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/Pretendard-Regular.subset.woff")
+    format("woff");
+}
+@font-face {
+    font-family: "Pretendard";
+    font-weight: 300;
+    font-display: swap;
+    src: local("Pretendard Light"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/Pretendard-Light.subset.woff2")
+    format("woff2"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/Pretendard-Light.subset.woff")
+    format("woff");
+}
+@font-face {
+    font-family: "Pretendard";
+    font-weight: 200;
+    font-display: swap;
+    src: local("Pretendard ExtraLight"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/Pretendard-ExtraLight.subset.woff2")
+    format("woff2"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/Pretendard-ExtraLight.subset.woff")
+    format("woff");
+}
+@font-face {
+    font-family: "INGAME";
+    font-weight: 300;
+    src: url("//fco.vod.nexoncdn.co.kr/fonts/YoonGothic530.woff2") format("woff2"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/YoonGothic530.woff") format("woff");
+}
+@font-face {
+    font-family: "INGAME";
+    font-weight: 400;
+    src: url("//fco.vod.nexoncdn.co.kr/fonts/YoonGothic540.woff2") format("woff2"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/YoonGothic540.woff") format("woff");
+}
+@font-face {
+    font-family: "EASANS";
+    font-weight: 500;
+    src: url("//fco.vod.nexoncdn.co.kr/fonts/eaSans.woff2") format("woff2"),
+    url("//fco.vod.nexoncdn.co.kr/fonts/eaSans.woff") format("woff");
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+textarea,
+input,
+select,
+button,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+    display: block;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+td,
+input,
+select,
+textarea,
+button {
+    font-family: "Pretendard", Dotum, "돋움", Helvetica, "Apple SD Gothic Neo",
+    sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    color: #141432;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+::selection {
+    background: #04e45f;
+}
+span::selection,
+ol,
+ul,
+dl,
+menu {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+fieldset,
+img {
+    border: 0 none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+input,
+select,
+textarea,
+button {
+    font-size: 100%;
+    vertical-align: middle;
+}
+textarea {
+    resize: none;
+}
+button {
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+}
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="file"] {
+    border-radius: 0;
+    -webkit-appearance: button;
+}
+input[type="image"],
+input[type="text"],
+input[type="submit"],
+input[type="password"],
+input[type="search"] {
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+input:checked[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    background-color: rgba(0, 0, 0, 0);
+}
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+span {
+    display: inline-block;
+}
+a {
+    display: inline-block;
+    color: #404040;
+    text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+audio {
+    display: none;
+}
+html {
+    overflow-y: scroll;
+}
+html,
+body {
+    width: 100%;
+    min-width: 1240px;
+    margin: 0 auto;
+    font-family: "Pretendard", Dotum, "돋움", Helvetica, "Apple SD Gothic Neo",
+    sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: #141432;
+}
+.ico {
+    text-indent: -9999px;
+    display: inline-block;
+}
+select::-ms-expand {
+    display: none;
+}
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+    color: #d2d2d4;
+}
+textarea:-ms-input-placeholder,
+input:-ms-input-placeholder {
+    color: #d2d2d4;
+}

@@ -1,4 +1,4 @@
-package com.example.mup.controller.Consumer;
+package com.example.mup.controller.consumer;
 
 import com.example.mup.dto.consumer.ConsumerDto;
 import com.example.mup.service.consumer.ConsumerService;

@@ -5,12 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MU | 맨쪽이들</title>
-    <link rel="stylesheet" href="../css/playerList.css" />
+    <link rel="stylesheet" th:href="@{/css/admin/playerList.css}" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/css/admin/adminHeader.css}"/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 </head>
 <body>
+<header class="adminHeader" th:replace="admin/adminHeader :: header"></header>
 <div class="container">
     <div class="main-container">
-
         <div class="main-box">
             <h1>선수들 목록</h1>
             <div class="select-nav">
@@ -87,24 +93,24 @@
                 </article>
             </div>
 
-            <div class="page-container">
-                <ul class="page-box">
-                    <a th:href="@{/admin/hairList(page=${pageInfo.startPage - 1})}"  class="page-a"  th:if="${pageInfo.prev}">
-                        <li class="page-num prev">&lt</li>
-                    </a>
+<!--            <div class="page-container">-->
+<!--                <ul class="page-box">-->
+<!--                    <a th:href="@{/admin/hairList(page=${pageInfo.startPage - 1})}"  class="page-a"  th:if="${pageInfo.prev}">-->
+<!--                        <li class="page-num prev">&lt</li>-->
+<!--                    </a>-->
 
-                    <th:block th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}">
-                        <a th:href="@{/admin/hairList(page=${i})}" class="page-a">
-                            <li class="page-num active" th:text="${i}" th:if="${i == pageInfo.criteria.page}"></li>
-                            <li class="page-num" th:text="${i}" th:unless="${i == pageInfo.criteria.page}"></li>
-                        </a>
-                    </th:block>
+<!--                    <th:block th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}">-->
+<!--                        <a th:href="@{/admin/hairList(page=${i})}" class="page-a">-->
+<!--                            <li class="page-num active" th:text="${i}" th:if="${i == pageInfo.criteria.page}"></li>-->
+<!--                            <li class="page-num" th:text="${i}" th:unless="${i == pageInfo.criteria.page}"></li>-->
+<!--                        </a>-->
+<!--                    </th:block>-->
 
-                    <a th:href="@{/admin/hairList(page=${pageInfo.endPage + 1})}" class="page-a" th:if="${pageInfo.next}">
-                        <li class="page-num next">&gt</li>
-                    </a>
-                </ul>
-            </div>
+<!--                    <a th:href="@{/admin/hairList(page=${pageInfo.endPage + 1})}" class="page-a" th:if="${pageInfo.next}">-->
+<!--                        <li class="page-num next">&gt</li>-->
+<!--                    </a>-->
+<!--                </ul>-->
+<!--            </div>-->
         </div>
     </div>
 </div>
@@ -114,7 +120,8 @@
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"
 ></script>
-<script src="../js/playerList.js"></script>
+<script th:src="@{/js/admin/playerList.js}"></script>
+<script th:src="@{/js/admin/adminHeader.js}"></script>
 </div>
 </body>
 </html>

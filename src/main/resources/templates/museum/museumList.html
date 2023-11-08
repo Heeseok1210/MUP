@@ -5,19 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MU | 맨쪽이들</title>
-    <link rel="stylesheet" href="../css/museum.css" />
-    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" th:href="@{/css/museum/museumList.css}" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
     <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
 </head>
 <body>
+<header class="header" th:replace="fragment/header :: header"></header>
 <div class="container">
-    <div class="image-box">
-        <img src="" alt="" />
-    </div>
-
     <!-- 역사 리스트 -->
     <div class="first-banner">
         <h2 class="history-title">역사의 순간들을 영상으로 확인해봐요 👇👇</h2>
@@ -111,40 +109,8 @@
             <span class="material-symbols-rounded left"> chevron_left </span>
             <ul class="legend-box">
                 <li class="legend-content">
-                    <a href="#" class="img-overflow">
+                    <a th:href="@{/museum/allPlayerRead}" class="img-overflow">
                         <img src="../image/rooney.jpg" alt="임시 썸네일" />
-                        <!-- <img src="#" alt="레전드"> -->
-                    </a>
-                    <p>웨인 루니</p>
-                </li>
-
-                <li class="legend-content">
-                    <a href="#" class="img-overflow">
-                        <img src="#" alt="임시 썸네일" />
-                        <!-- <img src="#" alt="레전드"> -->
-                    </a>
-                    <p>웨인 루니</p>
-                </li>
-
-                <li class="legend-content">
-                    <a href="#" class="img-overflow">
-                        <img src="#" alt="임시 썸네일" />
-                        <!-- <img src="#" alt="레전드"> -->
-                    </a>
-                    <p>웨인 루니</p>
-                </li>
-
-                <li class="legend-content">
-                    <a href="#" class="img-overflow">
-                        <img src="#" alt="임시 썸네일" />
-                        <!-- <img src="#" alt="레전드"> -->
-                    </a>
-                    <p>웨인 루니</p>
-                </li>
-
-                <li class="legend-content">
-                    <a href="#" class="img-overflow">
-                        <img src="#" alt="임시 썸네일" />
                         <!-- <img src="#" alt="레전드"> -->
                     </a>
                     <p>웨인 루니</p>
@@ -167,6 +133,7 @@
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
             crossorigin="anonymous"
     ></script>
-    <script src="../js/muaeum.js"></script>
+    <script th:src="@{/js/fragment/header.js}"></script>
+    <script th:src="@{/js/museum/museumList.js}"></script>
 </body>
 </html>

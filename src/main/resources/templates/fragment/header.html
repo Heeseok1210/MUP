@@ -16,7 +16,7 @@
 <div class="header" th:fragment="header">
     <div class="header-content">
         <div class="header-left">
-            <a th:href="@{/}" class="header-logo">
+            <a th:href="@{/fragment/main}" class="header-logo">
                 <img
                         src="/img/MUlogo-removebg-preview.png"
                         alt="로고"
@@ -27,7 +27,7 @@
             <!-- 공지 사항 모달창 -->
             <div id="noticeModal" class="modal">
                 <div class="modal-content">
-                    <span class="close">&times;</span>
+                    <span class="close">X</span>
                     <div class="modalText-box">
                         <p class="notice-title">안녕하세요! 운영자입니다.</p><br>
                         <p class="notice-content">
@@ -41,17 +41,17 @@
 
             <ul class="header-menu">
                 <li>
-                    <a th:href="@{/}" id="button0">공지 사항</a>
+                    <a th:href="@{#}" id="button0">공지 사항</a>
                 </li>
 
                 <li>
-                    <a th:href="@{/museum/list}">구단 역사관</a>
+                    <a th:href="@{/museum/museumList}">구단 역사관</a>
                 </li>
                 <li>
-                    <a th:href="@{/maker/squadMake}">스쿼드 메이커</a>
+                    <a th:href="@{/maker/squadMaker}">스쿼드 메이커</a>
                 </li>
                 <li>
-                    <a th:href="@{museum/activePlayerList}">선수단 소개</a>
+                    <a th:href="@{/museum/activePlayerList}">선수단 소개</a>
                 </li>
             </ul>
         </div>
@@ -98,6 +98,5 @@
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"
 ></script>
-<script th:src="@{/js/mainHeader.js}"></script>
 </body>
 </html>

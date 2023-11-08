@@ -2,14 +2,10 @@ body {
     background-color: white;
 }
 
-.nothing {
-    height: 1000px;
-    background: aquamarine;
-}
-
 .container {
     width: 1300px;
     margin: 0 auto;
+    margin-top: 30px;
 }
 
 .top-side {
@@ -197,7 +193,7 @@ span#expandButton {
     background-repeat: no-repeat;
     height: 56px;
     width: 56px;
-    background-image: url("../image/pointTop.png");
+    background-image: url("/img/pointTop.png");
     background-size: contain;
     border: NONE;
     background-color: SNOW;

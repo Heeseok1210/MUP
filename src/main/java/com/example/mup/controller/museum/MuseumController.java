@@ -12,6 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MuseumController {
     private final MuseumService museumService;
 
+    @GetMapping("/museumList")
+    public void museumList(){}
+
     @GetMapping("/activePlayerList")
     public void activePlayerList(){}
+
+    @GetMapping("/allPlayerRead")
+    public void allPlayerRead(){}
+
+
 }

@@ -104,7 +104,7 @@
 .dropdown-content-header {
     display: none;
     position: absolute;
-    top: 90px;
+    top: 45px;
     background-color: #fff;
     min-width: 120px;
     z-index: 1;
@@ -154,6 +154,9 @@
 }
 
 .close {
+    display: flex;
+    width: 30px;
+    height: 30px;
     color: #aaa;
     float: right;
     font-size: 28px;

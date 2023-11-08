@@ -681,7 +681,7 @@ $(document).on("click", ".player", function () {
 });
 
 // 모달 닫기 버튼 클릭 시
-$(".close").click(function () {
+$(".closeMo").click(function () {
     $("#findModal").css("display", "none");
 });
 
@@ -691,7 +691,7 @@ $(document).on("click", ".subplayer", function () {
     $("#findModal").css("display", "block");
 });
 // 모달 닫기 버튼 클릭 시
-$(".close").click(function () {
+$(".closeMo").click(function () {
     $("#findModal").css("display", "none");
 });
 
