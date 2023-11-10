@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <title>footer</title>
 </head>
 <body>
+<div class="footer" th:fragment="footer">
 
+    <div class="footer-menu">
+        <ul class="menu">
+            <li>개인정보처리방침</li>
+            <li>영상정보관리지침</li>
+            <li>이용약관</li>
+        </ul>
+
+        <ul class="member-info">
+            <li>MUKids : 윤희석</li>
+            <li>프로젝트명 : 맨쪽이들 | 맨유를 알아가다</li>
+            <li>주소 : 서울 강동구 성내로 17길 38 다솔코딩아카데미</li>
+            <li>전화번호 : 010-8468-6643</li>
+            <li>COPYRIGHT &copy; MUKids.PROJECT. ALL RIGHTS RESERVED.</li>
+        </ul>
+    </div>
+    <a th:href="@{/fragment/main}" class="footer-logo">
+        <img src="/img/MUlogo-removebg-preview.png" alt="로고" height="70px">
+    </a>
+
+    <div class="footer-info">
+        <div class="footer-info-01">
+            <p class="title">고객센터</p>
+            <p>1234-5678</p>
+            <p>Red@mukids.co.kr</p>
+
+            <ul>
+                <li>상담전화 13:00 ~17:00 (평일)</li>
+                <li>상담톡 10:00 ~17:00 (평일)</li>
+            </ul>
+        </div>
+
+        <div class="footer-info-02">
+            <a th:href="@{/admin/adminLogin}"><p class="admin-login">관리자 로그인 바로가기</p></a>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>

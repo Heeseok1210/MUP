@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mup.mapper.admin.AdminFileMapper">
+    <insert id="insertPlayerFile">
+        <selectKey keyProperty="playerFileNumber" resultType="long" order="BEFORE">
+            SELECT SEQ_PLAYER_FILE.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TBL_PLAYER_FILE (PLAYER_FILE_NUMBER, PLAYER_FILE_NAME, PLAYER_FILE_UPLOAD_PATH, PLAYER_FILE_UUID, PLAYER_NUMBER)
+        VALUES (#{playerFileNumber}, #{playerFileName}, #{playerFileUploadPath}, #{playerFileUuid}, #{playerNumber})
+    </insert>
+</mapper>

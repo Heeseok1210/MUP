@@ -26,7 +26,7 @@ public class ConsumerController {
     @PostMapping("/join")
     public RedirectView join(ConsumerDto consumerDto){
         consumerService.register(consumerDto);
-        return new RedirectView("consumer/login");
+        return new RedirectView("/consumer/login");
     }
 
     @PostMapping("/login")
@@ -38,6 +38,6 @@ public class ConsumerController {
             e.printStackTrace();
             return  new RedirectView("/consumer/login");
         }
-        return new RedirectView("/main/main");
+        return new RedirectView("/fragment/main");
     }
 }

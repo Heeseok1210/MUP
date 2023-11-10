@@ -10,7 +10,7 @@ import java.sql.Date;
 @Component
 @Data
 @NoArgsConstructor
-public class MuseumDto {
+public class PlayerDto {
     private Long playerNumber;
     private String playerName;
     private Long playerEnter;

@@ -325,6 +325,7 @@ body {
     line-height: 0;
     vertical-align: top;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .link_down {
@@ -340,4 +341,5 @@ body {
     line-height: 0;
     vertical-align: top;
     cursor: pointer;
+    background-color: transparent;
 }

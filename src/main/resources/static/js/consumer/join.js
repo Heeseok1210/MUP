@@ -29,13 +29,13 @@ $(".dropdown-menu li").on("click", function () {
 $(document).ready(function () {
     // 중복 검사 버튼 클릭 시 이벤트 처리
     $(".double-check").click(function () {
-        var userId = $(".id-box").val(); // 입력된 사용자 아이디
+        var consumerId = $(".id-box").val(); // 입력된 사용자 아이디
 
         // Ajax 요청
         $.ajax({
             url: "/users/checkId",
             type: "GET",
-            data: { userId: userId },
+            data: { consumerId: consumerId },
             success: function (result) {
                 // 중복 여부에 따라 처리
                 if (result == 0) {
@@ -85,12 +85,12 @@ $(".repassword-box").on("change", function () {
 
 // 닉네임 중복검사
 $(".nickname-box").on("blur", function () {
-    var userNickname = $(".nickname-box").val();
+    var consumerNickname = $(".nickname-box").val();
 
     $.ajax({
         url: "/users/checkNickname",
         type: "GET",
-        data: { userNickname: userNickname },
+        data: { consumerNickname: consumerNickname },
         success: function (result) {
             // 중복 여부에 따라 처리
             if (result == 0) {

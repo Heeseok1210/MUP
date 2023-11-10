@@ -17,31 +17,21 @@
 <div class="adminHeader" th:fragment="header">
     <div class="header-content">
         <div class="header-left">
-            <a th:href="@{/}" class="header-logo">
+            <a th:href="@{/fragment/main}" class="header-logo">
                 <img src="/img/HereLogo.png" alt="로고" height="70px" />
             </a>
 
             <ul class="header-menu">
                 <li>
-                    <a th:href="@{/}">선수 등록</a>
+                    <a th:href="@{/admin/playerWrite}">선수 등록</a>
                 </li>
                 <li>
-                    <a th:href="@{/}">선수 목록</a>
+                    <a th:href="@{/admin/playerList}">선수 목록</a>
                 </li>
             </ul>
         </div>
 
         <div class="header-right">
-            <div class="header-icon">
-            <span class="material-symbols-rounded" style="font-size: 28px">
-              sentiment_satisfied
-            </span>
-                <div class="dropdown-content-header">
-                    <ul>
-                        <a th:href="@{/adimin/adminLogin}"><li>로그인</li></a>
-                    </ul>
-                </div>
-            </div>
             <div class="header-icon">
             <span class="material-symbols-rounded" style="font-size: 28px">
               sentiment_satisfied

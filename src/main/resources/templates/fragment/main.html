@@ -7,6 +7,7 @@
     <title>MU | 맨쪽이들</title>
     <link rel="stylesheet" th:href="@{/css/fragment/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/reset.css}"/>
     <link
             rel="stylesheet"
@@ -74,7 +75,7 @@
             <span class="material-symbols-rounded left"> chevron_left </span>
             <ul class="legend-box">
                 <li class="legend-content">
-                    <a th:href="@{/museum/musuumList}" class="img-overflow">
+                    <a th:href="@{/museum/allPlayerRead}" class="img-overflow">
                         <img src="/img/rooney.jpg" alt="임시 썸네일" />
                         <!-- <img src="#" alt="레전드"> -->
                     </a>
@@ -140,6 +141,7 @@
         <button class="link_down">맨아래로</button>
     </div>
 </div>
+<footer class="footer" th:replace="fragment/footer :: footer"></footer>
 <script
         src="https://code.jquery.com/jquery-3.6.3.js"
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="

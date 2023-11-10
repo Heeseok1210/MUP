@@ -4,6 +4,9 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.example.mup.dto.consumer.ConsumerDto" alias="consumerDto"/>
-        <typeAlias type="com.example.mup.dto.museum.MuseumDto" alias="museumDto"/>
+        <typeAlias type="com.example.mup.dto.museum.PlayerDto" alias="playerDto"/>
+        <typeAlias type="com.example.mup.dto.admin.AdminDto" alias="adminDto"/>
+        <typeAlias type="com.example.mup.dto.museum.PlayerDto" alias="playerDto"/>
+        <typeAlias type="com.example.mup.dto.museum.PlayerFileDto" alias="playerFileDto"/>
     </typeAliases>
 </configuration>

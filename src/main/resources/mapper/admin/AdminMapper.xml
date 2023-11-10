@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mup.mapper.admin.AdminMapper">
+    <select id="selectAdminNumber" resultType="long">
+        SELECT ADMIN_NUMBER FROM TBL_ADMIN
+        WHERE ADMIN_ID =#{adminId} AND ADMIN_PASSWORD = #{adminPassword}
+    </select>
+
+    <insert id="insertPlayer">
+        <selectKey keyProperty="playerNumber" order="BEFORE" resultType="long">
+            SELECT SEQ_PLAYER.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TBL_PLAYER (PLAYER_NUMBER, PLAYER_NAME, PLAYER_ENTER, PLAYER_TOTAL_SCORE, PLAYER_OVERALL, PLAYER_BIRTH,
+        PLAYER_CONTENT, FAME_NUMBER, WITH_NUMBER, POSITION_NUMBER, PLAYER_BACKNUMBER)
+        VALUES (#{playerNumber}, #{playerName}, #{playerEnter}, #{playerTotalscore}, #{playerOverall}, #{playerBirth},
+          #{playerContent}, #{fameNumber}, #{withNumber}, #{positionNumber}, #{playerBacknumber})
+    </insert>
 
 </mapper>
