@@ -10,7 +10,7 @@ body {
 /* 메인 */
 .main-box {
     width: 1050px;
-    height: 1000px;
+    height: auto;
     margin: 50px auto;
 }
 

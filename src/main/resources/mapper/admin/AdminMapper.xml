@@ -10,10 +10,70 @@
         <selectKey keyProperty="playerNumber" order="BEFORE" resultType="long">
             SELECT SEQ_PLAYER.NEXTVAL FROM DUAL
         </selectKey>
-        INSERT INTO TBL_PLAYER (PLAYER_NUMBER, PLAYER_NAME, PLAYER_ENTER, PLAYER_TOTAL_SCORE, PLAYER_OVERALL, PLAYER_BIRTH,
-        PLAYER_CONTENT, FAME_NUMBER, WITH_NUMBER, POSITION_NUMBER, PLAYER_BACKNUMBER)
-        VALUES (#{playerNumber}, #{playerName}, #{playerEnter}, #{playerTotalscore}, #{playerOverall}, #{playerBirth},
-          #{playerContent}, #{fameNumber}, #{withNumber}, #{positionNumber}, #{playerBacknumber})
+        INSERT INTO TBL_PLAYER (
+        PLAYER_NUMBER, PLAYER_NAME, PLAYER_ENTER, PLAYER_TOTAL_SCORE, PLAYER_OVERALL,
+        PLAYER_BIRTH, PLAYER_CONTENT, FAME_NUMBER, WITH_NUMBER, POSITION_NUMBER,
+        PLAYER_BACKNUMBER, ADMIN_NUMBER
+        )
+        VALUES (
+        #{playerNumber}, #{playerName}, #{playerEnter}, #{playerTotalScore},
+        #{playerOverall}, #{playerBirth, jdbcType=DATE}, #{playerContent},
+        #{fameNumber}, #{withNumber}, #{positionNumber}, #{playerBacknumber},
+        #{adminNumber}
+        )
     </insert>
+
+
+    <delete id="deletePlayer">
+        DELETE FROM TBL_PLAYER
+        WHERE PLAYER_NUMBER = #{playerNumber}
+    </delete>
+
+    <update id="updatePlayer">
+        UPDATE TBL_PLAYER
+        SET PLAYER_NAME = #{playerName}, PLAYER_ENTER = #{playerEnter}, PLAYER_TOTAL_SCORE = #{playerTotalScore}, PLAYER_OVERALL = #{playerOverall}, PLAYER_BIRTH = #{playerBirth, jdbcType=TIMESTAMP},
+            PLAYER_CONTENT = #{playerContent}, PLAYER_BACKNUMBER = #{playerBacknumber}, FAME_NUMBER = #{fameNumber}, WITH_NUMBER = #{withNumber}, POSITION_NUMBER = #{positionNumber}
+        WHERE PLAYER_NUMBER = #{playerNumber}
+    </update>
+
+
+    <select id="selectPlayer" resultType="playerVo">
+        SELECT
+            P.PLAYER_NUMBER, P.PLAYER_NAME, P.PLAYER_ENTER, P.PLAYER_TOTAL_SCORE,
+            P.PLAYER_OVERALL, P.PLAYER_BIRTH, P.PLAYER_CONTENT,
+            F.FAME_NAME, W.WITH_NAME, POS.POSITION_NAME,
+            P.PLAYER_BACKNUMBER, P.ADMIN_NUMBER, A.ADMIN_ID
+        FROM
+            TBL_PLAYER P
+                JOIN
+            TBL_ADMIN A ON P.ADMIN_NUMBER = A.ADMIN_NUMBER
+                LEFT JOIN
+            TBL_FAME F ON P.FAME_NUMBER = F.FAME_NUMBER
+                LEFT JOIN
+            TBL_WITH W ON P.WITH_NUMBER = W.WITH_NUMBER
+                LEFT JOIN
+            TBL_POSITION POS ON P.POSITION_NUMBER = POS.POSITION_NUMBER
+        where P.PLAYER_NUMBER = #{playerNumber} AND P.ADMIN_NUMBER = A.ADMIN_NUMBER
+    </select>
+
+    <select id="selectAllPlayer" resultType="playerVo">
+        SELECT
+            P.PLAYER_NUMBER, P.PLAYER_NAME, P.PLAYER_ENTER, P.PLAYER_TOTAL_SCORE,
+            P.PLAYER_OVERALL, P.PLAYER_BIRTH, P.PLAYER_CONTENT,
+            F.FAME_NAME, W.WITH_NAME, POS.POSITION_NAME,
+            P.PLAYER_BACKNUMBER, P.ADMIN_NUMBER, A.ADMIN_ID
+        FROM
+            TBL_PLAYER P
+                JOIN
+            TBL_ADMIN A ON P.ADMIN_NUMBER = A.ADMIN_NUMBER
+                LEFT JOIN
+            TBL_FAME F ON P.FAME_NUMBER = F.FAME_NUMBER
+                LEFT JOIN
+            TBL_WITH W ON P.WITH_NUMBER = W.WITH_NUMBER
+                LEFT JOIN
+            TBL_POSITION POS ON P.POSITION_NUMBER = POS.POSITION_NUMBER
+        ORDER BY
+            P.PLAYER_NUMBER DESC
+    </select>
 
 </mapper>

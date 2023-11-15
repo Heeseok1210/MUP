@@ -12,12 +12,16 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
 </head>
 <body>
 <header class="adminHeader" th:replace="admin/adminHeader :: header"></header>
 <div class="container">
     <div class="main-box">
-        <form class="new-post-form" action="#" method="post" enctype="multipart/form-data">
+        <form class="new-post-form" th:action="@{/admin/write}" method="post" enctype="multipart/form-data">
             <div class="player-write-box">
                 <div class="player-img-box">
                     <!-- 대표 이미지 업로드 -->
@@ -28,7 +32,7 @@
                                 <input
                                         type="file"
                                         id="post-image"
-                                        name="hairFile"
+                                        name="playerFile"
                                         accept="image/*"
                                         multiple
                                 />
@@ -57,7 +61,7 @@
                     />
                     <div class="select-box">
                         <div class="player-position-box">
-                            <label for="position" class="position-label">포지션</label>
+                            <label for="positionNumber" class="position-label">포지션</label>
                             <select name="positionNumber" class="position-type" id="positionNumber">
                                 <option value="">포지션 선택</option>
                             </select>
@@ -65,45 +69,44 @@
 
                         <div class="player-overall-box">
                             <label for="overall" class="overall-label">오버롤</label>
-                            <select name="overall" class="overall-type" id="overall">
+                            <select name="playerOverall" class="overall-type" id="overall">
                                 <option value="">오버롤 선택</option>
                             </select>
                         </div>
 
                         <div class="player-backNumber-box">
                             <label for="backNumber" class="backNumber-label">등번호</label>
-                            <select name="backNumber" class="backNumber-type" id="backNumber">
+                            <select name="playerBacknumber" class="backNumber-type" id="backNumber">
                                 <option value="">등번호 선택</option>
                             </select>
                         </div>
 
                         <div class="player-fame-box">
                             <label for="fame" class="fame-label">클래스</label>
-                            <select name="fame" class="fame-type" id="fame">
+                            <select name="fameNumber" class="fame-type" id="fame">
                                 <option value="">클래스 선택</option>
                             </select>
                         </div>
 
                         <div class="player-with-box">
                             <label for="with" class="with-label">소속</label>
-                            <select name="with" class="with-type" id="with">
+                            <select name="withNumber" class="with-type" id="with">
                                 <option value="">소속 선택</option>
                             </select>
                         </div>
 
 
 
+
                         <div class="dob-input">
-                            <label class="dob-label" for="dob">생년월일</label>
-                            <select class="dob-select" id="year" name="year">
-                                <option value="">년도</option>
-                            </select>
-                            <select class="dob-select" id="month" name="month">
-                                <option value="">월</option>
-                            </select>
-                            <select class="dob-select" id="day" name="day">
-                                <option value="">일</option>
-                            </select>
+                            <label for="playerBirth" class="birth-label">생년월일</label>
+                            <input
+                                    class="birthInput"
+                                    type="text"
+                                    id="playerBirth"
+                                    name="playerBirth"
+                                    placeholder="날짜 선택"
+                            />
                         </div>
                     </div>
                 </div>
@@ -122,13 +125,13 @@
     </div>
 </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script
         src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"
 ></script>
-<script th:src="@{js/admin/playerWrite.js}"></script>
+<script th:src="@{/js/admin/playerWrite.js}"></script>
 <script th:src="@{/js/admin/adminHeader.js}"></script>
 </div>
 </body>

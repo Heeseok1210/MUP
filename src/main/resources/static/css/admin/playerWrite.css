@@ -81,7 +81,8 @@ body {
 .backNumber-label,
 .overall-label,
 .fame-label,
-.with-label {
+.with-label,
+.birth-label{
     font-weight: bold;
     margin-right: 10px;
 }
@@ -182,15 +183,25 @@ input[type="file"] {
     border-radius: 5px;
 }
 
-.dob-label {
-    font-weight: bold;
+.flatpickr-day.selected {
+    background-color: #f74535;
+    color: #fff;
+}
+
+.flatpickr-day.today {
+    border: 1px solid #f74535;
+}
+
+.flatpickr-calendar {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.dob-select:not(:last-child) {
     margin-right: 10px;
 }
 
-.dob-select,
-.dob-input-field {
-    color: rgb(117, 117, 117);
-    padding: 5px;
-    margin: 3px 19px;
+.birthInput {
+    margin-bottom: 0px !important;
     border-radius: 5px;
 }

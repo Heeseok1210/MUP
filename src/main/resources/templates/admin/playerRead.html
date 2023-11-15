@@ -32,24 +32,28 @@
             </div>
             <div class="player-information">
                 <input type="hidden" class="playerNumber"/>
-                <span class="player-title"  name="playerName">웨인 루니</span>
-                <span class="player-dob"  name="playerDob">1985년 10월 25일</span>
+                <span class="player-title"  name="playerName" th:text="${player.playerName}"></span>
+                <span class="player-dob"  name="playerDob"  th:text="${#dates.format(player.playerBirth, 'yyyy년 MM월 dd일')}"></span>
                 <div class="player-category">
                     <span>레전더리</span>
-                    > <span name="playerBackNumber">10번</span>
+                    > <span name="playerBackNumber" th:text="${player.playerBacknumber} + '번'"></span>
                 </div>
                 <div class="player-category">
-                    <span name="playerPosition">포지션</span>
-                    / <span name="playerOverall">99</span> > <span name="playerEnter">출장 수</span> >
-                    <span name="playerTotalScore">총 득점</span>
+                    <span name="playerPosition" th:text="${player.positionName}"></span>
+                    / <span name="playerOverall" th:text="${player.playerOverall}"></span> > <span name="playerEnter" th:text="${player.playerEnter} + '경기'" ></span> >
+                    <span name="playerTotalScore" th:text="${player.playerTotalScore} + '골'"></span>
                 </div>
-                <span class="player-content" name="playerContent"></span>
+                <span class="player-content" name="playerContent" th:text="${player.playerContent}"></span>
             </div>
         </div>
 
         <div class="btn-box">
+            <th:block th:if="${session.adminNumber == player.adminNumber}">
             <button type="button" class="delete">삭제</button>
-            <button type="submit" class="modify">수정</button>
+            <button type="button" class="modify">수정</button>
+            </th:block>
+            <input type="hidden" name="player-num"  class="player-num" th:value="${player.playerNumber}">
+            <button type="button" class="before">뒤로</button>
         </div>
 
     </div>
@@ -60,7 +64,7 @@
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"
 ></script>
-<script th:src="@{/js/adminHeader.js}"></script>
 <script th:src="@{/js/admin/adminHeader.js}"></script>
+<script th:src="@{/js/admin/playerRead.js}"></script>
 </body>
 </html>

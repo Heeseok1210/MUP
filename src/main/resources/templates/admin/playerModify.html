@@ -1,10 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MU | 맨쪽이들</title>
+    <link rel="stylesheet" th:href="@{/css/admin/playerModify.css}" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/css/admin/adminHeader.css}"/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
 </head>
 <body>
+<header class="adminHeader" th:replace="admin/adminHeader :: header"></header>
+<div class="container">
+    <div class="main-box">
+        <form class="new-post-form" th:action="@{/admin/modify}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="playerNumber" th:value="${player.playerNumber}">
+            <div class="player-write-box">
+                <div class="player-img-box">
+                    <!-- 대표 이미지 업로드 -->
+                    <div class="form-group">
+                        <ul class="file-wrap">
+                            <!-- 썸네일 처리 해야함 -->
+                            <li class="img-list">
+                                <input
+                                        type="file"
+                                        id="post-image"
+                                        name="playerFile"
+                                        accept="image/*"
+                                        multiple
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="player-information">
+                    <input
+                            type="text"
+                            class="player-name"
+                            placeholder="선수 이름 입력..."
+                            name="playerName"
+                            th:value="${player.playerName}"
+                    />
+                    <input
+                            type="number"
+                            class="player-enter"
+                            placeholder="선수의 출장 수..."
+                            name="playerEnter"
+                            th:value="${player.playerEnter}"
+                    />
+                    <input
+                            type="number"
+                            class="player-total-score"
+                            placeholder="선수의 총 득점..."
+                            name="playerTotalScore"
+                            th:value="${player.playerTotalScore}"
+                    />
+                    <div class="select-box">
+                        <div class="player-position-box">
+                            <label for="positionNumber" class="position-label">포지션</label>
+                            <select name="positionNumber" class="position-type" id="positionNumber">
+                                <option value="">포지션 선택</option>
+                            </select>
+                        </div>
 
+                        <div class="player-overall-box">
+                            <label for="overall" class="overall-label">오버롤</label>
+                            <select name="playerOverall" class="overall-type" id="overall">
+                                <option value="">오버롤 선택</option>
+                            </select>
+                        </div>
+
+                        <div class="player-backNumber-box">
+                            <label for="backNumber" class="backNumber-label">등번호</label>
+                            <select name="playerBacknumber" class="backNumber-type" id="backNumber">
+                                <option value="">등번호 선택</option>
+                            </select>
+                        </div>
+
+                        <div class="player-fame-box">
+                            <label for="fame" class="fame-label">클래스</label>
+                            <select name="fameNumber" class="fame-type" id="fame">
+                                <option value="">클래스 선택</option>
+                            </select>
+                        </div>
+
+                        <div class="player-with-box">
+                            <label for="with" class="with-label">소속</label>
+                            <select name="withNumber" class="with-type" id="with">
+                                <option value="">소속 선택</option>
+                            </select>
+                        </div>
+
+
+
+
+                        <div class="dob-input">
+                            <label for="playerBirth" class="birth-label">생년월일</label>
+                            <input
+                                    class="birthInput"
+                                    type="text"
+                                    id="playerBirth"
+                                    name="playerBirth"
+                                    placeholder="날짜 선택"
+                                    th:value="${player.playerBirth}"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contentBox">
+        <textarea
+                class="player-content"
+                placeholder="콘텐츠 입력..."
+                name="playerContent"
+                th:text="${player.playerContent}"
+        ></textarea>
+            </div>
+            <div class="btn-box">
+                <button type="submit">수정 완료</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script
+        src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+        crossorigin="anonymous"
+></script>
+<script th:src="@{/js/admin/playerModify.js}"></script>
+<script th:src="@{/js/admin/adminHeader.js}"></script>
+</div>
 </body>
 </html>

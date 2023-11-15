@@ -1,16 +1,15 @@
-package com.example.mup.dto.museum;
+package com.example.mup.vo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.sql.Date;
-
+import java.util.Date;
 
 @Component
 @Data
 @NoArgsConstructor
-public class PlayerDto {
+public class PlayerVo {
     private Long playerNumber;
     private String playerName;
     private Long playerEnter;
@@ -22,5 +21,9 @@ public class PlayerDto {
     private Long fameNumber;
     private Long withNumber;
     private Long positionNumber;
-    private Long AdminNumber;
+    private Long adminNumber;
+    private String adminId;
+    private String fameName;
+    private String withName;
+    private String positionName;
 }

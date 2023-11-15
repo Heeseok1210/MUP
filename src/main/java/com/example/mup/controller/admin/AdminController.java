@@ -1,16 +1,20 @@
 package com.example.mup.controller.admin;
 
 import com.example.mup.dto.admin.AdminDto;
+import com.example.mup.dto.museum.PlayerDto;
 import com.example.mup.service.admin.AdminService;
+import com.example.mup.vo.PlayerVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,15 +34,64 @@ public class AdminController {
             e.printStackTrace();
             return new RedirectView("/admin/adminLogin");
         }
-        return new RedirectView("/admin/playerList");
+        return new RedirectView("/admin/list");
     }
 
-    @GetMapping("/playerList")
-    public void playerList(){}
+    @GetMapping("/list")
+    public String showPlayerList(Model model, HttpServletRequest req){
+        List<PlayerVo> playerList = adminService.findAll();
+        Long adminNumber = (Long)req.getSession().getAttribute("adminNumber");
+        model.addAttribute("playerList", playerList);
 
-    @GetMapping("/playerWrite")
-    public void playerWrite(){}
+        return adminNumber == null ? "admin/adminLogin" : "admin/playerList";
+    }
 
-    @GetMapping("/playerRead")
-    public void playerRead(){}
+    @GetMapping("/write")
+    public String playerWrite(HttpServletRequest req){
+        Long adminNumber = (Long)req.getSession().getAttribute("adminNumber");
+        return adminNumber == null ? "admin/adminLogin" : "admin/playerWrite";
+    }
+
+    @PostMapping("/write")
+    public RedirectView playerWrite(PlayerDto playerDto, HttpServletRequest req, RedirectAttributes redirectAttributes){
+//        RedirectAttributes는 리다이렏트 전용 Model객체라고 생각
+        Long adminNumber = (Long) req.getSession().getAttribute("adminNumber");
+        playerDto.setAdminNumber(adminNumber);
+        adminService.register(playerDto);
+
+
+//        쿼리스트링으로 데이터 전송(url에 쿼리스트링이 생김)
+//        redirectAttributes.addAttribute("playerNumber", playerDto.getPlayerNumber());
+
+//        플레쉬를 사용하여 데이터 전송
+        redirectAttributes.addFlashAttribute("playerNumber", playerDto.getPlayerNumber());
+        return new RedirectView("/admin/list");
+    }
+
+    @GetMapping("/read")
+    public String playerRead(Long playerNumber, Model model){
+        PlayerVo playerVo = adminService.findPlayer(playerNumber);
+        model.addAttribute("player", playerVo);
+        return "admin/playerRead";
+    }
+
+    @GetMapping("/modify")
+    public String playerModify(Long playerNumber, Model model) {
+        PlayerVo playerVo = adminService.findPlayer(playerNumber);
+        model.addAttribute("player", playerVo);
+        return "admin/playerModify";
+    }
+
+    @PostMapping("modify")
+    public RedirectView playerModify(PlayerDto playerDto, RedirectAttributes redirectAttributes){
+        adminService.modifyPlayer(playerDto);
+        redirectAttributes.addAttribute("playerNumber", playerDto.getPlayerNumber());
+        return new RedirectView("/admin/read");
+    }
+
+    @GetMapping("/remove")
+    public RedirectView playerRemove(Long playerNumber){
+        adminService.removePlayer(playerNumber);
+        return new RedirectView("/admin/list");
+    }
 }
