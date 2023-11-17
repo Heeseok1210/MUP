@@ -2,6 +2,7 @@ package com.example.mup.mapper.admin;
 
 import com.example.mup.dto.admin.AdminDto;
 import com.example.mup.dto.museum.PlayerDto;
+import com.example.mup.vo.Criteria;
 import com.example.mup.vo.PlayerVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -23,5 +24,7 @@ public interface AdminMapper {
 //    선수 조회
     public PlayerVo selectPlayer(Long playerNumber);
 //    선수 전체 조회
-    public List<PlayerVo> selectAllPlayer();
+    public List<PlayerVo> selectAllPlayer(Criteria criteria);
+//    선수 전체 수 조회
+    public int selectTotal();
 }

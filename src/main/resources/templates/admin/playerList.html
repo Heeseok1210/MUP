@@ -44,7 +44,8 @@
                             <li class="list-li" th:each="playerList : ${playerList}">
                                 <a th:href="@{/admin/read(playerNumber=${playerList.playerNumber})}">
                                     <div class="img-list">
-                                        <div class="main-img"></div>
+                                        <div th:if="${playerList.playerFileName == null}" class="main-img"  style="background-color: indianred"></div>
+                                        <div th:unless="${playerList.playerFileName == null}" class="main-img" th:style="${'background-image: url(/upload/' + playerList.playerFileUploadPath + '/th_' + playerList.playerFileUuid + '_' + playerList.playerFileName + ')'}"></div>
                                     </div>
                                 </a>
                                 <div class="player-title-box">
@@ -57,24 +58,24 @@
                 </article>
             </div>
 
-<!--            <div class="page-container">-->
-<!--                <ul class="page-box">-->
-<!--                    <a th:href="@{/admin/hairList(page=${pageInfo.startPage - 1})}"  class="page-a"  th:if="${pageInfo.prev}">-->
-<!--                        <li class="page-num prev">&lt</li>-->
-<!--                    </a>-->
+            <div class="page-container">
+                <ul class="page-box">
+                    <a th:href="@{/admin/list(page=${pageInfo.startPage - 1})}"  class="page-a"  th:if="${pageInfo.prev}">
+                        <li class="page-num prev">&lt</li>
+                    </a>
 
-<!--                    <th:block th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}">-->
-<!--                        <a th:href="@{/admin/hairList(page=${i})}" class="page-a">-->
-<!--                            <li class="page-num active" th:text="${i}" th:if="${i == pageInfo.criteria.page}"></li>-->
-<!--                            <li class="page-num" th:text="${i}" th:unless="${i == pageInfo.criteria.page}"></li>-->
-<!--                        </a>-->
-<!--                    </th:block>-->
+                    <th:block th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}">
+                        <a th:href="@{/admin/list(page=${i})}" class="page-a">
+                            <li class="page-num active" th:text="${i}" th:if="${i == pageInfo.criteria.page}"></li>
+                            <li class="page-num" th:text="${i}" th:unless="${i == pageInfo.criteria.page}"></li>
+                        </a>
+                    </th:block>
 
-<!--                    <a th:href="@{/admin/hairList(page=${pageInfo.endPage + 1})}" class="page-a" th:if="${pageInfo.next}">-->
-<!--                        <li class="page-num next">&gt</li>-->
-<!--                    </a>-->
-<!--                </ul>-->
-<!--            </div>-->
+                    <a th:href="@{/admin/list(page=${pageInfo.endPage + 1})}" class="page-a" th:if="${pageInfo.next}">
+                        <li class="page-num next">&gt</li>
+                    </a>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@ package com.example.mup.service.admin;
 import com.example.mup.dto.admin.AdminDto;
 import com.example.mup.dto.museum.PlayerDto;
 import com.example.mup.mapper.admin.AdminMapper;
+import com.example.mup.vo.Criteria;
 import com.example.mup.vo.PlayerVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -70,7 +71,13 @@ public class AdminService {
     }
 //    선수 전체 조회
     @Transactional(readOnly = true)
-    public List<PlayerVo> findAll(){
-        return adminMapper.selectAllPlayer();
+    public List<PlayerVo> findAll(Criteria criteria){
+        return adminMapper.selectAllPlayer(criteria);
+    }
+
+//    선수 전체 수 조회
+    @Transactional(readOnly = true)
+    public int getTotalPlayer(){
+        return adminMapper.selectTotal();
     }
 }

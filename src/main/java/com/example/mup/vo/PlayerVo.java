@@ -26,4 +26,8 @@ public class PlayerVo {
     private String fameName;
     private String withName;
     private String positionName;
+    private Long playerFileNumber;
+    private String playerFileName;
+    private String playerFileUploadPath;
+    private String playerFileUuid;
 }

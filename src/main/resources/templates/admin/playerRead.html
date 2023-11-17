@@ -22,10 +22,8 @@
                 <div class="form-group">
                     <ul class="file-wrap">
                         <li>
-                            <img
-                                    class="img-list"
-                                    src=""
-                            />
+                            <div th:if="${player.playerFileName == null}" class="main-img"  style="background-color: indianred"></div>
+                            <div th:unless="${player.playerFileName == null}" class="main-img" th:style="${'background-image: url(/upload/' + player.playerFileUploadPath + '/th_' + player.playerFileUuid + '_' + player.playerFileName + ')'}"></div>
                         </li>
                     </ul>
                 </div>

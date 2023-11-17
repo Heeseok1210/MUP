@@ -8,5 +8,7 @@
         <typeAlias type="com.example.mup.dto.admin.AdminDto" alias="adminDto"/>
         <typeAlias type="com.example.mup.vo.PlayerVo" alias="playerVo"/>
         <typeAlias type="com.example.mup.dto.museum.PlayerFileDto" alias="playerFileDto"/>
+        <typeAlias type="com.example.mup.vo.Criteria" alias="criteria"/>
+        <typeAlias type="com.example.mup.vo.PageVo" alias="pageVo"/>
     </typeAliases>
 </configuration>

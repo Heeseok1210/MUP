@@ -2,7 +2,10 @@ package com.example.mup.controller.admin;
 
 import com.example.mup.dto.admin.AdminDto;
 import com.example.mup.dto.museum.PlayerDto;
+import com.example.mup.service.admin.AdminFileService;
 import com.example.mup.service.admin.AdminService;
+import com.example.mup.vo.Criteria;
+import com.example.mup.vo.PageVo;
 import com.example.mup.vo.PlayerVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -10,10 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -21,6 +27,7 @@ import java.util.List;
 @RequestMapping("/admin/*")
 public class AdminController {
     private  final AdminService adminService;
+    private final AdminFileService adminFileService;
 
     @GetMapping("/adminLogin")
     public void adminLogin(Model model){}
@@ -38,10 +45,11 @@ public class AdminController {
     }
 
     @GetMapping("/list")
-    public String showPlayerList(Model model, HttpServletRequest req){
-        List<PlayerVo> playerList = adminService.findAll();
+    public String showPlayerList(Model model, HttpServletRequest req, Criteria criteria){
+        List<PlayerVo> playerList = adminService.findAll(criteria);
         Long adminNumber = (Long)req.getSession().getAttribute("adminNumber");
         model.addAttribute("playerList", playerList);
+        model.addAttribute("pageInfo", new PageVo(criteria, adminService.getTotalPlayer()));
 
         return adminNumber == null ? "admin/adminLogin" : "admin/playerList";
     }
@@ -53,7 +61,8 @@ public class AdminController {
     }
 
     @PostMapping("/write")
-    public RedirectView playerWrite(PlayerDto playerDto, HttpServletRequest req, RedirectAttributes redirectAttributes){
+    public RedirectView playerWrite(PlayerDto playerDto, HttpServletRequest req, RedirectAttributes redirectAttributes
+            , @RequestParam("playerFile") List<MultipartFile> files){
 //        RedirectAttributes는 리다이렏트 전용 Model객체라고 생각
         Long adminNumber = (Long) req.getSession().getAttribute("adminNumber");
         playerDto.setAdminNumber(adminNumber);
@@ -65,6 +74,15 @@ public class AdminController {
 
 //        플레쉬를 사용하여 데이터 전송
         redirectAttributes.addFlashAttribute("playerNumber", playerDto.getPlayerNumber());
+
+        if (files != null){
+            try {
+                adminFileService.registerAndSaveFiles(files, playerDto.getPlayerNumber());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         return new RedirectView("/admin/list");
     }
 
