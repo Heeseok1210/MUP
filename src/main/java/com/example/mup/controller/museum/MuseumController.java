@@ -1,10 +1,15 @@
 package com.example.mup.controller.museum;
 
 import com.example.mup.service.museum.MuseumService;
+import com.example.mup.vo.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -12,14 +17,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MuseumController {
     private final MuseumService museumService;
 
-    @GetMapping("/museumList")
-    public void museumList(){}
+    @GetMapping("/list")
+    public String museumList(Model model){
+//        레전드 선수
+        List<PlayerVo> playerList = museumService.findLegend();
+        model.addAttribute("playerList", playerList);
+        return "museum/museumList";
+    }
 
-    @GetMapping("/activePlayerList")
-    public void activePlayerList(){}
+    @GetMapping("/activeList")
+    public String activePlayerList(Model model, HttpServletRequest req, CriteriaAct criteriaAct){
+//        현역 선수
+        List<PlayerVo> activeList = museumService.findActive(criteriaAct);
+        model.addAttribute("activeList", activeList);
+        model.addAttribute("pageInfo",new PageActVo(criteriaAct, museumService.getActiveCnt()));
+        return "museum/activePlayerList";
+    }
 
-    @GetMapping("/allPlayerRead")
-    public void allPlayerRead(){}
+    @GetMapping("/read")
+    public String allPlayerRead(Long playerNumber, Model model){
+        PlayerVo playerVo = museumService.findPlayer(playerNumber);
+        museumService.updateReadCnt(playerNumber);
+        model.addAttribute("allPlayer", playerVo);
+        return "museum/allPlayerRead";
+    }
 
 
 }

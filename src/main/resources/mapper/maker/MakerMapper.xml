@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mup.mapper.maker.MakerMapper">
+<!--선수 찾기-->
+    <select id="selectAllPlayer" resultType="playerVo">
+        SELECT  PLAYER_NUMBER,
+                PLAYER_NAME,
+                PLAYER_ENTER,
+                PLAYER_TOTAL_SCORE,
+                PLAYER_OVERALL,
+                PLAYER_BIRTH,
+                PLAYER_CONTENT,
+                FAME_NAME,
+                WITH_NAME,
+                POSITION_NAME,
+                PLAYER_BACKNUMBER,
+                ADMIN_NUMBER,
+                ADMIN_ID,
+                PLAYER_FILE_UPLOAD_PATH,
+                PLAYER_FILE_UUID,
+                PLAYER_FILE_NAME
+        FROM(
+                SELECT P.PLAYER_NUMBER,
+                       P.PLAYER_NAME,
+                       P.PLAYER_ENTER,
+                       P.PLAYER_TOTAL_SCORE,
+                       P.PLAYER_OVERALL,
+                       P.PLAYER_BIRTH,
+                       P.PLAYER_CONTENT,
+                       F.FAME_NAME,
+                       W.WITH_NAME,
+                       POS.POSITION_NAME,
+                       P.PLAYER_BACKNUMBER,
+                       P.ADMIN_NUMBER,
+                       A.ADMIN_ID,
+                       J.PLAYER_FILE_UPLOAD_PATH,
+                       J.PLAYER_FILE_UUID,
+                       J.PLAYER_FILE_NAME
+                FROM TBL_PLAYER P
+                         JOIN
+                     TBL_ADMIN A ON P.ADMIN_NUMBER = A.ADMIN_NUMBER
+                         LEFT JOIN
+                     TBL_FAME F ON P.FAME_NUMBER = F.FAME_NUMBER
+                         LEFT JOIN
+                     TBL_WITH W ON P.WITH_NUMBER = W.WITH_NUMBER
+                         LEFT JOIN
+                     TBL_POSITION POS ON P.POSITION_NUMBER = POS.POSITION_NUMBER
+                         LEFT JOIN (
+                    SELECT PLAYER_FILE_NUMBER, PLAYER_FILE_UPLOAD_PATH, PLAYER_FILE_UUID, PLAYER_FILE_NAME, PLAYER_NUMBER
+                    FROM (
+                             SELECT PLAYER_FILE_NUMBER, PLAYER_FILE_UPLOAD_PATH, PLAYER_FILE_UUID, PLAYER_FILE_NAME, PLAYER_NUMBER,
+                                    RANK() OVER(PARTITION BY PLAYER_NUMBER ORDER BY PLAYER_FILE_NUMBER) RK
+                             FROM TBL_PLAYER_FILE PF
+                         )
+                    WHERE RK = 1
+                ) J ON P.PLAYER_NUMBER = J.PLAYER_NUMBER
+                ORDER BY P.PLAYER_NUMBER DESC
+            )
+    </select>
+
+
+    <select id="selectTotal" resultType="_int">
+        SELECT COUNT (PLAYER_NUMBER) FROM TBL_PLAYER
+    </select>
 
 </mapper>

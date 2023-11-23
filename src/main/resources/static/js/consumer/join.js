@@ -33,7 +33,7 @@ $(document).ready(function () {
 
         // Ajax 요청
         $.ajax({
-            url: "/users/checkId",
+            url: "/consumers/checkId",
             type: "GET",
             data: { consumerId: consumerId },
             success: function (result) {
@@ -88,7 +88,7 @@ $(".nickname-box").on("blur", function () {
     var consumerNickname = $(".nickname-box").val();
 
     $.ajax({
-        url: "/users/checkNickname",
+        url: "/consumers/checkNickname",
         type: "GET",
         data: { consumerNickname: consumerNickname },
         success: function (result) {

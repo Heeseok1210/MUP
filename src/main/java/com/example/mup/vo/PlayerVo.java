@@ -18,6 +18,7 @@ public class PlayerVo {
     private Long playerBacknumber;
     private Date playerBirth;
     private String playerContent;
+    private Long playerViewCnt;
     private Long fameNumber;
     private Long withNumber;
     private Long positionNumber;

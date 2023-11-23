@@ -777,3 +777,38 @@ $(document).ready(function () {
 
     $("#slider1 .wrap_slider").slider(sliderDefaultOption);
 });
+
+
+$(document).on("click", ".searchPlayer_Img", function () {
+    // 클릭한 요소에서 플레이어 정보를 가져옵니다.
+    var playerOverall = $(this).find(".playerOverall").text();
+    var positionName = $(this).find(".positionName").text();
+    var playerName = $(this).find(".playerName").text();
+
+    // 클릭한 요소에서 이미지의 src를 가져옵니다.
+    var playerImgSrc = $(this).find(".searchPlayer_imgBox").attr("src");
+
+    // 클릭한 요소의 부모인 .player 요소를 찾습니다.
+    var playerContainer = $(this).closest(".player");
+
+    // .player 요소 내의 업데이트가 필요한 부분의 코드를 추가합니다.
+    playerContainer.html(`
+    <span class="empty">
+      <span class="info">
+        <span class="playerFile">
+          <div class="img-list">
+            <img class="searchPlayer_imgBox" alt="플레이어 섬네일" src="${playerImgSrc}">
+          </div>
+          <div class="playerInfo">
+            <span class="playerOverall">${playerOverall}</span>
+            <span class="positionName">${positionName}</span>
+          </div>
+          <span class="playerName">${playerName}</span>
+        </span>
+      </span>
+    </span>
+  `);
+
+    // 모달 열기
+    $("#findModal").css("display", "block");
+});

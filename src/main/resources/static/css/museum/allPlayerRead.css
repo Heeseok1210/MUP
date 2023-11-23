@@ -31,7 +31,6 @@ body {
 
 .img-list {
     position: relative;
-    background-color: #f2f2f2;
     width: 300px;
     height: 300px;
     margin: 0;
@@ -155,10 +154,11 @@ span#expandButton {
 }
 
 .backNumberMain {
-    color: rgb(237, 47, 47);
+    color: #9E9E9E;
     font-size: 1.875rem;
     line-height: 40px;
-    font-size: 1.875rem;
+    display: flex;
+    justify-content: center;
 }
 
 .brithMain {
@@ -167,14 +167,9 @@ span#expandButton {
     color: #bc9d4c;
 }
 
-.position-icon {
-    background-image: url("https://www.manutd.com/ui-branding/assets/images/icons-oEvFeI_ZV.png");
-    background-position: -8698px 0;
-    height: 42px;
-    width: 47px;
-    background-repeat: no-repeat;
-    float: left;
-    margin: 0 2px;
+.positionMain{
+    line-height: 40px;
+    font-size: 1.875rem;
 }
 
 /* 업다운 버튼 */
@@ -203,3 +198,9 @@ span#expandButton {
     vertical-align: top;
     cursor: pointer;
 }
+
+/*포지션에 따른 색 변화*/
+.yellow { color: yellow; }
+.blue { color: blue; }
+.green { color: green; }
+.red { color: red; }

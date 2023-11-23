@@ -134,16 +134,16 @@ body {
 
 .third-banner .left {
     position: absolute;
-    top: 1000px;
-    left: 410px;
+    top: 1205px;
+    left: 315px;
     cursor: pointer;
     z-index: 5;
 }
 
 .third-banner .right {
     position: absolute;
-    top: 1000px;
-    right: 410px;
+    top: 1205px;
+    right: 315px;
     cursor: pointer;
     z-index: 5;
 }

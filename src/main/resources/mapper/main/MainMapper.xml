@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mup.mapper.main.MainMapper">
+<!--  레전드 선수 띄우기  -->
+    <select id="selectLegendPlayer" resultType="playerVo">
+        SELECT PLAYER_NUMBER,
+               PLAYER_NAME,
+               ADMIN_NUMBER,
+               ADMIN_ID,
+               PLAYER_FILE_UPLOAD_PATH,
+               PLAYER_FILE_UUID,
+               PLAYER_FILE_NAME
+        FROM (
+                 SELECT ROWNUM AS RNUM, PLAYER_NUMBER,
+                        PLAYER_NAME,
+                        ADMIN_NUMBER,
+                        ADMIN_ID,
+                        PLAYER_FILE_UPLOAD_PATH,
+                        PLAYER_FILE_UUID,
+                        PLAYER_FILE_NAME
+                 FROM (
+                          SELECT P.PLAYER_NUMBER,
+                                 P.PLAYER_NAME,
+                                 P.ADMIN_NUMBER,
+                                 A.ADMIN_ID,
+                                 J.PLAYER_FILE_UPLOAD_PATH,
+                                 J.PLAYER_FILE_UUID,
+                                 J.PLAYER_FILE_NAME
+                          FROM TBL_PLAYER P
+                                   JOIN TBL_ADMIN A ON P.ADMIN_NUMBER = A.ADMIN_NUMBER
+                                   LEFT JOIN (
+                              SELECT PLAYER_FILE_NUMBER, PLAYER_FILE_UPLOAD_PATH, PLAYER_FILE_UUID, PLAYER_FILE_NAME, PLAYER_NUMBER
+                              FROM (
+                                       SELECT PLAYER_FILE_NUMBER, PLAYER_FILE_UPLOAD_PATH, PLAYER_FILE_UUID, PLAYER_FILE_NAME, PLAYER_NUMBER,
+                                              RANK() OVER (PARTITION BY PLAYER_NUMBER ORDER BY PLAYER_FILE_NUMBER) RK
+                                       FROM TBL_PLAYER_FILE PF
+                                   )
+                              WHERE RK = 1
+                          ) J ON P.PLAYER_NUMBER = J.PLAYER_NUMBER
+                          WHERE P.WITH_NUMBER = 2
+                          ORDER BY P.PLAYER_NUMBER DESC
+                      ) S1
+             ) S2
+        WHERE RNUM = #{number}
+    </select>
+
+<!--  레전드 선수 개수  -->
+    <select id="selectLegendCnt" resultType="_int">
+        SELECT COUNT (PLAYER_NUMBER)
+        FROM TBL_PLAYER
+        WHERE WITH_NUMBER = 2
+    </select>
 
 </mapper>

@@ -22,19 +22,20 @@
         <hr class="table-hr" />
         <div class="loginSec">
             <div class="logJoin">
-                <form action="#" method="post">
+                <form th:action="@{/consumer/login}" method="post">
                     <div class="id-password-box">
-                        <input type="text" name="consumerId" placeholder=" 아이디 입력" />
+                        <input class="login-box" type="text" name="consumerId" placeholder=" 아이디 입력" />
                         <input
                                 type="password"
                                 name="consumerPassword"
                                 placeholder=" 비밀번호 입력"
+                                class="password-box"
                         />
-                        <th:block th:if="${error != null}">
-                  <span class="false-msg"
-                  >아이디 또는 비밀번호가 일치하지 않습니다.</span
-                  >
-                        </th:block>
+<!--                        <th:block th:if="${error != null}">-->
+<!--                  <span class="false-msg"-->
+<!--                  >아이디 또는 비밀번호가 일치하지 않습니다.</span-->
+<!--                  >-->
+<!--                        </th:block>-->
                     </div>
                     <button class="login-btn" type="submit">로그인</button>
                 </form>

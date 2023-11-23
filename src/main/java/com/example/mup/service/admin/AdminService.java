@@ -8,7 +8,9 @@ import com.example.mup.vo.PlayerVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +19,7 @@ import java.util.Optional;
 @Transactional
 public class AdminService {
     private final AdminMapper adminMapper;
+    private final AdminFileService adminFileService;
 
 //    관리자 로그인
     @Transactional(readOnly = true)
@@ -53,8 +56,17 @@ public class AdminService {
         }
         adminMapper.updatePlayer(playerDto);
     }
-//    선수 조회
 
+    public void modifyPlayer(PlayerDto playerDto, List<MultipartFile> files) throws IOException{
+        if (playerDto == null || files == null){
+            throw new IllegalArgumentException("선수 수정 매개변수 null 체크");
+        }
+        adminFileService.remove(playerDto.getPlayerNumber());
+        adminFileService.registerAndSaveFiles(files, playerDto.getPlayerNumber());
+        adminMapper.updatePlayer(playerDto);
+    }
+
+//    선수 조회
     /**
      *
      * @param playerNumber

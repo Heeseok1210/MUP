@@ -1,3 +1,24 @@
+// 이미지 처리
+displayAjax();
+
+function displayAjax(){
+    let playerNumber = $('.player-num').val();
+
+    $.ajax({
+        url : '/adminFile/imgList',
+        type : 'get',
+        data : {playerNumber : playerNumber},
+        success : function (files){
+            let text = '';
+
+            files.forEach(file => {
+                let fileName = file.playerFileUploadPath + '/' + file.playerFileUuid + '_' + file.playerFileName;
+                text += `<img class="img-list" src="/adminFile/display?fileName=${fileName}"/>`;
+            });
+            $('.file-wrap').html(text);
+        }
+    })
+}
 
 // 뒤로가기
 $('.before').on('click', function(){

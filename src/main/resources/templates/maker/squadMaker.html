@@ -61,88 +61,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="option_wrap">
-                                <div class="ovr_selector">
-                                    <div class="th"><span>OVR</span></div>
-                                    <div class="td">
-                                        <div id="slider1" class="range_slider">
-                                            <input
-                                                    type="number"
-                                                    class="min_val txt_val"
-                                                    name="n4OvrMin"
-                                                    style="ime-mode: disabled"
-                                                    pattern="[0-9]{10}"
-                                            />
-                                            <div
-                                                    class="wrap_slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                            >
-                                                <div
-                                                        class="ui-slider-range ui-corner-all ui-widget-header"
-                                                        style="left: 0%; width: 100%"
-                                                ></div>
-                                                <span
-                                                        tabindex="0"
-                                                        class="ui-slider-handle ui-corner-all ui-state-default"
-                                                        style="left: 0%"
-                                                ><span class="min_num">70</span></span
-                                                ><span
-                                                    tabindex="0"
-                                                    class="ui-slider-handle ui-corner-all ui-state-default"
-                                                    style="left: 100%"
-                                            ><span class="max_num">100</span></span
-                                            ><span class="half_num">85</span>
-                                            </div>
-                                            <input
-                                                    type="number"
-                                                    class="max_val txt_val"
-                                                    name="n4OvrMax"
-                                                    style="ime-mode: disabled"
-                                                    pattern="[0-9]{10}"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="position_selector">
-                                    <div class="th"><span>포지션</span></div>
-                                    <div class="td">
-                                        <div class="position_wrap">
-                                            <div class="position_td">
-                                                <div class="position_name">
-                                                    <input id="position_fw_all" type="checkbox" class="position_check position_fw" data-no="24,25,26,20,21,22,27,23">
-                                                    <label for="position_fw_all">
-                                                        FW 전체
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="position_td">
-                                                <div class="position_name">
-                                                    <input id="position_mf_all" type="checkbox" class="position_check position_mf" data-no="13,14,15,17,18,19,9,10,11,16,12">
-                                                    <label for="position_mf_all">
-                                                        MF 전체
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="position_td">
-                                                <div class="position_name">
-                                                    <input id="position_df_all" type="checkbox" class="position_check position_df" data-no="1,4,5,6,3,7,2,8">
-                                                    <label for="position_df_all">
-                                                        DF 전체
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="position_td">
-                                                <div class="position_name">
-                                                    <input id="position_gk_all" type="checkbox" class="position_check position_gk" data-no="0">
-                                                    <label for="position_gk_all">
-                                                        GK 전체
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="wrap_r">
                             <div class="search_list">
@@ -161,21 +79,20 @@
                                 <div class="search_content">
                                     <div class="char_wrap">
                                         <ul class="searchPlayer_Ul">
-                                            <li class="searchPlayer_li">
+                                            <li class="searchPlayer_li" th:each="player : ${playerList}">
                                                 <div class="searchPlayerBox">
                                                     <a href="#"  class="searchPlayer_Img">
                                                         <div class="img-list">
-                                                            <img class="searchPlayer_imgBox" src="#" alt="임시썸네일">
+                                                            <img class="searchPlayer_imgBox" th:src="@{'/upload/' + ${player.playerFileUploadPath} + '/th_' + ${player.playerFileUuid} + '_' + ${player.playerFileName}}" alt="임시썸네일">
                                                         </div>
                                                         <div class="searchPlayer_content">
-                                                            <span>포지션</span>
-                                                            <span>클래스</span>
-                                                            <span>오버롤</span>
-                                                            <span>선수 이름?</span>
+                                                            <span th:text="${player.positionName}" class="positionName" th:class="${'position-' + player.positionName}"></span>
+                                                            <span th:text="${player.fameName}" class="fameName" th:class="${'fame-' + player.fameName}"></span>
+                                                            <span th:text="${player.playerOverall}" class="playerOverall"></span>
+                                                            <span th:text="${player.playerName}" class="playerName"></span>
                                                         </div>
                                                     </a>
                                                 </div>
-                                                <div class="searchPlayer_content"></div>
                                             </li>
                                         </ul>
                                     </div>

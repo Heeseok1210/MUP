@@ -207,31 +207,30 @@ function appendImg(files) {
 }
 
 // 카테고리
-function showUserInformation(button) {
-    // 스쿼드 제작 화면 숨기기
-    document.getElementById("mySquadMaker").style.display = "none";
-    // 사용자 정보 화면 보이기
-    document.getElementById("userInformation").style.display = "block";
+$(document).ready(function () {
+    // 초기에 "회원정보" 버튼을 눌러진 상태로 설정
+    $("#button0").addClass("active");
 
-    // 사용자 정보 버튼에 "active" 클래스 추가
-    button.classList.add("active");
+    // 초기에 "userInformation"을 보이고 "mySquadMaker"를 숨김
+    $("#userInformation").css("display", "block");
+    $("#mySquadMaker").css("display", "none");
 
-    // 스쿼드 버튼에서 "active" 클래스 제거
-    document.getElementById("button1").classList.remove("active");
-}
+    $(".categoryBtn").click(function () {
+        // 모든 버튼에서 "active" 클래스 제거
+        $(".categoryBtn").removeClass("active");
 
-function showSquadMaker(button) {
-    // 사용자 정보 화면 숨기기
-    document.getElementById("userInformation").style.display = "none";
-    // 스쿼드 제작 화면 보이기
-    document.getElementById("mySquadMaker").style.display = "block";
+        // 클릭한 버튼에 "active" 클래스 추가
+        $(this).addClass("active");
 
-    // 스쿼드 버튼에 "active" 클래스 추가
-    button.classList.add("active");
-
-    // 사용자 정보 버튼에서 "active" 클래스 제거
-    document.getElementById("button0").classList.remove("active");
-}
-
-// 초기에 사용자 정보 화면 보이기 및 버튼 색 설정
-showUserInformation(document.getElementById("button0"));
+        // 클릭한 버튼에 따라 userInformation과 mySquadMaker의 표시 여부 전환
+        if ($(this).attr("id") === "button0") {
+            // 만일 회원 정보 버튼이 클릭되었다면
+            $("#userInformation").css("display", "block");
+            $("#mySquadMaker").css("display", "none");
+        } else if ($(this).attr("id") === "button1") {
+            // 만일 스쿼드 버튼이 클릭되었다면
+            $("#userInformation").css("display", "none");
+            $("#mySquadMaker").css("display", "block");
+        }
+    });
+});

@@ -101,8 +101,13 @@ public class AdminController {
     }
 
     @PostMapping("modify")
-    public RedirectView playerModify(PlayerDto playerDto, RedirectAttributes redirectAttributes){
-        adminService.modifyPlayer(playerDto);
+    public RedirectView playerModify(PlayerDto playerDto, RedirectAttributes redirectAttributes,
+                                     @RequestParam("playerFile")List<MultipartFile> files){
+        try {
+            adminService.modifyPlayer(playerDto, files);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         redirectAttributes.addAttribute("playerNumber", playerDto.getPlayerNumber());
         return new RedirectView("/admin/read");
     }

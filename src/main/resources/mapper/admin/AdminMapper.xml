@@ -12,12 +12,12 @@
         </selectKey>
         INSERT INTO TBL_PLAYER (
         PLAYER_NUMBER, PLAYER_NAME, PLAYER_ENTER, PLAYER_TOTAL_SCORE, PLAYER_OVERALL,
-        PLAYER_BIRTH, PLAYER_CONTENT, FAME_NUMBER, WITH_NUMBER, POSITION_NUMBER,
+        PLAYER_BIRTH, PLAYER_CONTENT, PLAYER_VIEW_CNT, FAME_NUMBER, WITH_NUMBER, POSITION_NUMBER,
         PLAYER_BACKNUMBER, ADMIN_NUMBER
         )
         VALUES (
         #{playerNumber}, #{playerName}, #{playerEnter}, #{playerTotalScore},
-        #{playerOverall}, #{playerBirth, jdbcType=DATE}, #{playerContent},
+        #{playerOverall}, #{playerBirth, jdbcType=DATE}, #{playerContent},0,
         #{fameNumber}, #{withNumber}, #{positionNumber}, #{playerBacknumber},
         #{adminNumber}
         )

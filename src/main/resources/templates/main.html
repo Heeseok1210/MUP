@@ -74,12 +74,12 @@
         <div class="legend-section">
             <span class="material-symbols-rounded left"> chevron_left </span>
             <ul class="legend-box">
-                <li class="legend-content">
-                    <a th:href="@{/museum/allPlayerRead}" class="img-overflow">
-                        <img src="/img/rooney.jpg" alt="임시 썸네일" />
-                        <!-- <img src="#" alt="레전드"> -->
+                <li class="legend-content" th:each="legend : ${playerList}">
+                    <a th:href="@{/museum/read(playerNumber=${legend.playerNumber})}" class="img-overflow">
+                        <img th:if="${legend.playerFileName == null}" src="/img/no-image.png" alt="임시 썸네일">
+                        <img th:unless="${legend.playerFileName == null}" th:src="@{'/upload/' + ${legend.playerFileUploadPath} + '/th_' + ${legend.playerFileUuid} + '_' + ${legend.playerFileName}}" alt="레전드">
                     </a>
-                    <p>웨인 루니</p>
+                    <p th:text="${legend.playerName}"></p>
                 </li>
             </ul>
             <span class="material-symbols-rounded right"> chevron_right </span>

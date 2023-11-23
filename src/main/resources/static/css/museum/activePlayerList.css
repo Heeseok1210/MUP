@@ -72,10 +72,10 @@ body {
 }
 
 .activePlayerList {
-    height: 800px;
     margin: auto;
     width: 1000px;
     border-top: 1px solid #bbb;
+    margin-bottom: 50px;
 }
 
 .ListTable {
@@ -199,7 +199,7 @@ body {
 
 /* 페이징 */
 .page-container {
-    height: 200px;
+    height: 100px;
 }
 .page-a {
     text-decoration: none;
@@ -229,3 +229,9 @@ body {
 .page-num:hover {
     color: #969696;
 }
+
+/*포지션에 따른 색 변화*/
+.yellow { color: yellow; }
+.blue { color: blue; }
+.green { color: green; }
+.red { color: red; }

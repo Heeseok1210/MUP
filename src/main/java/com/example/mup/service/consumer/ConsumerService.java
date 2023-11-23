@@ -4,6 +4,7 @@ import com.example.mup.dto.consumer.ConsumerDto;
 import com.example.mup.mapper.consumer.ConsumerMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -24,5 +25,31 @@ public class ConsumerService {
 
         return Optional.ofNullable(consumerMapper.selectConsumerNumber(consumerId, consumerPassword))
                 .orElseThrow(() -> {throw new IllegalArgumentException("존재하지 않는 회원입니다.");});
+    }
+
+    @Transactional(readOnly = true)
+    public int checkConsumerId(String consumerId){
+        if(consumerId == null){
+            throw new IllegalArgumentException("아이디 누락");
+        }
+        return consumerMapper.checkId(consumerId);
+    }
+
+    @Transactional(readOnly = true)
+    public int checkConsumerNickname(String consumerNickname){
+        if(consumerNickname == null){
+            throw new IllegalArgumentException("닉네임 누락");
+        }
+        return consumerMapper.checkNickname(consumerNickname);
+    }
+
+    @Transactional(readOnly = true)
+    public int loginFail(String consumerId, String consumerPassword){
+        if (consumerId == null){
+            throw new IllegalArgumentException("아이디 누락");
+        }else if (consumerPassword == null){
+            throw new IllegalArgumentException("비밀번호 누락");
+        }
+        return consumerMapper.loginFail(consumerId, consumerPassword);
     }
 }

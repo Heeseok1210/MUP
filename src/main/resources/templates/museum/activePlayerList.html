@@ -49,112 +49,63 @@
         <th scope="col" class="list_look">조회수</th>
       </tr>
       </thead>
-      <tbody id="playerList">
+      <tbody id="playerList" th:each="active, playerIndex : ${activeList}">
       <tr class="player_info">
         <td scope="row" class="main_list_number">
-          <div class="wrap_num">1</div>
+          <div class="wrap_num" th:text="${playerIndex.index + 1}"></div>
         </td>
         <td scope="row" class="main_list_name" >
                 <span class="playerProfile">
-                  <a class="wrap_name" th:href="@{/museum/allPlayerRead}">메이슨 마운트 </a>
-                  <img src="/img/masonMount.jpg" alt="" class="playerImg" />
+                  <a class="wrap_name" th:href="@{/museum/read(playerNumber=${active.playerNumber})}" th:text="${active.playerName}"></a>
+                  <img th:src="@{'/upload/' + ${active.playerFileUploadPath} + '/th_' + ${active.playerFileUuid} + '_' + ${active.playerFileName}}" alt="" class="playerImg" />
                 </span>
         </td>
         <td scope="row" class="main_list_backNumber">
-          <div class="wrap_backNumber">7</div>
+          <div class="wrap_backNumber" th:text="${active.playerBacknumber}"></div>
         </td>
         <td scope="row" class="main_list_position">
           <div class="wrap_position">
-            [ <span class="position_info">MF</span> ]
+            [ <span class="position_info"
+                    th:text="${active.positionName}"
+                    th:classappend="${active.positionName == 'GK' ? 'yellow' :
+                            active.positionName == 'DF' ? 'blue' :
+                            active.positionName == 'MF' ? 'green' :
+                            active.positionName == 'FW' ? 'red' : ''}">
+    </span> ]
           </div>
         </td>
         <td scope="row" class="main_list_look">
-          <div class="wrap_look">100</div>
-        </td>
-      </tr>
-      <tr class="player_info">
-        <td scope="row" class="main_list_number">
-          <div class="wrap_num">1</div>
-        </td>
-        <td scope="row" class="main_list_name">
-          <a class="wrap_name">메이슨 마운트</a>
-        </td>
-        <td scope="row" class="main_list_backNumber">
-          <div class="wrap_backNumber">7</div>
-        </td>
-        <td scope="row" class="main_list_position">
-          <div class="wrap_position">
-            [ <span class="position_info">MF</span> ]
-          </div>
-        </td>
-        <td scope="row" class="main_list_look">
-          <div class="wrap_look">100</div>
-        </td>
-      </tr>
-      <tr class="player_info">
-        <td scope="row" class="main_list_number">
-          <div class="wrap_num">1</div>
-        </td>
-        <td scope="row" class="main_list_name">
-          <a class="wrap_name">메이슨 마운트</a>
-        </td>
-        <td scope="row" class="main_list_backNumber">
-          <div class="wrap_backNumber">7</div>
-        </td>
-        <td scope="row" class="main_list_position">
-          <div class="wrap_position">
-            [ <span class="position_info">MF</span> ]
-          </div>
-        </td>
-        <td scope="row" class="main_list_look">
-          <div class="wrap_look">100</div>
+          <div class="wrap_look" th:text="${active.playerViewCnt}"></div>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-<!--  <div class="page-container">-->
-<!--    <ul class="page-box">-->
-<!--      <a-->
-<!--              th:href="@{/admin/hairList(page=${pageInfo.startPage - 1})}"-->
-<!--              class="page-a"-->
-<!--              th:if="${pageInfo.prev}"-->
-<!--      >-->
-<!--        <li class="page-num prev">&lt</li>-->
-<!--      </a>-->
+  <div class="page-container">
+    <ul class="page-box">
+      <a th:href="@{/museum/activeList(page=${pageInfo.startPage - 1})}"  class="page-a"  th:if="${pageInfo.prev}">
+        <li class="page-num prev">&lt</li>
+      </a>
 
-<!--      <th:block-->
-<!--              th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}"-->
-<!--      >-->
-<!--        <a th:href="@{/admin/hairList(page=${i})}" class="page-a">-->
-<!--          <li-->
-<!--                  class="page-num active"-->
-<!--                  th:text="${i}"-->
-<!--                  th:if="${i == pageInfo.criteria.page}"-->
-<!--          ></li>-->
-<!--          <li-->
-<!--                  class="page-num"-->
-<!--                  th:text="${i}"-->
-<!--                  th:unless="${i == pageInfo.criteria.page}"-->
-<!--          ></li>-->
-<!--        </a>-->
-<!--      </th:block>-->
+      <th:block th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}">
+        <a th:href="@{/museum/activeList(page=${i})}" class="page-a">
+          <li class="page-num active" th:text="${i}" th:if="${i == pageInfo.criteriaAct.page}"></li>
+          <li class="page-num" th:text="${i}" th:unless="${i == pageInfo.criteriaAct.page}"></li>
+        </a>
+      </th:block>
 
-<!--      <a-->
-<!--              th:href="@{/admin/hairList(page=${pageInfo.endPage + 1})}"-->
-<!--              class="page-a"-->
-<!--              th:if="${pageInfo.next}"-->
-<!--      >-->
-<!--        <li class="page-num next">&gt</li>-->
-<!--      </a>-->
-<!--    </ul>-->
-<!--  </div>-->
+      <a th:href="@{/museum/activeList(page=${pageInfo.endPage + 1})}" class="page-a" th:if="${pageInfo.next}">
+        <li class="page-num next">&gt</li>
+      </a>
+    </ul>
+  </div>
+</div>
 </div>
 <script
         src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"
 ></script>
-
+<script th:src="@{/js/fragment/header.js}"></script>
 </body>
 </html>

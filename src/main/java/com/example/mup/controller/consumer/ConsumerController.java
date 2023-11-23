@@ -38,6 +38,21 @@ public class ConsumerController {
             e.printStackTrace();
             return  new RedirectView("/consumer/login");
         }
-        return new RedirectView("/fragment/main");
+        return new RedirectView("/");
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest req){
+        req.getSession().invalidate(); //세션 초기화
+        return  "/consumer/login";
+    }
+
+//    계정찾기
+    @GetMapping("/find-id")
+    public void find(){}
+
+//    @PostMapping("/find-id"){
+//
+//    }
+
 }

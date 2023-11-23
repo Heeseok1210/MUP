@@ -9,6 +9,8 @@
         <typeAlias type="com.example.mup.vo.PlayerVo" alias="playerVo"/>
         <typeAlias type="com.example.mup.dto.museum.PlayerFileDto" alias="playerFileDto"/>
         <typeAlias type="com.example.mup.vo.Criteria" alias="criteria"/>
+        <typeAlias type="com.example.mup.vo.CriteriaAct" alias="criteriaAct"/>
         <typeAlias type="com.example.mup.vo.PageVo" alias="pageVo"/>
+        <typeAlias type="com.example.mup.vo.PageActVo" alias="pageActVo"/>
     </typeAliases>
 </configuration>

@@ -682,638 +682,699 @@ input.position_gk:checked
     color: inherit;
     text-decoration: none;
     cursor: pointer;
-    gap: 35px; /* 수정: 아이콘 간격을 조정 */
+    gap: 35px;
+    background-image: url("/img/playerCard.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: drop-shadow(1px 3px 5px black);
 }
 
-.img-list {
-    position: relative;
-    background-color: black;
-    overflow: hidden;
-    border-radius: 50%;
-    width: 50%;
-    margin-left: 10px;
-}
-
-.searchPlayer_imgBox {
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-}
-
-.searchPlayer_content {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    gap: 5px;
-}
-
-.searchPlayer_content span {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #404040;
-    font-weight: bold;
-}
-
-/* 스쿼드 */
-.squadMaker-Box {
-    width: 1280px;
-    height: 930px;
-    position: relative;
-    z-index: 1;
-}
-
-.squadMaker-View {
-    position: relative;
-    width: 1280px;
-    height: 930px;
-    background: url("/img/bg.png") center 108px no-repeat;
-}
-
-.squadMaker-field {
+.searchPlayer_Img::before {
+    content: '';
     position: absolute;
-    -webkit-transition: all 1s ease;
-    transition: all 1s ease;
-    position: absolute;
-    top: 17.3%;
-    left: 13.5%;
-    z-index: 5;
-    width: 72.9%;
-    height: 48.2%;
-}
-
-.player {
-    position: absolute;
-    width: 106px;
-    height: 170px;
-    font-size: 12px;
-    text-align: center;
-    color: #000;
-    margin-left: -53px;
-    margin-top: -85px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.player:hover {
-    z-index: 3;
-    transform: scale(1.1);
-}
-
-.empty {
-    width: 106px;
-    height: 170px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    cursor: pointer;
-}
-
-.info {
-    width: 106px;
-    height: 170px;
-    display: inline-block;
-    position: relative;
-    z-index: 100;
-}
-
-.back {
-    width: 106px;
-    height: 170px;
-    display: inline-block;
-    background: url("/img/makerBack.jpg") 0 0 no-repeat;
-    background-size: 106px auto;
-    position: relative;
-}
-
-.position {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    color: rgb(0, 38, 65);
-    font-weight: 600;
-    font-size: 20px;
-    text-shadow: none;
-}
-
-.animate {
-    display: inline-block;
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    top: 135px;
-    left: 35px;
-    z-index: 100;
-}
-
-.animate > em {
-    background: rgb(200, 202, 134);
-}
-
-.animate > em:nth-child(1) {
-    width: 20px;
-    height: 4px;
-    position: absolute;
-    top: 16px;
-    left: 26%;
-    transition: all 0.2s ease-in-out;
-    transform: rotate(0deg) translateX(-50%);
-    z-index: 1;
-}
-
-.animate > em:nth-child(2) {
-    width: 4px;
-    height: 20px;
-    position: absolute;
-    top: 26%;
-    left: 16px;
-    transition: all 0.2s ease-in-out;
-    transform: rotate(0deg) translateY(-50%);
-    z-index: 1;
-}
-
-.animate::after {
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    content: "";
     top: 0;
     left: 0;
-    background: rgb(0, 38, 65);
-    border-radius: 50px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    transform: scale(0.9);
-}
-
-/* 골키퍼 */
-.f442 > .gk {
-    top: auto !important;
-    left: 50% !important;
-    bottom: -225px;
-}
-
-/* 수비수 */
-.f442 > .rcb {
-    top: 88%;
-    left: 68%;
-}
-
-.f442 > .lcb {
-    top: 88%;
-    left: 32%;
-}
-
-.f442 > .rb {
-    top: 85%;
-    left: 93%;
-}
-
-.f442 > .lb {
-    top: 85%;
-    left: 7%;
-}
-
-/* 미드필더 */
-.f442 > .rcm {
-    top: 47%;
-    left: 68%;
-}
-
-.f442 > .lcm {
-    top: 47%;
-    left: 32%;
-}
-
-.f442 > .rm {
-    top: 36%;
-    left: 88%;
-}
-
-.f442 > .lm {
-    top: 36%;
-    left: 12%;
-}
-
-.f442 > .cf {
-    top: 27%;
-    left: 50%;
-}
-
-.f442 > .st {
-    top: 0%;
-    left: 50%;
-}
-
-/* 343 */
-/* 골키퍼 */
-.f343 > .gk {
-    top: auto !important;
-    left: 50% !important;
-    bottom: -225px;
-}
-
-/* 수비수 */
-.f343 > .rcb {
-    top: 100%;
-    left: 75%;
-}
-
-.f343 > .lcb {
-    top: 100%;
-    left: 26%;
-}
-
-.f343 > .cb {
-    top: 86%;
-    left: 50%;
-}
-
-/* 미드필더 */
-.f343 > .rcm {
-    top: 43%;
-    left: 63%;
-}
-
-.f343 > .lcm {
-    top: 43%;
-    left: 38%;
-}
-
-.f343 > .rm {
-    top: 40%;
-    left: 88%;
-}
-
-.f343 > .lm {
-    top: 40%;
-    left: 12%;
-}
-
-/* 공격수 */
-.f343 > .rf {
-    top: 16%;
-    left: 70%;
-}
-
-.f343 > .lf {
-    top: 16%;
-    left: 30%;
-}
-
-.f343 > .st {
-    top: 0%;
-    left: 50%;
-}
-
-/* 3412 */
-/* 골키퍼 */
-.f3412 > .gk {
-    top: auto !important;
-    left: 50% !important;
-    bottom: -225px;
-}
-
-/* 수비수 */
-.f3412 > .rcb {
-    top: 100%;
-    left: 75%;
-}
-
-.f3412 > .lcb {
-    top: 100%;
-    left: 26%;
-}
-
-.f3412 > .cb {
-    top: 86%;
-    left: 50%;
-}
-
-/* 미드필더 */
-.f3412 > .rcm {
-    top: 43%;
-    left: 63%;
-}
-
-.f3412 > .lcm {
-    top: 43%;
-    left: 37%;
-}
-
-.f3412 > .rm {
-    top: 40%;
-    left: 88%;
-}
-
-.f3412 > .lm {
-    top: 40%;
-    left: 12%;
-}
-
-.f3412 > .cam {
-    top: 28%;
-    left: 50%;
-}
-
-/* 공격수 */
-.f3412 > .rs {
-    top: 0%;
-    left: 60%;
-}
-
-.f3412 > .ls {
-    top: 0%;
-    left: 40%;
-}
-
-/* 3232 */
-/* 골키퍼 */
-.f3232 > .gk {
-    top: auto !important;
-    left: 50% !important;
-    bottom: -225px;
-}
-
-/* 수비수 */
-.f3232 > .rcb {
-    top: 100%;
-    left: 75%;
-}
-
-.f3232 > .lcb {
-    top: 100%;
-    left: 26%;
-}
-
-.f3232 > .cb {
-    top: 86%;
-    left: 50%;
-}
-
-/* 미드필더 */
-.f3232 > .rdm {
-    top: 66%;
-    left: 65%;
-}
-
-.f3232 > .ldm {
-    top: 66%;
-    left: 35%;
-}
-
-.f3232 > .cm {
-    top: 48%;
-    left: 50%;
-}
-
-.f3232 > .rm {
-    top: 35%;
-    left: 90%;
-}
-
-.f3232 > .lm {
-    top: 35%;
-    left: 10%;
-}
-
-/* 공격수 */
-.f3232 > .cf {
-    top: 15%;
-    left: 50%;
-}
-
-.f3232 > .st {
-    top: 0%;
-    left: 50%;
-}
-
-/* 포메이션 */
-.squad-selector {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    margin-left: -100px;
-    z-index: 10;
-}
-
-/* 초기에는 squad-selector를 감춤 */
-.squad-selector .selector-list-wrap {
-    display: none;
-}
-
-/* active 클래스가 있는 경우에만 보이도록 설정 */
-.squad-selector.active .selector-list-wrap {
-    display: block;
-}
-
-.squadMaker-selector-current-value {
-    display: inline-block;
-    width: 180px;
-    height: 40px;
-    line-height: 40px;
-    box-sizing: border-box;
-    padding: 0 10px;
-    background: #161616;
-    font-size: 15px;
-    color: #fff;
-    position: relative;
-}
-
-.squadMaker-selector-current-value::after {
-    position: absolute;
-    top: 17px;
-    right: 10px;
-    width: 13px;
-    height: 8px;
-    background: url("https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/ico_arr.png")
-    0 0 no-repeat;
-    content: "";
-}
-
-.selector-list-wrap {
-    display: block;
-    width: 1281px;
-    position: absolute;
-    top: 44px;
-    left: -528px;
-    overflow-x: hidden;
-    background: #fff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.selector-list {
-    display: block;
-}
-
-.tit-list {
-    overflow: hidden;
-}
-
-.tit-list > div {
-    height: 40px;
-    background: #000;
-    text-align: center;
-    color: #bcbbbb;
-    font-size: 14px;
-    line-height: 40px;
-    border-right: 1px solid #ababad;
-    float: left;
-    box-sizing: border-box;
-}
-
-.cate3 {
-    width: 366px;
-}
-
-.cate4 {
-    width: 732px;
-}
-
-.cate5 {
-    width: 182px;
-}
-
-.selector-list-total {
-    overflow: hidden;
-    background: #fff;
-}
-
-.squad-list-type {
-    float: left;
-    width: 183px;
-    box-sizing: border-box;
-}
-
-.squad-list-type > ul {
-    list-style: none;
-    display: block;
-    padding-left: -40px;
-}
-
-.squad-list-type > ul > li {
-    width: 183px;
-    height: 50px;
-    line-height: 50px;
-    background: #fff;
-    border-bottom: 1px solid #e9e9e9;
-    box-sizing: border-box;
-    border-right: 1px solid#ebebed;
-}
-
-.squad-list-type:nth-child(2) > li {
-    border-right: 1px solid #ababad;
-}
-
-.squad-list-type > ul > li > a {
-    display: block;
-    padding: 0 10px;
-    font-size: 15px;
-    position: relative;
-    color: #151432;
-}
-
-.squad-list-type > ul > li > a:hover {
-    background: #f15e4b;
-}
-
-/* 감독 */
-.squaMaker-aside {
-    width: 1280px;
-    height: 237px;
-    position: relative;
-    background: blue;
-    margin-top: 30px;
-    z-index: 2;
-}
-
-.squadMaker-aside-wrap {
-    float: left;
-    position: relative;
-    z-index: 5;
-    width: 359px;
-    height: 237px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    background: #fff;
-}
-
-.squadMaker-coach {
-    height: 118px;
-}
-
-.btn_selected {
-    position: relative;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    background: #fff;
-    box-sizing: border-box;
-    padding-top: 42px;
-    padding-left: 125px;
+    background-image: inherit;
+    background-size: inherit;
+    filter: blur(5px);
+    opacity: 0.5;
+    z-index: -1;
 }
 
-.btn_default {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    height: 118px;
-    display: block;
-    width: 359px;
-    background: url("https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/img_coach.png")
-    0 0 no-repeat;
-    margin-top: 50px;
-    border-top: 1px solid rgb(227, 226, 230);
-    border-bottom: 1px solid rgb(227, 226, 230);
+@supports (-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px)) {
+    .searchPlayer_Img::before {
+        background: inherit;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+    }
 }
 
-.hidden {
-    position: absolute;
-    left: -9999px;
-    top: -9999px;
-    overflow: hidden;
-    display: block;
-    width: 0;
-    height: 0;
-    font-size: 0;
-    line-height: 0;
-}
+    .img-list {
+        position: relative;
+        background-color: black;
+        overflow: hidden;
+        border-radius: 50%;
+        width: 50%;
+        margin-left: 10px;
+    }
 
-a {
-    color: #404040;
-    text-decoration: none;
-}
+    .searchPlayer_imgBox {
+        width: 100%;
+        height: 150px;
+        overflow: hidden;
+    }
 
-ul {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-}
+    .searchPlayer_content {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        gap: 5px;
+    }
 
-/* 후보선수 */
-.sqaudMaker-subPlayer {
-    float: right;
-    width: 921px;
-    height: 237px;
-    background: #fff;
-    box-sizing: border-box;
-    padding-top: 22px;
-    padding-left: 60px;
-    position: relative;
-    z-index: 10;
-}
+    .searchPlayer_content span {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
 
-.subplayer {
-    float: left;
-    position: relative;
-    width: 106px;
-    height: 170px;
-    font-size: 12px;
-    text-align: center;
-    color: #000;
-    transition: transform 0.2s ease-in-out;
-    margin-right: 35px;
-}
+    /* 스쿼드 */
+    .squadMaker-Box {
+        width: 1280px;
+        height: 930px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .squadMaker-View {
+        position: relative;
+        width: 1280px;
+        height: 930px;
+        background: url("/img/bg.png") center 108px no-repeat;
+    }
+
+    .squadMaker-field {
+        position: absolute;
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
+        position: absolute;
+        top: 17.3%;
+        left: 13.5%;
+        z-index: 5;
+        width: 72.9%;
+        height: 48.2%;
+    }
+
+    .player {
+        position: absolute;
+        width: 106px;
+        height: 170px;
+        font-size: 12px;
+        text-align: center;
+        color: #000;
+        margin-left: -53px;
+        margin-top: -85px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .player:hover {
+        z-index: 3;
+        transform: scale(1.1);
+    }
+
+    .empty {
+        width: 106px;
+        height: 170px;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    .info {
+        width: 106px;
+        height: 170px;
+        display: inline-block;
+        position: relative;
+        z-index: 100;
+    }
+
+    .back {
+        width: 106px;
+        height: 170px;
+        display: inline-block;
+        background: url("/img/makerBack.jpg") 0 0 no-repeat;
+        background-size: 106px auto;
+        position: relative;
+    }
+
+    .position {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: rgb(0, 38, 65);
+        font-weight: 600;
+        font-size: 20px;
+        text-shadow: none;
+    }
+
+    .animate {
+        display: inline-block;
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        top: 135px;
+        left: 35px;
+        z-index: 100;
+    }
+
+    .animate > em {
+        background: rgb(200, 202, 134);
+    }
+
+    .animate > em:nth-child(1) {
+        width: 20px;
+        height: 4px;
+        position: absolute;
+        top: 16px;
+        left: 26%;
+        transition: all 0.2s ease-in-out;
+        transform: rotate(0deg) translateX(-50%);
+        z-index: 1;
+    }
+
+    .animate > em:nth-child(2) {
+        width: 4px;
+        height: 20px;
+        position: absolute;
+        top: 26%;
+        left: 16px;
+        transition: all 0.2s ease-in-out;
+        transform: rotate(0deg) translateY(-50%);
+        z-index: 1;
+    }
+
+    .animate::after {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        content: "";
+        top: 0;
+        left: 0;
+        background: rgb(0, 38, 65);
+        border-radius: 50px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        transform: scale(0.9);
+    }
+
+    /* 골키퍼 */
+    .f442 > .gk {
+        top: auto !important;
+        left: 50% !important;
+        bottom: -225px;
+    }
+
+    /* 수비수 */
+    .f442 > .rcb {
+        top: 88%;
+        left: 68%;
+    }
+
+    .f442 > .lcb {
+        top: 88%;
+        left: 32%;
+    }
+
+    .f442 > .rb {
+        top: 85%;
+        left: 93%;
+    }
+
+    .f442 > .lb {
+        top: 85%;
+        left: 7%;
+    }
+
+    /* 미드필더 */
+    .f442 > .rcm {
+        top: 47%;
+        left: 68%;
+    }
+
+    .f442 > .lcm {
+        top: 47%;
+        left: 32%;
+    }
+
+    .f442 > .rm {
+        top: 36%;
+        left: 88%;
+    }
+
+    .f442 > .lm {
+        top: 36%;
+        left: 12%;
+    }
+
+    .f442 > .cf {
+        top: 27%;
+        left: 50%;
+    }
+
+    .f442 > .st {
+        top: 0%;
+        left: 50%;
+    }
+
+    /* 343 */
+    /* 골키퍼 */
+    .f343 > .gk {
+        top: auto !important;
+        left: 50% !important;
+        bottom: -225px;
+    }
+
+    /* 수비수 */
+    .f343 > .rcb {
+        top: 100%;
+        left: 75%;
+    }
+
+    .f343 > .lcb {
+        top: 100%;
+        left: 26%;
+    }
+
+    .f343 > .cb {
+        top: 86%;
+        left: 50%;
+    }
+
+    /* 미드필더 */
+    .f343 > .rcm {
+        top: 43%;
+        left: 63%;
+    }
+
+    .f343 > .lcm {
+        top: 43%;
+        left: 38%;
+    }
+
+    .f343 > .rm {
+        top: 40%;
+        left: 88%;
+    }
+
+    .f343 > .lm {
+        top: 40%;
+        left: 12%;
+    }
+
+    /* 공격수 */
+    .f343 > .rf {
+        top: 16%;
+        left: 70%;
+    }
+
+    .f343 > .lf {
+        top: 16%;
+        left: 30%;
+    }
+
+    .f343 > .st {
+        top: 0%;
+        left: 50%;
+    }
+
+    /* 3412 */
+    /* 골키퍼 */
+    .f3412 > .gk {
+        top: auto !important;
+        left: 50% !important;
+        bottom: -225px;
+    }
+
+    /* 수비수 */
+    .f3412 > .rcb {
+        top: 100%;
+        left: 75%;
+    }
+
+    .f3412 > .lcb {
+        top: 100%;
+        left: 26%;
+    }
+
+    .f3412 > .cb {
+        top: 86%;
+        left: 50%;
+    }
+
+    /* 미드필더 */
+    .f3412 > .rcm {
+        top: 43%;
+        left: 63%;
+    }
+
+    .f3412 > .lcm {
+        top: 43%;
+        left: 37%;
+    }
+
+    .f3412 > .rm {
+        top: 40%;
+        left: 88%;
+    }
+
+    .f3412 > .lm {
+        top: 40%;
+        left: 12%;
+    }
+
+    .f3412 > .cam {
+        top: 28%;
+        left: 50%;
+    }
+
+    /* 공격수 */
+    .f3412 > .rs {
+        top: 0%;
+        left: 60%;
+    }
+
+    .f3412 > .ls {
+        top: 0%;
+        left: 40%;
+    }
+
+    /* 3232 */
+    /* 골키퍼 */
+    .f3232 > .gk {
+        top: auto !important;
+        left: 50% !important;
+        bottom: -225px;
+    }
+
+    /* 수비수 */
+    .f3232 > .rcb {
+        top: 100%;
+        left: 75%;
+    }
+
+    .f3232 > .lcb {
+        top: 100%;
+        left: 26%;
+    }
+
+    .f3232 > .cb {
+        top: 86%;
+        left: 50%;
+    }
+
+    /* 미드필더 */
+    .f3232 > .rdm {
+        top: 66%;
+        left: 65%;
+    }
+
+    .f3232 > .ldm {
+        top: 66%;
+        left: 35%;
+    }
+
+    .f3232 > .cm {
+        top: 48%;
+        left: 50%;
+    }
+
+    .f3232 > .rm {
+        top: 35%;
+        left: 90%;
+    }
+
+    .f3232 > .lm {
+        top: 35%;
+        left: 10%;
+    }
+
+    /* 공격수 */
+    .f3232 > .cf {
+        top: 15%;
+        left: 50%;
+    }
+
+    .f3232 > .st {
+        top: 0%;
+        left: 50%;
+    }
+
+    /* 포메이션 */
+    .squad-selector {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        margin-left: -100px;
+        z-index: 10;
+    }
+
+    /* 초기에는 squad-selector를 감춤 */
+    .squad-selector .selector-list-wrap {
+        display: none;
+    }
+
+    /* active 클래스가 있는 경우에만 보이도록 설정 */
+    .squad-selector.active .selector-list-wrap {
+        display: block;
+    }
+
+    .squadMaker-selector-current-value {
+        display: inline-block;
+        width: 180px;
+        height: 40px;
+        line-height: 40px;
+        box-sizing: border-box;
+        padding: 0 10px;
+        background: #161616;
+        font-size: 15px;
+        color: #fff;
+        position: relative;
+    }
+
+    .squadMaker-selector-current-value::after {
+        position: absolute;
+        top: 17px;
+        right: 10px;
+        width: 13px;
+        height: 8px;
+        background: url("https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/ico_arr.png") 0 0 no-repeat;
+        content: "";
+    }
+
+    .selector-list-wrap {
+        display: block;
+        width: 1281px;
+        position: absolute;
+        top: 44px;
+        left: -528px;
+        overflow-x: hidden;
+        background: #fff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .selector-list {
+        display: block;
+    }
+
+    .tit-list {
+        overflow: hidden;
+    }
+
+    .tit-list > div {
+        height: 40px;
+        background: #000;
+        text-align: center;
+        color: #bcbbbb;
+        font-size: 14px;
+        line-height: 40px;
+        border-right: 1px solid #ababad;
+        float: left;
+        box-sizing: border-box;
+    }
+
+    .cate3 {
+        width: 366px;
+    }
+
+    .cate4 {
+        width: 732px;
+    }
+
+    .cate5 {
+        width: 182px;
+    }
+
+    .selector-list-total {
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .squad-list-type {
+        float: left;
+        width: 183px;
+        box-sizing: border-box;
+    }
+
+    .squad-list-type > ul {
+        list-style: none;
+        display: block;
+        padding-left: -40px;
+    }
+
+    .squad-list-type > ul > li {
+        width: 183px;
+        height: 50px;
+        line-height: 50px;
+        background: #fff;
+        border-bottom: 1px solid #e9e9e9;
+        box-sizing: border-box;
+        border-right: 1px solid #ebebed;
+    }
+
+    .squad-list-type:nth-child(2) > li {
+        border-right: 1px solid #ababad;
+    }
+
+    .squad-list-type > ul > li > a {
+        display: block;
+        padding: 0 10px;
+        font-size: 15px;
+        position: relative;
+        color: #151432;
+    }
+
+    .squad-list-type > ul > li > a:hover {
+        background: #f15e4b;
+    }
+
+    /* 감독 */
+    .squaMaker-aside {
+        width: 1280px;
+        height: 237px;
+        position: relative;
+        background: blue;
+        margin-top: 30px;
+        z-index: 2;
+    }
+
+    .squadMaker-aside-wrap {
+        float: left;
+        position: relative;
+        z-index: 5;
+        width: 359px;
+        height: 237px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        background: #fff;
+    }
+
+    .squadMaker-coach {
+        height: 118px;
+    }
+
+    .btn_selected {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: #fff;
+        box-sizing: border-box;
+        padding-top: 42px;
+        padding-left: 125px;
+    }
+
+    .btn_default {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        height: 118px;
+        display: block;
+        width: 359px;
+        background: url("https://ssl.nexon.com/s2/game/fc/online/obt/datacenter/squad/img_coach.png") 0 0 no-repeat;
+        margin-top: 50px;
+        border-top: 1px solid rgb(227, 226, 230);
+        border-bottom: 1px solid rgb(227, 226, 230);
+    }
+
+    .hidden {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+        overflow: hidden;
+        display: block;
+        width: 0;
+        height: 0;
+        font-size: 0;
+        line-height: 0;
+    }
+
+    a {
+        color: #404040;
+        text-decoration: none;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        vertical-align: baseline;
+    }
+
+    /* 후보선수 */
+    .sqaudMaker-subPlayer {
+        float: right;
+        width: 921px;
+        height: 237px;
+        background: #fff;
+        box-sizing: border-box;
+        padding-top: 22px;
+        padding-left: 60px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .subplayer {
+        float: left;
+        position: relative;
+        width: 106px;
+        height: 170px;
+        font-size: 12px;
+        text-align: center;
+        color: #000;
+        transition: transform 0.2s ease-in-out;
+        margin-right: 35px;
+    }
+
+
+    /*이름별 색*/
+    .position-FW {
+        color: red;
+    }
+
+    .position-MF {
+        color: green;
+    }
+
+    .position-DF {
+        color: blue;
+    }
+
+    .position-GK {
+        color: yellow;
+    }
+
+    .fame-레전더리 {
+        color: gold;
+    }
+
+    .fame-월드클래스 {
+        color: silver;
+    }
+
+    .fame-탑클래스 {
+        color: #512f2f;
+    }
+
+    .fame-유명선수 {
+        color: black;
+    }
+
+    .playerName {
+        font-size: 13px;
+    }

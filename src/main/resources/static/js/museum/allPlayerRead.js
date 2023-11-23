@@ -1,3 +1,28 @@
+// 이미지 처리
+displayAjax();
+
+function displayAjax(){
+    let playerNumber = $('.player-num').val();
+
+    $.ajax({
+        url : '/museumFile/imgList',
+        type : 'get',
+        data : {playerNumber : playerNumber},
+        success : function (files){
+            let text = '';
+
+            files.forEach(file => {
+                let fileName = file.playerFileUploadPath + '/' + file.playerFileUuid + '_' + file.playerFileName;
+                text += `<img class="img-list" src="/museumFile/display?fileName=${fileName}"/>`;
+            });
+            $('.file-wrap').html(text);
+        }
+    })
+}
+
+
+
+
 const expandButton = document.getElementById("expandButton");
 const contentBox = document.querySelector(".contentBox");
 const playerContent = document.getElementById("playerContent");
