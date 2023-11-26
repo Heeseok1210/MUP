@@ -34,9 +34,9 @@
                 class="search_input"
                 placeholder="선수 이름을 입력하세요.."
         />
-        <a href="#" class="searchBtn">
+        <button class="searchBtn">
           <span class="hidden">검색쓰</span>
-        </a>
+        </button>
       </div>
     </form>
     <table class="ListTable">
@@ -49,8 +49,8 @@
         <th scope="col" class="list_look">조회수</th>
       </tr>
       </thead>
-      <tbody id="playerList" th:each="active, playerIndex : ${activeList}">
-      <tr class="player_info">
+      <tbody id="playerList" class="playerListA">
+      <tr class="player_info" th:each="active, playerIndex : ${activeList}">
         <td scope="row" class="main_list_number">
           <div class="wrap_num" th:text="${playerIndex.index + 1}"></div>
         </td>
@@ -107,5 +107,6 @@
         crossorigin="anonymous"
 ></script>
 <script th:src="@{/js/fragment/header.js}"></script>
+<script th:src="@{/js/museum/activePlayerList.js}"></script>
 </body>
 </html>

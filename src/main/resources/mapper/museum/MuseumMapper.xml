@@ -155,7 +155,7 @@
         WHERE RNUM > (#{page} - 1) * #{amount}
     </select>
 
-<!--레전드 선수 수-->
+<!--현역 선수 수-->
     <select id="selectActiveCnt" resultType="_int">
         SELECT COUNT (PLAYER_NUMBER)
         FROM TBL_PLAYER
@@ -169,5 +169,126 @@
             PLAYER_VIEW_CNT = PLAYER_VIEW_CNT + 1
         WHERE PLAYER_NUMBER = #{playerNumber}
     </update>
+
+
+
+    <!-- 현역 선수 이름으로 조회 -->
+    <select id="searchActivePlayer" resultType="PlayerVo">
+        SELECT
+        PLAYER_NUMBER,
+        PLAYER_NAME,
+        PLAYER_BACKNUMBER,
+        PLAYER_VIEW_CNT,
+        ADMIN_NUMBER,
+        ADMIN_ID,
+        FAME_NAME,
+        WITH_NAME,
+        POSITION_NAME,
+        PLAYER_FILE_UPLOAD_PATH,
+        PLAYER_FILE_UUID,
+        PLAYER_FILE_NAME
+        FROM (
+        SELECT
+        ROWNUM AS RNUM,
+        PLAYER_NUMBER,
+        PLAYER_NAME,
+        PLAYER_BACKNUMBER,
+        PLAYER_VIEW_CNT,
+        ADMIN_NUMBER,
+        ADMIN_ID,
+        FAME_NAME,
+        WITH_NAME,
+        POSITION_NAME,
+        PLAYER_FILE_UPLOAD_PATH,
+        PLAYER_FILE_UUID,
+        PLAYER_FILE_NAME
+        FROM (
+        SELECT
+        P.PLAYER_NUMBER,
+        P.PLAYER_NAME,
+        P.PLAYER_BACKNUMBER,
+        P.PLAYER_VIEW_CNT,
+        P.ADMIN_NUMBER,
+        A.ADMIN_ID,
+        F.FAME_NAME,
+        W.WITH_NAME,
+        POS.POSITION_NAME,
+        J.PLAYER_FILE_UPLOAD_PATH,
+        J.PLAYER_FILE_UUID,
+        J.PLAYER_FILE_NAME
+        FROM TBL_PLAYER P
+        JOIN TBL_ADMIN A ON P.ADMIN_NUMBER = A.ADMIN_NUMBER
+        LEFT JOIN TBL_FAME F ON P.FAME_NUMBER = F.FAME_NUMBER
+        LEFT JOIN TBL_WITH W ON P.WITH_NUMBER = W.WITH_NUMBER
+        LEFT JOIN TBL_POSITION POS ON P.POSITION_NUMBER = POS.POSITION_NUMBER
+        LEFT JOIN (
+        SELECT
+        PLAYER_FILE_NUMBER,
+        PLAYER_FILE_UPLOAD_PATH,
+        PLAYER_FILE_UUID,
+        PLAYER_FILE_NAME,
+        PLAYER_NUMBER
+        FROM (
+        SELECT
+        PLAYER_FILE_NUMBER,
+        PLAYER_FILE_UPLOAD_PATH,
+        PLAYER_FILE_UUID,
+        PLAYER_FILE_NAME,
+        PLAYER_NUMBER,
+        RANK() OVER (PARTITION BY PLAYER_NUMBER ORDER BY PLAYER_FILE_NUMBER) RK
+        FROM TBL_PLAYER_FILE PF
+        )
+        WHERE RK = 1
+        ) J ON P.PLAYER_NUMBER = J.PLAYER_NUMBER
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <if test="searchPlayerVo.keyword != null">
+                AND PLAYER_NAME LIKE '%' || #{searchPlayerVo.keyword} || '%'
+            </if>
+        </trim>
+        AND P.WITH_NUMBER = 1
+        ORDER BY P.PLAYER_NUMBER DESC
+        ) S1
+        <![CDATA[
+        WHERE ROWNUM <= #{criteriaAct.page} * #{criteriaAct.amount}
+        ]]>
+        ) S2
+        WHERE RNUM > ((#{criteriaAct.page} - 1) * #{criteriaAct.amount})
+    </select>
+
+
+    <!-- 검색 조회 수 -->
+    <select id="searchTotalPlayer" resultType="_int">
+        SELECT COUNT(P.PLAYER_NUMBER)
+        FROM TBL_PLAYER P
+        JOIN TBL_ADMIN A ON P.ADMIN_NUMBER = A.ADMIN_NUMBER
+        LEFT JOIN TBL_FAME F ON P.FAME_NUMBER = F.FAME_NUMBER
+        LEFT JOIN TBL_WITH W ON P.WITH_NUMBER = W.WITH_NUMBER
+        LEFT JOIN TBL_POSITION POS ON P.POSITION_NUMBER = POS.POSITION_NUMBER
+        LEFT JOIN (
+        SELECT
+        PLAYER_FILE_NUMBER,
+        PLAYER_FILE_UPLOAD_PATH,
+        PLAYER_FILE_UUID,
+        PLAYER_FILE_NAME,
+        PLAYER_NUMBER
+        FROM (
+        SELECT
+        PLAYER_FILE_NUMBER,
+        PLAYER_FILE_UPLOAD_PATH,
+        PLAYER_FILE_UUID,
+        PLAYER_FILE_NAME,
+        PLAYER_NUMBER,
+        RANK() OVER (PARTITION BY PLAYER_NUMBER ORDER BY PLAYER_FILE_NUMBER) RK
+        FROM TBL_PLAYER_FILE PF
+        )
+        WHERE RK = 1
+        ) J ON P.PLAYER_NUMBER = J.PLAYER_NUMBER
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <if test="keyword != null">
+                AND PLAYER_NAME LIKE '%' || #{keyword} || '%'
+            </if>
+        </trim>
+    </select>
+
 
 </mapper>

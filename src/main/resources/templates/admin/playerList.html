@@ -23,7 +23,7 @@
                 <div class="filter">
                     <label for="positionNumber" class="position-label">포지션</label>
                     <select name="positionNumber" class="position-type" id="positionNumber">
-                        <option value="">포지션 선택</option>
+                        <option value="" class="positionOption">포지션 선택</option>
                     </select>
                 </div>
                 <div class="select-by-title">
@@ -44,8 +44,7 @@
                             <li class="list-li" th:each="playerList : ${playerList}">
                                 <a th:href="@{/admin/read(playerNumber=${playerList.playerNumber})}">
                                     <div class="img-list">
-                                        <div th:if="${playerList.playerFileName == null}" class="main-img"  style="background-color: indianred"></div>
-                                        <div th:unless="${playerList.playerFileName == null}" class="main-img" th:style="${'background-image: url(/upload/' + playerList.playerFileUploadPath + '/th_' + playerList.playerFileUuid + '_' + playerList.playerFileName + ')'}"></div>
+                                        <div class="main-img" th:style="${'background-image: url(/upload/' + playerList.playerFileUploadPath + '/th_' + playerList.playerFileUuid + '_' + playerList.playerFileName + ')'}"></div>
                                     </div>
                                 </a>
                                 <div class="player-title-box">

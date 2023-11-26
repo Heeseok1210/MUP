@@ -3,6 +3,7 @@ package com.example.mup.service.museum;
 import com.example.mup.mapper.museum.MuseumMapper;
 import com.example.mup.vo.CriteriaAct;
 import com.example.mup.vo.PlayerVo;
+import com.example.mup.vo.SearchPlayerVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -61,5 +62,21 @@ public class MuseumService {
             throw new IllegalArgumentException("읭?");
         }
         museumMapper.updateReadCount(playerNumber);
+    }
+
+//    선수 검색
+    public List<PlayerVo> findPlayerListByName(SearchPlayerVo searchPlayerVo, CriteriaAct criteriaAct, Long playerNumber){
+        if (searchPlayerVo == null){
+            throw new IllegalArgumentException("선수가 없습니둥");
+        }
+        return museumMapper.searchActivePlayer(searchPlayerVo, criteriaAct, playerNumber);
+    }
+
+//    선수 검색 조회
+    public int findSearchTotal(SearchPlayerVo searchPlayerVo){
+        if (searchPlayerVo == null){
+            throw new IllegalArgumentException("searchPlayerVo 누락!");
+        }
+        return museumMapper.searchTotalPlayer(searchPlayerVo);
     }
 }

@@ -41,7 +41,7 @@ body {
     box-sizing: border-box;
     text-align: center;
     color: rgb(200, 202, 134);
-    line-height: 50px;
+    line-height: 44px;
     font-size: 15px;
     background: rgb(0, 38, 65);
     margin-left: 1px;
@@ -1374,7 +1374,7 @@ input.position_gk:checked
     }
 
     .fame-탑클래스 {
-        color: #512f2f;
+        color: #866c6c
     }
 
     .fame-유명선수 {

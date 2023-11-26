@@ -5,6 +5,7 @@ import com.example.mup.dto.museum.PlayerDto;
 import com.example.mup.mapper.admin.AdminMapper;
 import com.example.mup.vo.Criteria;
 import com.example.mup.vo.PlayerVo;
+import com.example.mup.vo.SearchPlayerVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -91,5 +92,22 @@ public class AdminService {
     @Transactional(readOnly = true)
     public int getTotalPlayer(){
         return adminMapper.selectTotal();
+    }
+
+//    선수 검색
+    @Transactional(readOnly = true)
+    public List<PlayerVo> findAllListByName(SearchPlayerVo searchPlayerVo, Criteria criteria, Long playerNumber){
+        if (searchPlayerVo == null){
+            throw new IllegalArgumentException("선수가 없다는디?");
+        }
+        return adminMapper.searchAllPlayer(searchPlayerVo, criteria, playerNumber);
+    }
+
+//    선수 검색 수 조회
+    public int findSearchTotal(SearchPlayerVo searchPlayerVo){
+        if (searchPlayerVo == null){
+            throw new IllegalArgumentException("searchPlayerVo 누락!");
+        }
+        return adminMapper.searchTotalPlayer(searchPlayerVo);
     }
 }
