@@ -679,7 +679,6 @@ $(document).on("click", ".player", function () {
     // 모달 열기
     $("#findModal").css("display", "block");
 });
-
 // 모달 닫기 버튼 클릭 시
 $(".closeMo").click(function () {
     $("#findModal").css("display", "none");
@@ -696,119 +695,31 @@ $(".closeMo").click(function () {
 });
 
 $(document).ready(function () {
-    var sliderDefaultOption = {
-        range: true,
-        min: 70,
-        max: 100,
-        values: [70, 100],
-        change: function (event, ui) {
-            var target = $(this).slider();
-            target.find(".min_num").text(ui.values[0]);
-            target.find(".max_num").text(ui.values[1]);
-            target.closest(".range_slider").find(".min_val").val(ui.values[0]);
-            target.closest(".range_slider").find(".max_val").val(ui.values[1]);
-        },
-        slide: function (event, ui) {
-            var target = $(this).slider();
-            target.find(".min_num").text(ui.values[0]);
-            target.find(".max_num").text(ui.values[1]);
-            target.closest(".range_slider").find(".min_val").val(ui.values[0]);
-            target.closest(".range_slider").find(".max_val").val(ui.values[1]);
-        },
-        create: function (event, ui) {
-            var that = this;
-            var target = $(this).slider();
-
-            target
-                .eq(0)
-                .append(
-                    "<span class='half_num'>" +
-                    Math.floor(
-                        ($(this).slider("option", "min") +
-                            $(this).slider("option", "max")) /
-                        2
-                    ) +
-                    "</span>"
-                );
-            target
-                .find(".ui-slider-handle")
-                .eq(0)
-                .append(
-                    "<span class='min_num'>" + $(this).slider("values", 0) + "</span>"
-                );
-            target
-                .find(".ui-slider-handle")
-                .eq(1)
-                .append(
-                    "<span class='max_num'>" + $(this).slider("values", 1) + "</span>"
-                );
-            target
-                .closest(".range_slider")
-                .find(".min_val")
-                .val($(this).slider("values", 0));
-            target
-                .closest(".range_slider")
-                .find(".max_val")
-                .val($(this).slider("values", 1));
-
-            target
-                .closest(".range_slider")
-                .find(".min_val")
-                .on("change", function () {
-                    if ($(this).val() > $(that).slider("values", 1)) {
-                        $(that).slider("values", 0, $(that).slider("values", 1));
-                        return;
-                    }
-                    $(that).slider("values", 0, $(this).val());
-                });
-
-            target
-                .closest(".range_slider")
-                .find(".max_val")
-                .on("change", function () {
-                    if ($(this).val() < $(that).slider("values", 0)) {
-                        $(that).slider("values", 1, $(that).slider("values", 0));
-                        return;
-                    }
-                    $(that).slider("values", 1, $(this).val());
-                });
-        },
-    };
-
-    $("#slider1 .wrap_slider").slider(sliderDefaultOption);
-});
+    $(".searchPlayer_Img").click(function (event) {
+        event.preventDefault();
 
 
-$(document).on("click", ".searchPlayer_Img", function () {
-    // 클릭한 요소에서 플레이어 정보를 가져옵니다.
-    var playerOverall = $(this).find(".playerOverall").text();
-    var positionName = $(this).find(".positionName").text();
-    var playerName = $(this).find(".playerName").text();
+        var playerNumber = $(".playerNumber").text();
+        var positionName = $(".positionName").text();
+        var playerOverall = $(this).find(".playerOverall").text();
+        var playerName = $(this).find(".playerName").text();
+        var playerFileSrc = $(this).find(".searchPlayer_imgBox").attr("src");
 
-    // 클릭한 요소에서 이미지의 src를 가져옵니다.
-    var playerImgSrc = $(this).find(".searchPlayer_imgBox").attr("src");
 
-    // 클릭한 요소의 부모인 .player 요소를 찾습니다.
-    var playerContainer = $(this).closest(".player");
+        $(".gkPart").html(`
+            <span class="info">
+            <div style="display: none;">${playerNumber}</div>
+                <span class="playerFileIn">
+                    <img class="searchPlayer_imgBox" src="${playerFileSrc}" alt="임시썸네일">
+                </span>
+                <div class="playerInfoIn">
+                    <span class="playerOverallIn">${playerOverall}</span>
+                    <span class="positionNameIn">${positionName}</span>
+                </div>
+                <span class="playerNameIn">${playerName}</span>
+            </span>`
+        );
 
-    // .player 요소 내의 업데이트가 필요한 부분의 코드를 추가합니다.
-    playerContainer.html(`
-    <span class="empty">
-      <span class="info">
-        <span class="playerFile">
-          <div class="img-list">
-            <img class="searchPlayer_imgBox" alt="플레이어 섬네일" src="${playerImgSrc}">
-          </div>
-          <div class="playerInfo">
-            <span class="playerOverall">${playerOverall}</span>
-            <span class="positionName">${positionName}</span>
-          </div>
-          <span class="playerName">${playerName}</span>
-        </span>
-      </span>
-    </span>
-  `);
-
-    // 모달 열기
-    $("#findModal").css("display", "block");
+        $("#findModal").css("display", "none");
+    });
 });

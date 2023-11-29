@@ -44,6 +44,13 @@ public class AdminController {
         return new RedirectView("/admin/list");
     }
 
+//    로그아웃
+    @GetMapping("/adminLogout")
+    public String logout(HttpServletRequest req){
+        req.getSession().invalidate();
+        return "/main";
+    }
+
     @GetMapping("/list")
     public String showPlayerList(Model model, HttpServletRequest req, Criteria criteria){
         List<PlayerVo> playerList = adminService.findAll(criteria);
@@ -63,7 +70,7 @@ public class AdminController {
     @PostMapping("/write")
     public RedirectView playerWrite(PlayerDto playerDto, HttpServletRequest req, RedirectAttributes redirectAttributes
             , @RequestParam("playerFile") List<MultipartFile> files){
-//        RedirectAttributes는 리다이렏트 전용 Model객체라고 생각
+//        RedirectAttributes는 리다이렠트 전용 Model객체라고 생각
         Long adminNumber = (Long) req.getSession().getAttribute("adminNumber");
         playerDto.setAdminNumber(adminNumber);
         adminService.register(playerDto);

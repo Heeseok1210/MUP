@@ -80,17 +80,18 @@
                                         <ul class="searchPlayer_Ul">
                                             <li class="searchPlayer_li" th:each="player : ${playerList}">
                                                 <div class="searchPlayerBox">
-                                                    <a href="#"  class="searchPlayer_Img">
+                                                    <div class="searchPlayer_Img">
                                                         <div class="img-list">
                                                             <img class="searchPlayer_imgBox" th:src="@{'/upload/' + ${player.playerFileUploadPath} + '/th_' + ${player.playerFileUuid} + '_' + ${player.playerFileName}}" alt="임시썸네일">
                                                         </div>
                                                         <div class="searchPlayer_content">
+                                                            <span style="display: none;" th:text="${player.playerNumber}" class="playerNumber"></span>
                                                             <span th:text="${player.positionName}" class="positionName" th:class="${'position-' + player.positionName}"></span>
                                                             <span th:text="${player.fameName}" class="fameName" th:class="${'fame-' + player.fameName}"></span>
                                                             <span th:text="${player.playerOverall}" class="playerOverall"></span>
                                                             <span th:text="${player.playerName}" class="playerName"></span>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                             </li>
                                         </ul>
@@ -108,7 +109,8 @@
             <div class="squadMaker-field f442">
                 <!-- 골키퍼 -->
                 <div class="player gk">
-            <span class="empty">
+            <span class="empty gkPart">
+                <span style="display: none;" class="positionName">GK</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">GK</span>
@@ -122,8 +124,9 @@
 
                 <!-- 수비수 -->
                 <div class="player rcb">
-            <span class="empty">
+            <span class="empty rcbPart">
               <span class="info">
+                  <span style="display: none;" class="positionName">RCB</span>
                 <span class="back"></span>
                 <span class="position">RCB</span>
               </span>
@@ -135,7 +138,8 @@
                 </div>
 
                 <div class="player lcb">
-            <span class="empty">
+            <span class="empty lcbPart">
+                <span style="display: none;" class="positionName">LCB</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">LCB</span>
@@ -148,7 +152,8 @@
                 </div>
 
                 <div class="player rb">
-            <span class="empty">
+            <span class="empty rbPart">
+                <span style="display: none;" class="positionName">RB</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">RB</span>
@@ -161,7 +166,8 @@
                 </div>
 
                 <div class="player lb">
-            <span class="empty">
+            <span class="empty lbPart">
+                <span style="display: none;" class="positionName">LB</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">LB</span>
@@ -175,7 +181,8 @@
 
                 <!-- 미드 필더 -->
                 <div class="player rcm">
-            <span class="empty">
+            <span class="empty rcmPart">
+                <span style="display: none;" class="positionName">RCM</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">RCM</span>
@@ -188,7 +195,8 @@
                 </div>
 
                 <div class="player lcm">
-            <span class="empty">
+            <span class="empty lcmPart">
+                <span style="display: none;" class="positionName">LCM</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">LCM</span>
@@ -201,7 +209,8 @@
                 </div>
 
                 <div class="player rm">
-            <span class="empty">
+            <span class="empty rmPart">
+                <span style="display: none;" class="positionName">RM</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">RM</span>
@@ -214,7 +223,8 @@
                 </div>
 
                 <div class="player lm">
-            <span class="empty">
+            <span class="empty lmPart">
+                <span style="display: none;" class="positionName">LM</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">LM</span>
@@ -228,7 +238,8 @@
 
                 <!-- 공격수 -->
                 <div class="player cf">
-            <span class="empty">
+            <span class="empty cfPart">
+                <span style="display: none;" class="positionName">CF</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">CF</span>
@@ -241,7 +252,8 @@
                 </div>
 
                 <div class="player st">
-            <span class="empty">
+            <span class="empty stPart">
+                <span style="display: none;" class="positionName">ST</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">ST</span>

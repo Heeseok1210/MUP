@@ -2,24 +2,31 @@ $(document).ready(function () {
     var positionSelect = $("#positionNumber");
 
     if (positionSelect.length > 0) {
-        var positions = ["GK", "DF", "MF", "FW"];
+        var positions = ["", "GK", "DF", "MF", "FW"];
         for (var i = 0; i < positions.length; i++) {
             var option = $("<option>");
-            option.val(i + 1);
-            option.text(positions[i]);
+            option.val(positions[i]);
+            option.text(positions[i] === "" ? "포지션 선택" : positions[i]);
             positionSelect.append(option);
         }
+
+        positionSelect.trigger("change");
 
         positionSelect.on("change", function () {
             var selectedValue = positionSelect.val();
 
-            // 선택된 값에 해당하는 텍스트 가져오기
-            var selectedText = positionSelect.find("option:selected").text();
+            if (selectedValue !== null) {
+                var obj = {
+                    positionName: selectedValue,
+                    keyword: $('.select-title').val()
+                };
 
-            console.log("Selected position value: " + selectedValue);
-            console.log("Selected position text: " + selectedText);
+                searchModule(1, obj, showSearchResult, paging);
+            }
         });
     }
+
+    searchModule(1, { positionName: "", keyword: "" }, showSearchResult, paging);
 });
 
 
@@ -68,13 +75,12 @@ function showSearchResult(result){
     let playerList = result.playerList;
 
 
-    $('.listUl').html('');
+    $('.list-ul').html('');
     for (let i=0; i<playerList.length; i++) {
-        $('.listUl').append(`
+        $('.list-ul').append(`
             <li class="list-li">
                <a href="/admin/read?playerNumber=${playerList[i].playerNumber}">
                     <div class="img-list">
-                       <div if="${playerList[i].playerFileName == null}" class="main-img"  style="background-color: indianred"></div>
                            <div unless="${playerList[i].playerFileName == null}" class="main-img" style="${'background-image: url(/upload/' + playerList[i].playerFileUploadPath + '/th_' + playerList[i].playerFileUuid + '_' + playerList[i].playerFileName + ')'}"></div>
                        </div>
                </a>
