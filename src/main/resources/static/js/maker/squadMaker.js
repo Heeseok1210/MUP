@@ -43,8 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="squadMaker-View">
       <div class="squadMaker-field f343">
         <!-- 골키퍼 -->
-        <div class="player gk">
-          <span class="empty">
+        <div class="player1 gk" id="player1">
+          <span class="empty1 gkPart" id="empty1">
+            <span style="display: none;" class="positionNameP">GK</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">GK</span>
@@ -57,8 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <!-- 수비수 -->
-        <div class="player rcb">
-          <span class="empty">
+        <div class="player2 rcb" id="player2">
+          <span class="empty1 rcbPart" id="empty1">
+          <span style="display: none;" class="positionNameP">LCB</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RCB</span>
@@ -70,8 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lcb">
-          <span class="empty">
+        <div class="player3 lcb" id="player3">
+          <span class="empty3 lcbPart" id="empty3">
+          <span style="display: none;" class="positionNameP">LCB</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LCB</span>
@@ -83,8 +86,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player cb">
-          <span class="empty">
+        <div class="player4 cb" id="player4">
+          <span class="empty4 cbPart" id="empty4">
+          <span style="display: none;" class="positionNameP">CB</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">CB</span>
@@ -97,9 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <!-- 미드 필더 -->
-
-        <div class="player rcm">
-          <span class="empty">
+        <div class="player5 rcm" id="player5">
+          <span class="empty5 rcmPart" id="empty5">
+          <span style="display: none;" class="positionNameP">RCM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RCM</span>
@@ -111,8 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lcm">
-          <span class="empty">
+        <div class="player6 lcm" id="player6">
+          <span class="empty6 lcmPart" id="empty6">
+          <span style="display: none;" class="positionNameP">LCM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LCM</span>
@@ -124,8 +129,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player rm">
-          <span class="empty">
+        <div class="player7 rm" id="player7">
+          <span class="empty7 rmPart" id="empty7">
+          <span style="display: none;" class="positionNameP">RM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RM</span>
@@ -137,8 +143,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lm">
-          <span class="empty">
+        <div class="player8 lm" id="player8">
+          <span class="empty8 lmPart" id="empty8">
+          <span style="display: none;" class="positionNameP">LM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LM</span>
@@ -151,8 +158,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <!-- 공격수 -->
-        <div class="player rf">
-          <span class="empty">
+        <div class="player9 rf" id="player9">
+          <span class="empty9 rfPart" id="empty9">
+          <span style="display: none;" class="positionNameP">RF</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RF</span>
@@ -164,8 +172,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lf">
-          <span class="empty">
+        <div class="player10 lf" id="player10">
+          <span class="empty10 lfPart" id="empty10">
+          <span style="display: none;" class="positionNameP">LF</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LF</span>
@@ -177,8 +186,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player st">
-          <span class="empty">
+        <div class="player11 st" id="player11">
+          <span class="empty11 stPart" id="empty11">
+          <span style="display: none;" class="positionNameP">ST</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">ST</span>
@@ -197,8 +207,9 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="squadMaker-View">
       <div class="squadMaker-field f3412">
         <!-- 골키퍼 -->
-        <div class="player gk">
-          <span class="empty">
+        <div class="player1 gk" id="player1">
+          <span class="empty1 gkPart" id="empty1">
+          <span style="display: none;" class="positionNameP">GK</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">GK</span>
@@ -211,8 +222,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <!-- 수비수 -->
-        <div class="player rcb">
-          <span class="empty">
+        <div class="player2 rcb" id="player2">
+          <span class="empty2 rcbPart" id="empty2">
+          <span style="display: none;" class="positionNameP">RCB</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RCB</span>
@@ -224,8 +236,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lcb">
-          <span class="empty">
+        <div class="player3 lcb" id="player3">
+          <span class="empty3 lcbPart" id="empty3">
+          <span style="display: none;" class="positionNameP">LCB</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LCB</span>
@@ -237,8 +250,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player cb">
-          <span class="empty">
+        <div class="player4 cb" id="player4">
+          <span class="empty4 cbPart" id="empty4">
+          <span style="display: none;" class="positionNameP">CB</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">CB</span>
@@ -251,8 +265,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <!-- 미드 필더 -->
-        <div class="player rcm">
-          <span class="empty">
+        <div class="player5 rcm" id="player5">
+          <span class="empty5 rcmPart" id="empty5">
+          <span style="display: none;" class="positionNameP">RCM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RCM</span>
@@ -264,8 +279,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lcm">
-          <span class="empty">
+        <div class="player6 lcm" id="player6">
+          <span class="empty6 lcmPart" id="empty6">
+          <span style="display: none;" class="positionNameP">LCM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LCM</span>
@@ -277,8 +293,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player rm">
-          <span class="empty">
+        <div class="player7 rm" id="player7">
+          <span class="empty7 rmPart" id="empty7">
+          <span style="display: none;" class="positionNameP">RM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RM</span>
@@ -290,8 +307,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lm">
-          <span class="empty">
+        <div class="player8 lm" id="player8">
+          <span class="empty8 lmPart" id="empty8">
+          <span style="display: none;" class="positionNameP">LM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LM</span>
@@ -303,8 +321,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player cam">
-          <span class="empty">
+        <div class="player9 cam" id="player9">
+          <span class="empty9 camPart" id="empty9">
+          <span style="display: none;" class="positionNameP">CAM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">CAM</span>
@@ -317,8 +336,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <!-- 공격수 -->
-        <div class="player rs">
-          <span class="empty">
+        <div class="player10 rs" id="player10">
+          <span class="empty10 rsPart" id="empty10">
+          <span style="display: none;" class="positionNameP">RS</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RS</span>
@@ -330,8 +350,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player ls">
-          <span class="empty">
+        <div class="player11 ls" id="player11">
+          <span class="empty11 lsPart" id="empty11">
+          <span style="display: none;" class="positionNameP">LS</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LS</span>
@@ -350,8 +371,9 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="squadMaker-View">
       <div class="squadMaker-field f442">
         <!-- 골키퍼 -->
-        <div class="player gk">
-          <span class="empty">
+        <div class="player1 gk" id="player1">
+          <span class="empty1 gkPart" id="empty1">
+          <span style="display: none;" class="positionNameP">GK</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">GK</span>
@@ -364,8 +386,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <!-- 수비수 -->
-        <div class="player rcb">
-          <span class="empty">
+        <div class="player2 rcb" id="player2">
+          <span class="empty2 rcbPart" id="empty2">
+          <span style="display: none;" class="positionNameP">RCB</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RCB</span>
@@ -377,8 +400,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lcb">
-          <span class="empty">
+        <div class="player3 lcb" id="player3">
+          <span class="empty3 lcbPart" id="empty3">
+          <span style="display: none;" class="positionNameP">LCB</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LCB</span>
@@ -390,8 +414,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player rb">
-          <span class="empty">
+        <div class="player4 rb" id="player4">
+          <span class="empty4 rcPart" id="empty4">
+          <span style="display: none;" class="positionNameP">RB</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RB</span>
@@ -403,8 +428,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lb">
-          <span class="empty">
+        <div class="player5 lb" id="player5">
+          <span class="empty5 lbPart" id="empty5">
+          <span style="display: none;" class="positionNameP">RB</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LB</span>
@@ -417,8 +443,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <!-- 미드 필더 -->
-        <div class="player rcm">
-          <span class="empty">
+        <div class="player6 rcm" id="player6">
+          <span class="empty6 rcmPart" id="empty6">
+          <span style="display: none;" class="positionNameP">RCM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RCM</span>
@@ -430,8 +457,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lcm">
-          <span class="empty">
+        <div class="player7 lcm" id="player7">
+          <span class="empty7 lcmPart" id="empty7">
+          <span style="display: none;" class="positionNameP">LCM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LCM</span>
@@ -443,8 +471,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player rm">
-          <span class="empty">
+        <div class="player8 rm" id="player8">
+          <span class="empty8 rmPart" id="empty8">
+          <span style="display: none;" class="positionNameP">RM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">RM</span>
@@ -456,8 +485,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player lm">
-          <span class="empty">
+        <div class="player9 lm" id="player9">
+          <span class="empty9 lmPart" id="empty9">
+          <span style="display: none;" class="positionNameP">LM</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">LM</span>
@@ -470,8 +500,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <!-- 공격수 -->
-        <div class="player cf">
-          <span class="empty">
+        <div class="player10 cf" id="player10">
+          <span class="empty10 cfPart" id="empty10">
+          <span style="display: none;" class="positionNameP">CF</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">CF</span>
@@ -483,8 +514,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </span>
         </div>
 
-        <div class="player st">
-          <span class="empty">
+        <div class="player11 st" id="player11">
+          <span class="empty11 stPart" id="empty11">
+          <span style="display: none;" class="positionNameP">ST</span>
             <span class="info">
               <span class="back"></span>
               <span class="position">ST</span>
@@ -674,52 +706,88 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+var playerId; // 전역 변수로 playerId를 선언
+
 // 플레이어 클릭 시 모달 열기
-$(document).on("click", ".player", function () {
-    // 모달 열기
+$(document).on("click", "[class^='player']", function () {
+    var playerHtml = $(this).html();
+    playerId = $(this).attr("id");
+
+    console.log("playerId = " + playerId);
+
     $("#findModal").css("display", "block");
 });
+
 // 모달 닫기 버튼 클릭 시
-$(".closeMo").click(function () {
+$(document).on("click", ".closeMo", function () {
     $("#findModal").css("display", "none");
 });
 
-// 서브플레이어 클릭 시 모달 열기
-$(document).on("click", ".subplayer", function () {
-    // 모달 열기
+$(document).on("click", ".searchPlayer_Img", function () {
     $("#findModal").css("display", "block");
 });
-// 모달 닫기 버튼 클릭 시
-$(".closeMo").click(function () {
+
+// 모달 창에서 searchPlayer_Img을 클릭했을 때
+$(document).on("click", ".searchPlayer_Img", function () {
+    // 클릭한 이미지의 부모 요소를 찾습니다.
+    var closestParent = $(this).closest(".searchPlayerBox");
+
+    // 클릭한 선수 정보를 추출합니다.
+
+    var positionNameClass = closestParent.find(".positionName").attr("class");
+    var positionNameText = closestParent.find(".positionName").text();
+    var playerNumber = closestParent.find(".playerNumber").text();
+    var positionName = closestParent.find(".positionName").text();
+    var fameName = closestParent.find(".fameName").text();
+    var playerOverall = closestParent.find(".playerOverall").text();
+    var playerName = closestParent.find(".playerName").text();
+    var playerFileSrc = closestParent.find(".searchPlayer_imgBox").attr("src");
+
+    // 클릭한 선수의 HTML을 가져옵니다.
+    var playerHtml = closestParent.html();
+
+
+    console.log("positionName = " + positionNameClass);
+    console.log("playerHtml = " + playerHtml);
+    console.log("playerId = " + playerId);
+
+    // 업데이트할 HTML을 생성합니다.
+    var updatePlayer = `
+        <span class="info">
+            <span style="display: none;" class="playerNumber">${playerNumber}</span>
+            <span class="playerFileIn">
+                <img class="searchPlayer_imgBox" src="${playerFileSrc}" alt="임시썸네일">
+            </span>
+            <div class="playerInfoIn">
+                <span class="playerOverallIn">${playerOverall}</span>
+                <span class="positionNameIn">${positionName}</span>
+            </div>
+            <span class="playerNameIn">${playerName}</span>
+        </span>`;
+
+    // 클릭한 플레이어의 ID를 가져와서 해당 ID를 가진 요소에 업데이트된 내용을 추가합니다.
+    $("#" + playerId).html(updatePlayer);
+
+    // 모달을 닫습니다.
     $("#findModal").css("display", "none");
 });
 
 $(document).ready(function () {
-    $(".searchPlayer_Img").click(function (event) {
-        event.preventDefault();
+    // ... 기존의 자바스크립트 코드 ...
 
+    // 이 클릭 이벤트 리스너 추가
+    $(".save-button").on("click", function () {
+        // 선수 번호를 저장할 배열 생성
+        var playerList = [];
 
-        var playerNumber = $(".playerNumber").text();
-        var positionName = $(".positionName").text();
-        var playerOverall = $(this).find(".playerOverall").text();
-        var playerName = $(this).find(".playerName").text();
-        var playerFileSrc = $(this).find(".searchPlayer_imgBox").attr("src");
-
-
-        $(".gkPart").html(`
-            <span class="info">
-            <div style="display: none;">${playerNumber}</div>
-                <span class="playerFileIn">
-                    <img class="searchPlayer_imgBox" src="${playerFileSrc}" alt="임시썸네일">
-                </span>
-                <div class="playerInfoIn">
-                    <span class="playerOverallIn">${playerOverall}</span>
-                    <span class="positionNameIn">${positionName}</span>
-                </div>
-                <span class="playerNameIn">${playerName}</span>
-            </span>`
-        );
-
-        $("#findModal").css("display", "none");
+        // 각 선수 요소를 순환하면서 선수 번호 추출
+        $(".squadMaker-View .playerNumber").each(function () {
+            var playerNumber = $(this).text();
+            // 선수 번호를 배열에 추가
+            playerList.push(playerNumber);
+        });
+            console.log("playerList = " + playerList);
     });
 });
+
+

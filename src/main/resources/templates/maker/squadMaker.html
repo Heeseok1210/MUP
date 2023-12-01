@@ -15,7 +15,7 @@
 </head>
 <header class="header" th:replace="fragment/header :: header"></header>
 <div class="container">
-    <form class="save-form" action="#" method="post" enctype="multipart/form-data">
+    <form class="save-form" action="#" method="post" enctype="multipart/form-data" id="saveSquadForm">
         <div class="save-space">
             <div class="squad-saveBox">
                 <input type="text" id="squadContent" placeholder="스쿼드 제목을 입력해주세요..">
@@ -86,7 +86,7 @@
                                                         </div>
                                                         <div class="searchPlayer_content">
                                                             <span style="display: none;" th:text="${player.playerNumber}" class="playerNumber"></span>
-                                                            <span th:text="${player.positionName}" class="positionName" th:class="${'position-' + player.positionName}"></span>
+                                                                <span th:text="${player.positionName}" class="positionName" th:class="${'position-' + player.positionName}"></span>
                                                             <span th:text="${player.fameName}" class="fameName" th:class="${'fame-' + player.fameName}"></span>
                                                             <span th:text="${player.playerOverall}" class="playerOverall"></span>
                                                             <span th:text="${player.playerName}" class="playerName"></span>
@@ -108,9 +108,9 @@
         <div class="squadMaker-View">
             <div class="squadMaker-field f442">
                 <!-- 골키퍼 -->
-                <div class="player gk">
-            <span class="empty gkPart">
-                <span style="display: none;" class="positionName">GK</span>
+                <div class="player1 gk" id="player1">
+            <span class="empty1 gkPart" id="empty1">
+                <span style="display: none;" class="positionNameP">GK</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">GK</span>
@@ -123,10 +123,10 @@
                 </div>
 
                 <!-- 수비수 -->
-                <div class="player rcb">
-            <span class="empty rcbPart">
+                <div class="player2 rcb" id="player2">
+            <span class="empty2 rcbPart" id="empty2">
               <span class="info">
-                  <span style="display: none;" class="positionName">RCB</span>
+                  <span style="display: none;" class="positionNameP">RCB</span>
                 <span class="back"></span>
                 <span class="position">RCB</span>
               </span>
@@ -137,9 +137,9 @@
             </span>
                 </div>
 
-                <div class="player lcb">
-            <span class="empty lcbPart">
-                <span style="display: none;" class="positionName">LCB</span>
+                <div class="player3 lcb" id="player3">
+            <span class="empty3 lcbPart" id="empty3">
+                <span style="display: none;" class="positionNameP">LCB</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">LCB</span>
@@ -151,9 +151,9 @@
             </span>
                 </div>
 
-                <div class="player rb">
-            <span class="empty rbPart">
-                <span style="display: none;" class="positionName">RB</span>
+                <div class="player4 rb" id="player4">
+            <span class="empty4 rbPart" id="empty4">
+                <span style="display: none;" class="positionNameP">RB</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">RB</span>
@@ -165,9 +165,9 @@
             </span>
                 </div>
 
-                <div class="player lb">
-            <span class="empty lbPart">
-                <span style="display: none;" class="positionName">LB</span>
+                <div class="player5 lb" id="player5">
+            <span class="empty5 lbPart"  id="empty5">
+                <span style="display: none;" class="positionNameP">LB</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">LB</span>
@@ -180,9 +180,9 @@
                 </div>
 
                 <!-- 미드 필더 -->
-                <div class="player rcm">
-            <span class="empty rcmPart">
-                <span style="display: none;" class="positionName">RCM</span>
+                <div class="player6 rcm" id="player6">
+            <span class="empty6 rcmPart" id="empty6">
+                <span style="display: none;" class="positionNameP">RCM</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">RCM</span>
@@ -194,9 +194,9 @@
             </span>
                 </div>
 
-                <div class="player lcm">
-            <span class="empty lcmPart">
-                <span style="display: none;" class="positionName">LCM</span>
+                <div class="player7 lcm" id="player7">
+            <span class="empty7 lcmPart" id="empty7">
+                <span style="display: none;" class="positionNameP">LCM</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">LCM</span>
@@ -208,9 +208,9 @@
             </span>
                 </div>
 
-                <div class="player rm">
-            <span class="empty rmPart">
-                <span style="display: none;" class="positionName">RM</span>
+                <div class="player8 rm" id="player8">
+            <span class="empty8 rmPart" id="empty8">
+                <span style="display: none;" class="positionNameP">RM</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">RM</span>
@@ -222,9 +222,9 @@
             </span>
                 </div>
 
-                <div class="player lm">
-            <span class="empty lmPart">
-                <span style="display: none;" class="positionName">LM</span>
+                <div class="player9 lm" id="player9">
+            <span class="empty9 lmPart" id="empty9">
+                <span style="display: none;" class="positionNameP">LM</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">LM</span>
@@ -237,9 +237,9 @@
                 </div>
 
                 <!-- 공격수 -->
-                <div class="player cf">
-            <span class="empty cfPart">
-                <span style="display: none;" class="positionName">CF</span>
+                <div class="player10 cf" id="player10">
+            <span class="empty10 cfPart" id="empty10">
+                <span style="display: none;" class="positionNameP">CF</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">CF</span>
@@ -251,9 +251,9 @@
             </span>
                 </div>
 
-                <div class="player st">
-            <span class="empty stPart">
-                <span style="display: none;" class="positionName">ST</span>
+                <div class="player11 st" id="player11">
+            <span class="empty11 stPart" id="empty11">
+                <span style="display: none;" class="positionNameP">ST</span>
               <span class="info">
                 <span class="back"></span>
                 <span class="position">ST</span>
