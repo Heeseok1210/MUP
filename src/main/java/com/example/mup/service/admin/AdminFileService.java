@@ -1,9 +1,7 @@
 package com.example.mup.service.admin;
 
-import com.example.mup.dto.museum.PlayerDto;
 import com.example.mup.dto.museum.PlayerFileDto;
 import com.example.mup.mapper.admin.AdminFileMapper;
-import com.example.mup.mapper.admin.AdminMapper;
 import lombok.RequiredArgsConstructor;
 import net.coobird.thumbnailator.Thumbnailator;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,7 +16,6 @@ import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service

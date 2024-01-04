@@ -773,20 +773,18 @@ $(document).on("click", ".searchPlayer_Img", function () {
 });
 
 $(document).ready(function () {
-    // ... 기존의 자바스크립트 코드 ...
-
-    // 이 클릭 이벤트 리스너 추가
     $(".save-button").on("click", function () {
         // 선수 번호를 저장할 배열 생성
-        var playerList = [];
+        var squadList = [];
 
         // 각 선수 요소를 순환하면서 선수 번호 추출
         $(".squadMaker-View .playerNumber").each(function () {
             var playerNumber = $(this).text();
             // 선수 번호를 배열에 추가
-            playerList.push(playerNumber);
+            squadList.push(playerNumber);
         });
-            console.log("playerList = " + playerList);
+
+        console.log("playerList = " + squadList);
     });
 });
 

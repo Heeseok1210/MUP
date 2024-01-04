@@ -35,4 +35,19 @@ public class MuseumRestController {
 
         return map;
     }
+
+//    이름이랑 카테고리로 선수 조회(레전드)
+    @GetMapping("/legendPlayerList/{page}")
+    public Map<String, Object> searchLegend(SearchPlayerVo searchPlayerVo, @PathVariable("page") int page, HttpServletRequest req){
+        Criteria criteria = new Criteria(page,12);
+        Long playerNumber = (Long) req.getSession().getAttribute("playerNumber");
+        int total = museumService.findSearchLTotal(searchPlayerVo);
+        PageVo pageVo = new PageVo(criteria, total);
+        Map<String, Object> map = new HashMap<>();
+        List<PlayerVo>list = museumService.findLegendListByName(searchPlayerVo, criteria, playerNumber != null ? playerNumber : 0);
+        map.put("page", pageVo);
+        map.put("playerList", list);
+
+        return map;
+    }
 }

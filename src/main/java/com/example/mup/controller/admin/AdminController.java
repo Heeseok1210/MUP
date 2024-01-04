@@ -1,6 +1,5 @@
 package com.example.mup.controller.admin;
 
-import com.example.mup.dto.admin.AdminDto;
 import com.example.mup.dto.museum.PlayerDto;
 import com.example.mup.service.admin.AdminFileService;
 import com.example.mup.service.admin.AdminService;

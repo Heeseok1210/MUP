@@ -42,5 +42,14 @@ public class MuseumController {
         return "museum/allPlayerRead";
     }
 
+    @GetMapping("legendList")
+    public String legendPlayerList(Model model, HttpServletRequest req, Criteria criteria){
+//    레전드 선수
+        List<PlayerVo> legendList = museumService.findLegendPlayer(criteria);
+        model.addAttribute("legendList", legendList);
+        model.addAttribute("pageInfo", new PageVo(criteria, museumService.getLegendCnt()));
+        return "museum/legendPlayerList";
+    }
+
 
 }

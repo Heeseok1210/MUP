@@ -50,13 +50,22 @@ public class MyBatisConfig {
         // 모든 CP 라이브러리는 DataSource 객체를 사용한다.
         // CP를 사용하려면 DataSource 객체가 필요하며 DataSource 객체를 만들기 위해서는 DB 정보가 필요하다.
         // 해당 정보를 HikariConfig 객체가 가지고 있다.
-        return new HikariDataSource(hikariConfig());
+
+        System.out.println("********************");
+        HikariConfig hikariConfig = hikariConfig();
+        System.out.println("********************");
+        HikariDataSource hikariDataSource = new HikariDataSource(hikariConfig);
+        System.out.println(hikariDataSource);
+        System.out.println("********************");
+
+        return hikariDataSource;
     }
 
     @Bean
     public SqlSessionFactory sqlSessionFactory() throws Exception{
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource());
+        DataSource dataSource = dataSource();
+        sqlSessionFactoryBean.setDataSource(dataSource);
 
         sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath*:/mapper/**/*.xml"));
         sqlSessionFactoryBean.setConfigLocation(applicationContext.getResource("classpath:/config/config.xml"));

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MU | 맨쪽이들</title>
+  <link rel="stylesheet" th:href="@{/css/museum/legendPlayerList.css}" />
+  <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+  <link rel="stylesheet" th:href="@{/css/fragment/header.css}"/>
+  <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
+</head>
+<body>
+<header class="header" th:replace="fragment/header :: header"></header>
+<div class="container">
+  <div class="main-container">
+    <div class="main-box">
+      <h1>레전드 선수 전체 목록</h1>
+      <div class="select-nav">
+        <div class="filter">
+          <label for="positionNumber" class="position-label">포지션</label>
+          <select name="positionNumber" class="position-type" id="positionNumber">
+          </select>
+        </div>
+        <div class="select-by-title">
+          <input
+                  type="text"
+                  class="select-title"
+                  placeholder="선수 이름으로 검색"
+          />
+          <button type="button" class="search title">검색</button>
+        </div>
+      </div>
+
+      <div class="main-list-container" >
+        <article class="holder">
+          <div class="hl">
+            <ul class="list-ul">
+              <!-- 선수들 목록 -->
+              <li class="list-li" th:each="playerList : ${playerList}">
+                <a th:href="@{/admin/read(playerNumber=${playerList.playerNumber})}">
+                  <div class="img-list">
+                    <div class="main-img-player" th:style="${'background-image: url(/upload/' + playerList.playerFileUploadPath + '/th_' + playerList.playerFileUuid + '_' + playerList.playerFileName + ')'}"></div>
+                  </div>
+                </a>
+                <div class="player-title-box">
+                  <p class="player-title" th:text="${playerList.playerName}"></p>
+                  <p class="player-position" th:text="${playerList.positionName}"
+                     th:classappend="${playerList.positionName == 'GK' ? 'yellow' :
+                            playerList.positionName == 'DF' ? 'blue' :
+                            playerList.positionName == 'MF' ? 'green' :
+                            playerList.positionName == 'FW' ? 'red' : ''}"></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="page-container">
+        <ul class="page-box">
+          <a th:href="@{/museum/legendList(page=${pageInfo.startPage - 1})}"  class="page-a"  th:if="${pageInfo.prev}">
+            <li class="page-num prev">&lt</li>
+          </a>
+
+          <th:block th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}">
+            <a th:href="@{/museum/legendList(page=${i})}" class="page-a">
+              <li class="page-num active" th:text="${i}" th:if="${i == pageInfo.criteria.page}"></li>
+              <li class="page-num" th:text="${i}" th:unless="${i == pageInfo.criteria.page}"></li>
+            </a>
+          </th:block>
+
+          <a th:href="@{/museum/legendList(page=${pageInfo.endPage + 1})}" class="page-a" th:if="${pageInfo.next}">
+            <li class="page-num next">&gt</li>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--플래쉬 영역의 데이터는 그냥 key로 가져오면 되고
+    쿼리스트링에 저장한 데이터는 param.playerNumber를 사용해서 가져옴-->
+<input type="hidden" class="player-num" th:value="${playerNumber}">
+
+<script
+        src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+        crossorigin="anonymous"
+></script>
+<script th:src="@{/js/museum/legendPlayerList.js}"></script>
+<script th:src="@{/js/fragment/Header.js}"></script>
+<script>
+  let playerNum = $('.player-num').val();
+  if (playerNum){
+    alert(playerNum + '번 선수가 등록되었습니다.');
+  }
+</script>
+</div>
+</body>
+</html>

@@ -1,12 +1,12 @@
 package com.example.mup.service.admin;
 
-import com.example.mup.dto.admin.AdminDto;
 import com.example.mup.dto.museum.PlayerDto;
 import com.example.mup.mapper.admin.AdminMapper;
 import com.example.mup.vo.Criteria;
 import com.example.mup.vo.PlayerVo;
 import com.example.mup.vo.SearchPlayerVo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,7 +22,7 @@ public class AdminService {
     private final AdminMapper adminMapper;
     private final AdminFileService adminFileService;
 
-//    관리자 로그인
+    //    관리자 로그인
     @Transactional(readOnly = true)
     public long adminLogin(String adminId, String adminPassword){
         if(adminId == null || adminPassword == null){

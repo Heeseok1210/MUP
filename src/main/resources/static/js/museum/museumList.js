@@ -66,3 +66,8 @@ function checkEnd() {
         $(".third-banner .right").css("display", "block");
     }
 }
+
+// 더보기
+$('.infoBtn').on('click', function (){
+    window.location.href = '/museum/legendList';
+})

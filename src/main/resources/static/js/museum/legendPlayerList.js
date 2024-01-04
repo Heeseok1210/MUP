@@ -53,7 +53,7 @@ $("#positionNumber").on('change', function (){
 //검색 모듈 (비동기)
 function searchModule(page, obj, callback, paging){
     $.ajax({
-        url : `/adminR/allPlayerList/${page}`,
+        url : `/museumR/legendPlayerList/${page}`,
         type : 'get',
         data : obj,
         dataType : 'json',
@@ -76,17 +76,35 @@ function showSearchResult(result){
 
 
     $('.list-ul').html('');
+
     for (let i=0; i<playerList.length; i++) {
+        let positionColorClass = '';
+        switch (playerList[i].positionName){
+            case 'FW':
+                positionColorClass = 'red';
+                break;
+            case 'MF':
+                positionColorClass = 'green';
+                break;
+            case 'DF':
+                positionColorClass = 'blue';
+                break;
+            case 'GK':
+                positionColorClass = 'yellow';
+                break;
+            default:
+                positionColorClass = '';
+        }
         $('.list-ul').append(`
             <li class="list-li">
-               <a href="/admin/read?playerNumber=${playerList[i].playerNumber}">
+               <a href="/museum/read?playerNumber=${playerList[i].playerNumber}">
                     <div class="img-list">
-                           <div unless="${playerList[i].playerFileName == null}" class="main-img" style="${'background-image: url(/upload/' + playerList[i].playerFileUploadPath + '/th_' + playerList[i].playerFileUuid + '_' + playerList[i].playerFileName + ')'}"></div>
+                           <div unless="${playerList[i].playerFileName == null}" class="main-img-player" style="${'background-image: url(/upload/' + playerList[i].playerFileUploadPath + '/th_' + playerList[i].playerFileUuid + '_' + playerList[i].playerFileName + ')'}"></div>
                        </div>
                </a>
                      <div class="player-title-box">
                         <p class="player-title">${playerList[i].playerName}</p>
-                        <p class="player-position">${playerList[i].positionName}</p>
+                        <p class="player-position ${positionColorClass}">${playerList[i].positionName}</p>
                      </div>
             </li>
         `);

@@ -1,6 +1,7 @@
 package com.example.mup.service.museum;
 
 import com.example.mup.mapper.museum.MuseumMapper;
+import com.example.mup.vo.Criteria;
 import com.example.mup.vo.CriteriaAct;
 import com.example.mup.vo.PlayerVo;
 import com.example.mup.vo.SearchPlayerVo;
@@ -64,7 +65,11 @@ public class MuseumService {
         museumMapper.updateReadCount(playerNumber);
     }
 
-//    선수 검색
+//    레전드 선수 조회
+    @Transactional(readOnly = true)
+    public List<PlayerVo> findLegendPlayer(Criteria criteria){return museumMapper.selectLegend(criteria);}
+
+//    선수 검색(현역)
     public List<PlayerVo> findPlayerListByName(SearchPlayerVo searchPlayerVo, CriteriaAct criteriaAct, Long playerNumber){
         if (searchPlayerVo == null){
             throw new IllegalArgumentException("선수가 없습니둥");
@@ -78,5 +83,22 @@ public class MuseumService {
             throw new IllegalArgumentException("searchPlayerVo 누락!");
         }
         return museumMapper.searchTotalPlayer(searchPlayerVo);
+    }
+
+//    선수 검색(레전드)
+    @Transactional(readOnly = true)
+    public List<PlayerVo> findLegendListByName(SearchPlayerVo searchPlayerVo, Criteria criteria, Long playerNumber){
+        if (searchPlayerVo == null){
+            throw new IllegalArgumentException("선수가 없다는디?");
+        }
+        return  museumMapper.searchLegendPlayer(searchPlayerVo, criteria, playerNumber);
+    }
+
+//    선수 검색 조회
+    public int findSearchLTotal(SearchPlayerVo searchPlayerVo){
+        if (searchPlayerVo == null){
+            throw new IllegalArgumentException("searchPlayerVo 누락!");
+        }
+        return museumMapper.searchTotalLPlayer(searchPlayerVo);
     }
 }

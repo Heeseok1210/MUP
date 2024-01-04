@@ -5,6 +5,7 @@
     <typeAliases>
         <typeAlias type="com.example.mup.dto.consumer.ConsumerDto" alias="consumerDto"/>
         <typeAlias type="com.example.mup.dto.museum.PlayerDto" alias="playerDto"/>
+        <typeAlias type="com.example.mup.dto.maker.SquadDto" alias="squadDto"/>
         <typeAlias type="com.example.mup.dto.admin.AdminDto" alias="adminDto"/>
         <typeAlias type="com.example.mup.vo.PlayerVo" alias="playerVo"/>
         <typeAlias type="com.example.mup.vo.SearchPlayerVo" alias="searchPlayerVo"/>

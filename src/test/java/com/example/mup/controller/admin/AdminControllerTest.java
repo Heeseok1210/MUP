@@ -1,13 +1,10 @@
 package com.example.mup.controller.admin;
 
 import com.example.mup.service.admin.AdminService;
-import com.example.mup.vo.Criteria;
 import com.example.mup.vo.PlayerVo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import static org.mockito.Mockito.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -20,9 +17,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(AdminController.class)
