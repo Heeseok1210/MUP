@@ -42,8 +42,50 @@ expandButton.addEventListener("click", () => {
 });
 
 // 맨위로
-const linkTopButton = document.querySelector(".link_top");
+// const linkTopButton = document.querySelector(".link_top");
+//
+// linkTopButton.addEventListener("click", () => {
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+// });
 
-linkTopButton.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+// 뉴스
+let $styleBox = $(".news-box");
+let $styleImg = $(".news-content");
+let currentIdx2 = 0;
+let styleWidth = 33.33; // Adjusted for 3 items
+let styleCnt = $styleImg.length;
+
+checkEnd();
+
+$(".news-section .next").on("click", function () {
+    console.log("next!!");
+    currentIdx2++;
+    updateCarousel();
 });
+
+$(".news-section .prev").on("click", function () {
+    console.log("prev!!");
+    currentIdx2--;
+    updateCarousel();
+});
+
+function updateCarousel() {
+    let translateXValue = -currentIdx2 * styleWidth;
+    $styleBox.css("transform", "translateX(" + translateXValue + "%)");
+    $styleBox.css("transition", "0.5s ease");
+    checkEnd();
+}
+
+function checkEnd() {
+    if (currentIdx2 <= 0) {
+        $(".news-section .prev").css("display", "none");
+    } else {
+        $(".news-section .prev").css("display", "block");
+    }
+
+    if (currentIdx2 >= styleCnt - 3) {
+        $(".news-section .next").css("display", "none");
+    } else {
+        $(".news-section .next").css("display", "block");
+    }
+}

@@ -7,6 +7,7 @@
 <link rel="stylesheet" th:href="@{/css/museum/allPlayerRead.css}" />
 <link rel="stylesheet" th:href="@{/css/reset.css}">
 <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+<link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
 <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -74,10 +75,87 @@
             </li>
         </ul>
     </div>
-    <div class="up_down_area">
-        <button class="link_top">맨위로</button>
+    <div class="news_area">
+        <div class="news-title">
+            <p>최신 뉴스</p>
+        </div>
+        <div class="news-section">
+            <span class="material-symbols-rounded prev">chevron_left</span>
+            <ul class="news-box">
+                <li class="news-content">
+                    <iframe
+                            class="news-main"
+                            src="https://www.youtube.com/embed/6k9Ox4io-Xs?si=f7EtN-lxRcLrUwrx"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                    ></iframe>
+                    <div class="content-box">
+                        <p class="contentTitle">보비 찰튼경 R.I.P</p>
+                    </div>
+                </li>
+                <li class="news-content">
+                    <iframe
+                            class="news-main"
+                            src="https://www.youtube.com/embed/iYfXQ1IaQQU?si=BYiytxFpV4_az1wh"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                    ></iframe>
+                    <div class="content-box">
+                        <p class="contentTitle">챔스권으로 가는 중요한 문턱..!</p>
+                    </div>
+                </li>
+                <li class="news-content">
+                    <iframe
+                            class="news-main"
+                            src="https://www.youtube.com/embed/MGYjmH0n5CQ?si=nbFppIA6lHCU5foz"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                    ></iframe>
+                    <div class="content-box">
+                        <p class="contentTitle">FA컵 너! 딱 대!!</p>
+                    </div>
+                </li>
+                <li class="news-content">
+                    <iframe
+                            class="news-main"
+                            src="https://www.youtube.com/embed/MGYjmH0n5CQ?si=nbFppIA6lHCU5foz"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                    ></iframe>
+                    <div class="content-box">
+                        <p class="contentTitle">FA컵 너! 딱 대!!</p>
+                    </div>
+                </li>
+                <li class="news-content">
+                    <iframe
+                            class="news-main"
+                            src="https://www.youtube.com/embed/MGYjmH0n5CQ?si=nbFppIA6lHCU5foz"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                    ></iframe>
+                    <div class="content-box">
+                        <p class="contentTitle">FA컵 너! 딱 대!!</p>
+                    </div>
+                </li>
+            </ul>
+            <span class="material-symbols-rounded next">chevron_right</span>
+        </div>
     </div>
 </div>
+
+
+
+<footer class="footer" th:replace="fragment/footer :: footer"></footer>
 <script
         src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
